@@ -9,11 +9,15 @@ on:
 
 permissions: {}
 
+concurrency:
+  group: matek8-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   checks:
     name: A kiadás tényleges ellenőrzése
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     permissions:
       contents: read
       pages: read
@@ -24,19 +28,33 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+          fetch-depth: 0 # The actual v0.1.1 release is used for an export/import migration test.
       - name: Node 24
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: "24"
           package-manager-cache: false
-      - name: Kiadásintegritás és JavaScript
+      - name: Reprodukálható forrástelepítés a lockfájlból
+        run: npm ci --no-audit --no-fund
+        working-directory: app
+      - name: Matematikai, tartalmi és megőrző migrációs tesztek
+        run: npm test
+        working-directory: app
+      - name: Típusellenőrzés és a valódi forrás újrafordítása
+        run: npm run build
+        working-directory: app
+      - name: A tárolt kiadás, az új build és a tananyag egyezése
         run: node --test checks/release.test.mjs checks/content.test.mjs
-      - name: Böngészős ellenőrzés függőségei
-        run: npm install --no-save --no-package-lock --ignore-scripts --no-audit --no-fund playwright@1.62.1 @axe-core/playwright@4.14.0
       - name: Chromium
         run: npx playwright install --with-deps chromium
+        working-directory: app
+      - name: Az eredeti tanulói utak regressziós vizsgálata
+        run: npm run test:browser
+        working-directory: app
       - name: Valódi böngészős és hozzáférhetőségi ellenőrzés
         run: node checks/browser.mjs
+      - name: Négy új út, régi export migrációja, mobilnézet és offline kiadás
+        run: node app/tests/foundations-browser.mjs
       - name: Pages első engedélyezésének ellenőrzése
         id: pages
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'

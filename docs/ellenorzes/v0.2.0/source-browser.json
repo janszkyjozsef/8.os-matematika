@@ -1,0 +1,152 @@
+{
+  "date": "2026-11-06T13:31:16.594Z",
+  "browser": "153.0.8010.0",
+  "checks": [
+    {
+      "name": "Home, real fraction slider, keyboard entry and topic search",
+      "passed": true,
+      "ms": 3051
+    },
+    {
+      "name": "Fractions: common unit, exact sum and restoration after reload",
+      "passed": true,
+      "ms": 1747
+    },
+    {
+      "name": "Practice: targeted error, hints, complete reasoning and honest progress",
+      "passed": true,
+      "ms": 1360
+    },
+    {
+      "name": "Worked examples reveal reasons one step at a time",
+      "passed": true,
+      "ms": 886
+    },
+    {
+      "name": "Independent exit round and fresh retry do not mix evidence",
+      "passed": true,
+      "ms": 1398
+    },
+    {
+      "name": "Percentages: changed base, directions and zero-base explanation",
+      "passed": true,
+      "ms": 1129
+    },
+    {
+      "name": "Equation: both reversible paths and substitution",
+      "passed": true,
+      "ms": 1876
+    },
+    {
+      "name": "Graph: fixed axis, table, direct proportion and constant function",
+      "passed": true,
+      "ms": 1484
+    },
+    {
+      "name": "Pythagoras: two exact areas, proof, highlighting and rotation",
+      "passed": true,
+      "ms": 2540
+    },
+    {
+      "name": "Probability: all 36 outcomes, simulations, replay and rare event",
+      "passed": true,
+      "ms": 5223
+    },
+    {
+      "name": "Complete planned curriculum remains visibly distinct from available lessons",
+      "passed": true,
+      "ms": 1306
+    },
+    {
+      "name": "Settings: persistence, actual JSON export, invalid import, preview and replacement",
+      "passed": true,
+      "ms": 1278
+    },
+    {
+      "name": "Guest session stays separate; reset cancellation keeps original progress",
+      "passed": true,
+      "ms": 544
+    },
+    {
+      "name": "Printable worksheet contains ten tasks and an optional explained key",
+      "passed": true,
+      "ms": 155
+    },
+    {
+      "name": "390px and 320px: every workshop and core page has no page-level horizontal overflow",
+      "passed": true,
+      "ms": 5968
+    },
+    {
+      "name": "Corrupt stored JSON is warned about and never silently overwritten",
+      "passed": true,
+      "ms": 1077
+    },
+    {
+      "name": "Standalone file works offline without remote resource requests",
+      "passed": true,
+      "ms": 1066
+    },
+    {
+      "name": "No browser runtime errors or automated accessibility violations in checked states",
+      "passed": true,
+      "ms": 0
+    }
+  ],
+  "accessibility": [
+    {
+      "name": "home-desktop",
+      "violations": []
+    },
+    {
+      "name": "fractions-workshop",
+      "violations": []
+    },
+    {
+      "name": "practice-with-feedback-hints-solution",
+      "violations": []
+    },
+    {
+      "name": "worked-example",
+      "violations": []
+    },
+    {
+      "name": "progress",
+      "violations": []
+    },
+    {
+      "name": "percentages-workshop",
+      "violations": []
+    },
+    {
+      "name": "equation-workshop",
+      "violations": []
+    },
+    {
+      "name": "graph-workshop",
+      "violations": []
+    },
+    {
+      "name": "pythagoras-workshop",
+      "violations": []
+    },
+    {
+      "name": "probability-workshop",
+      "violations": []
+    },
+    {
+      "name": "curriculum",
+      "violations": []
+    },
+    {
+      "name": "settings",
+      "violations": []
+    },
+    {
+      "name": "probability-mobile-320",
+      "violations": []
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": []
+}

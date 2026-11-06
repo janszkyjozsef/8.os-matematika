@@ -1,0 +1,152 @@
+[
+  {
+    "id": "frac-common-unit-v1",
+    "topic": "tortek",
+    "title": "A közös részegység megkeresése"
+  },
+  {
+    "id": "frac-sum-v1",
+    "topic": "tortek",
+    "title": "Törtek összeadása és egyszerűsítése"
+  },
+  {
+    "id": "frac-measure-division-v1",
+    "topic": "tortek",
+    "title": "Osztás mint két hossz aránya"
+  },
+  {
+    "id": "percent-part-v1",
+    "topic": "szazalek",
+    "title": "Mennyi az adott százalék?"
+  },
+  {
+    "id": "percent-base-v1",
+    "topic": "szazalek",
+    "title": "Az eredeti egész visszakeresése"
+  },
+  {
+    "id": "percent-change-v1",
+    "topic": "szazalek",
+    "title": "Két változás, két százalékalap"
+  },
+  {
+    "id": "eq-linear-v1",
+    "topic": "egyenlet",
+    "title": "Egyenlet két visszafordítható lépéssel"
+  },
+  {
+    "id": "eq-group-v1",
+    "topic": "egyenlet",
+    "title": "Azonos csomagok és zárójelek"
+  },
+  {
+    "id": "eq-negative-v1",
+    "topic": "egyenlet",
+    "title": "Negatív együttható, változatlan egyenlőség"
+  },
+  {
+    "id": "graph-value-v1",
+    "topic": "grafikon",
+    "title": "Szabályból összetartozó értékpár"
+  },
+  {
+    "id": "graph-start-v1",
+    "topic": "grafikon",
+    "title": "Kezdőérték két pontból"
+  },
+  {
+    "id": "graph-fee-inverse-v1",
+    "topic": "grafikon",
+    "title": "Alapdíjas modell visszafelé"
+  },
+  {
+    "id": "pyth-hypotenuse-v1",
+    "topic": "pitagorasz",
+    "title": "Az átfogó és a négyzetterületek"
+  },
+  {
+    "id": "pyth-leg-v1",
+    "topic": "pitagorasz",
+    "title": "Egy hiányzó befogó"
+  },
+  {
+    "id": "pyth-context-v1",
+    "topic": "pitagorasz",
+    "title": "A téglalap átlója mint legrövidebb út"
+  },
+  {
+    "id": "prob-dice-sum-v1",
+    "topic": "valoszinuseg",
+    "title": "Két kocka rendezett dobáspárjai"
+  },
+  {
+    "id": "prob-favorable-v1",
+    "topic": "valoszinuseg",
+    "title": "A kedvező mezők megszámolása"
+  },
+  {
+    "id": "prob-urn-v1",
+    "topic": "valoszinuseg",
+    "title": "Golyók és színek esélye"
+  },
+  {
+    "id": "signed-position-v1",
+    "topic": "szamfogalom",
+    "title": "Hely, ellentett és távolság"
+  },
+  {
+    "id": "signed-subtraction-v1",
+    "topic": "szamfogalom",
+    "title": "Kivonás az ellentett hozzáadásával"
+  },
+  {
+    "id": "signed-missing-v1",
+    "topic": "szamfogalom",
+    "title": "Hiányzó kivonandó és visszahelyettesítés"
+  },
+  {
+    "id": "order-chain-v1",
+    "topic": "muveleti-sorrend",
+    "title": "Azonos rangú osztás és szorzás"
+  },
+  {
+    "id": "order-independent-v1",
+    "topic": "muveleti-sorrend",
+    "title": "Független részek és zárójel"
+  },
+  {
+    "id": "order-signed-square-v1",
+    "topic": "muveleti-sorrend",
+    "title": "Négyzet vagy a négyzet ellentettje?"
+  },
+  {
+    "id": "ratio-unit-price-v1",
+    "topic": "aranyossag",
+    "title": "Változatlan egységár és új mennyiség"
+  },
+  {
+    "id": "ratio-shared-work-v1",
+    "topic": "aranyossag",
+    "title": "Állandó teljes munka, más létszám"
+  },
+  {
+    "id": "ratio-fixed-fee-v1",
+    "topic": "aranyossag",
+    "title": "Alapdíjas ellenpélda két adatpárral"
+  },
+  {
+    "id": "units-dimensions-v1",
+    "topic": "mertekegysegek",
+    "title": "Egy, két vagy három irányú egységváltás"
+  },
+  {
+    "id": "units-clock-v1",
+    "topic": "mertekegysegek",
+    "title": "Tizedes óra és óra–perc különbsége"
+  },
+  {
+    "id": "units-container-v1",
+    "topic": "mertekegysegek",
+    "title": "Rétegek, térfogat és szabad hely"
+  }
+]

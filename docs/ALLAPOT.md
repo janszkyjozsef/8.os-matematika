@@ -1,80 +1,90 @@
-# Megvalósítási állapot
+# Megvalósítási állapot — 0.2.0
 
 **Dátum: 2026. november 6.**
 
-## Kész működő kiadás
+## Elkészült fejlesztési ciklus
 
-A v0.1.1 hat tanulási utat tartalmaz: törtek, százalék, egyenletek, grafikonok, Pitagorasz-tétel, valószínűség. A kiadás tananyagokat, feladatellenőrzést, segítséget, interaktív műhelyeket, mentést, vendégmódot és nyomtatást is tartalmaz.
+A 0.2.0 kiadásban a teljes moduláris forrás a repóba került, és a négy alapozó kézirat működő tanulási úttá vált. A tíz megnyitható út: **számfogalom és előjelek, műveleti sorrend, arányosság, mértékegységek, törtek, százalékszámítás, egyenletek, grafikonok, Pitagorasz-tétel és valószínűség**.
 
-Az első GitHubra feltöltött v0.1.0 `index.html` bájtra megegyezett a korábban ellenőrzött önálló HTML-lel:
+Minden új út végigjárható a hat közös szakaszon. Saját jóslás, teljes magyarázat, két kidolgozott példa, tizenkét gyakorló, két önálló próba, három determinisztikus generátorcsalád, célzott hibajavítás és valódi interaktív műhely tartozik hozzá. A több részből álló kérdéseket külön válaszmezők őrzik meg; a szöveges indoklás önellenőrzést kap.
 
-- Méret: **310 311 bájt**.
-- SHA-256: `96b78a9e5a4ccab45de34afc5193d3f051b28ebf1b05782476c01ae1938f6aff`.
-- Első repócommit: `902b97ae2ccc4bc90037fd4dadc5a60bc87e4e24`.
+### Az aktuális adatmodell számai
 
-A kiadásból a hat lecke teljes tananyagát és a tématérképet olvasható JSON-másolatként is visszanyertük a `content/v0.1.0/` könyvtárba. Az új tartalmi teszt ellenőrzi, hogy ezek megegyeznek a kiadásban használt adatokkal. Ez nem azonos a teljes moduláris fejlesztői forrás importjával.
+| Tartalom | Darab |
+|---|---:|
+| Bejárható tanulási út és műhely | 10 |
+| Rögzített gyakorlófeladat | 96 |
+| Önálló próbafeladat | 20 |
+| Jósló kérdésrekord | 10 |
+| Összes rögzített kérdésrekord | 126 |
+| Külön ellenőrzött válaszmező | 253 |
+| Kidolgozott példa | 20 |
+| Determinisztikus generátorcsalád | 30 |
+| Célzott hibavisszajelzési szabály | 210 |
 
-## A v0.1.1 célzott javítása
+A számokat a `contentStats` a tényleges leckeadatokból számolja; a `release-manifest.json` és a kezdőlapi összesítések ugyanezt a modellt használják. A részmező nem új feladat, a generátorcsalád pedig nem egyetlen feladat.
 
-A GitHubon futó böngészős vizsgálat 320 képpontos szélességnél, nagyobb betűkkel 354 képpontos oldalszélességet mért a valószínűségi leckében. A DOM-diagnózis a leckecímet tartalmazó fejléc túl nagy minimális szélességét mutatta. A `.lesson-heading h1 { overflow-wrap: anywhere; }` szabály kipróbálva 320 képpontra csökkentette az oldal szélességét, a tartalom elrejtése és a betűméret csökkentése nélkül.
+A tématérkép **24 modult és 137 tervezett egységet** tartalmaz. Jelenleg 45 egységhez kapcsolódik kifejtett tananyag és ellenőrizhető gyakorlás, 25 egységet részben érintenek a leckék, 67 egység tervezett. Ezek egységszintű kapcsolatok, nem 45 külön lecke, és nem a teljes évfolyam elkészülte. Például a sűrűség teljes fogalma, a teljes méretarány-egység és a mérési pontosság további fejlesztést igényel. A modulkártyák több kapcsolódó leckét is megjelenítenek.
 
-A szabály bekerült az alkalmazásba. A kibővített vizsgálat a kezdőlap számokat és feliratokat tartalmazó összefoglalójánál is kimutatott egy kilógást: a kétoszlopos rács nagy betűkkel túl széles volt 320 képpontnál. Nagybetűs nézetben, 380 képpont alatt ez a rész egy oszlopra vált, a hivatkozás szövege pedig szükség esetén sort tör. A betűméret és a teljes tartalom megmarad.
+## A négy műhely tartalma
 
-A tananyag és a matematikai logika változatlan; az alkalmazás verziójelzése 0.1.1. A visszanyert `content/v0.1.0/` tartalmi másolat továbbra is megegyezik a kiadás leckeadataival.
-
-- Aktuális méret: **310 491 bájt**.
-- Aktuális SHA-256: `2858d9533e1bdbbd4a514c78b7bfdf14e50fc6f50e0be182bf649b3f601cc97b`.
-- A regressziós vizsgálat most mind a hat műhelyt és a kezdőlapot is megnézi 320 és 390 képpont szélességnél, nagyobb betűkkel.
-
-Az első két sikertelen CI-futás megőrzött naplója mutatja a hibát és a diagnózist. A javítás tényleges sikerét az új commit ellenőrzési futása igazolja; az alábbi korábbi tesztszámok a v0.1.0 előző helyi fejlesztési körére vonatkoznak.
-
-## A korábbi helyi kiadás tényleges vizsgálatai
-
-Ezek a v0.1.0 előző fejlesztési körének eredményei; nem a most hozzáadott GitHub-workflow futásainak számai.
-
-| Vizsgálat | Eredmény |
+| Út | Megvalósított matematikai kapcsolat |
 |---|---|
-| Matematikai, tartalmi és mentési tesztek | 59/59 sikeres |
-| Generált feladatok külön számítással ellenőrzött mintája | 3600 feladat |
-| Rögzített feladatok külön ellenőrzése | 41 számos és 25 választásos feladat |
-| Valódi Playwright-forgatókönyvek | 18/18 sikeres, Chromium 153.0.8010.0 |
-| Automatikus axe-vizsgálat | 13 állapotban 0 jelzett szabálysértés |
-| Oldal- és konzolhibák | A vizsgált folyamatokban 0 |
-| Hálózat nélküli önálló HTML | Megnyitás, megoldás, újratöltés és export működött; 0 HTTP(S)-kérés |
-| Nyomtatható lap | 6 oldalas PDF, 10 feladat és 10 magyarázott megoldás; vizuálisan is ellenőrizve |
+| Számfogalom és előjelek | A pont helye és sorrendje; nullától és másik ponttól mért távolság; külön ellentett és abszolút érték; összeadás/kivonás mint elmozdulás; a − b = a + (−b). A nézet kitágul a látható tartományon túli eredményhez. |
+| Műveleti sorrend | A tanuló részszámítást választ, eredményt ír be és indokolt lépésenként követi a teljes kifejezést. A zárójel, azonos rangú lánc, független ágak, negatív alap, külső mínusz és nullával osztás külön kezelést kap. Nincs kódfuttatás vagy eval. |
+| Arányosság | Három történet: y = 400x, t = 24/n és y = 500 + 200x. Legalább három adatpár, táblázat és grafikon kapcsolódik össze. Állandó hányados/szorzat, alapdíjas ellenpélda, értelmezési tartomány és munkamodell-feltételek szerepelnek. |
+| Mértékegységek | Egységépítés egy, két és három irányban; négyzetrács és valódi kockarétegek; egységváltás és élméret-nagyítás megkülönböztetése. Pontos hossz-, terület-, térfogat-, űrtartalom-, tömeg-, idő- és sebességváltás, össze nem illő dimenziók magyarázata. |
 
-Az axe-eredmény nem hozzáférhetőségi tanúsítvány. A felület tényleges tanulási eredményességét nem vizsgálta még tanulói kutatás.
+A műhelyek billentyűzettel kezelhetők, az ábrák adatai szövegesen is megjelennek. A saját indoklás mentése külön választható; a gép a szöveg értelmét nem minősíti.
 
-## A mostani GitHub-ellenőrzés
+## Forrásrendezés és megőrzés
 
-A `checks/release.test.mjs`, a `checks/content.test.mjs` és a `checks/browser.mjs` közvetlenül a feltöltött kiadást vizsgálja. A böngésző a `/8.os-matematika/` útvonalon tölti be, így a projektoldal almappája is része az ellenőrzésnek.
+A munkakezdéskor frissen ellenőrzött `main` commit `69d58b46a2b8162e60a8a28197ad0ed6b7fd1e82` volt. A korábbi helyi moduláris forrás ténylegesen elérhetőnek bizonyult, ezért abból állítottuk helyre az `app/` fejlesztőprojektet. A korábbi „nem érhető el a végrehajtókörnyezet” dokumentációs mondatok történeti állapotot írtak le; a forrásimport most megtörtént.
 
-Az eredmény a konkrét commit [Actions-futásában](https://github.com/janszkyjozsef/8.os-matematika/actions) látható. Ez a dokumentum nem feltételezi a még le nem futott vizsgálatok sikerét.
+- Az `app/index.html` a Vite-belépő; a gyökérbeli `index.html` a generált, önálló kiadás. A működő 0.1.1-et nem írtuk felül a kis belépőfájllal.
+- A 0.1.1 két bizonyított mobiljavítása bekerült a CSS-forrásba.
+- Friss lockfájl-alapú `npm ci` telepítés igazolja a függőségek helyreállíthatóságát. Nem másolt `node_modules` lett a build alapja.
+- Az alkalmazásverzióból származik a portable fájlnév, a metaadat és a böngészőteszt fájlválasztása. A forrás, az önálló HTML, a tartalmi JSON és a jegyzék egyezését a CI ellenőrzi.
+- A `content/v0.1.0/` változatlan történeti referencia. Az új tartalom saját `content/v0.2.0/` másolatot kapott, amelyet a tényleges forrásból generálunk.
+- A Preact licence megmarad a HTML-ben és a külső összetevők jegyzékében. A portable script az újabb jegyzéket nem írja felül régi sablonnal.
 
-## Új, beépítésre váró tartalom
+A teljes eredeti ZIP-mentés történeti ellenőrzőösszege továbbra is `46d0415bc015d5b893a18ea32e0fd1334f728adba0baf4610353b283a0e9e114` (510 194 bájt). A mostani fejlesztés elsődleges, tartós forrása a repó `app/` könyvtára.
 
-Négy eredeti alapozó kézirat elkészült: számfogalom és előjelek; műveleti sorrend; arányosság; mértékegységek. A négy fejezet összesen 8 kidolgozott példát, 48 gyakorlófeladatot és 8 önálló próbafeladatot tartalmaz, mindet indoklással és megoldással. A kész kéziratok a `docs/tananyag/` könyvtárban olvashatók.
+## Megőrző mentésmigráció
 
-A hozzájuk tartozó műhelyleírások tervek. Ezekkel még nem bővült a webalkalmazás hat tanulási útja. A kéziratok matematikai ellenőrzése sem jelent tanulói hatásvizsgálatot. A módszer és az eredmények a [tananyag-ellenőrzési jegyzetben](TANANYAG_ELLENORZES.md) olvashatók.
+A tárolókulcs `matek8:profile:v1` maradt, az adatséma 2-re váltott. A séma 1 hat témája külön, befagyasztott listából validálódik. Az eredeti eredmények, válaszok, segítségek, műhelyállapotok és beállítások megmaradnak; az új négy lecke üres kezdőállapotot kap. Hiányzó régi témát vagy hiányos séma 2 profilt a migráció nem „javít ki” alapértékekkel.
 
-## Ami még hátravan
+A régi generált témagyakorló és az import pillanatában nyitott vegyes feladat azonosan visszajátszható. Új vegyes feladat kérésétől a tíz téma váltakozik. Sérült mentést és érvénytelen importot a program nem ír felül csendben. A [migrációs leírás](MENTES_MIGRACIO.md) rögzíti a pontos szerződést és korlátokat.
 
-| Következő lépés | Ellenőrizhető kész feltétel |
+## Ellenőrzés és bizonyíték
+
+A konkrét, ténylegesen vizsgált HTML SHA-256 értéke, a tesztek darabszáma, a böngészőverzió, a mobilállapotok és a nyomtatási próba a [0.2.0 ellenőrzési jegyzőkönyvben](ELLENORZES_0.2.0.md) szerepel. A kiadás azonosítóadatait a [release-manifest.json](../release-manifest.json) tartalmazza.
+
+A vizsgálat külön rétegei:
+
+1. Pontos matematikai motor, tartalom, 6000 generált példa független újraszámolása, szigorú mentésvalidáció és migráció.
+2. Forrásból típusellenőrzött build, bájtpontos önálló kiadásegyezés, történeti és új tartalmi másolatok vizsgálata.
+3. A hat régi út tényleges böngészős regressziója, az almappában megnyitott kiadás és a négy új út teljes használata.
+4. Valódi v0.1.1 UI-export importja, újratöltés, billentyűzet, 320/390 px normál és nagybetűs nézet, nyomtatás és offline megoldás/export.
+
+Az automatikus hozzáférhetőségi teszt nem tanúsítvány. A tananyag eredményességét tanulói vizsgálat még nem igazolta.
+
+## GitHub és Pages
+
+A `.github/workflows/check-and-publish.yml` most ténylegesen az `app/` forrását telepíti és fordítja. A telepítés az ellenőrzésektől függ. Újabb azonos ági futás megszakítja a régebbit, így egy lassabban elkészülő régi változat nem írhatja vissza az újabb oldalt.
+
+A 2026. november 6-i friss repólekérdezésben `has_pages: false` szerepelt, a projektcím pedig HTTP 404-et adott. A korábbi ellenőrző CI sikeres volt, de a telepítési job kimaradt. Ez nem kész éles oldal. Az elérhető GitHub-kapcsolat kódfeltöltést támogat, a Pages első adminisztratív engedélyezéséhez nem kínál műveletet.
+
+A konkrét következő kiadás távoli ellenőrzését az adott commit [Actions-futása](https://github.com/janszkyjozsef/8.os-matematika/actions/workflows/check-and-publish.yml) mutatja. Ha a Pages továbbra sincs bekapcsolva, a workflow ezt kifejezetten jelzi és kihagyja a telepítést. Az egyszeri beállítás és a sikeres élesítés bizonyításának feltételei az [élesítési útmutatóban](ELESITES.md) olvashatók. A helyi működő kiadás ettől függetlenül használható.
+
+## Következő fejlesztési és pedagógiai lépések
+
+| Terület | Ellenőrizhető kész feltétel |
 |---|---|
-| A teljes helyi projekt forrásának importja | Az eredeti forrás, lockfájl és tesztek a repóban; friss telepítésből sikeres típusellenőrzés, teszt és build |
-| GitHub Pages első bekapcsolása | A Source értéke GitHub Actions; sikeres telepítés és élő oldalon elvégzett feladat |
-| A négy alapozó kézirat beépítése | Saját megnyitható út, teljes feladatmodell, célzott hibajavítás, billentyűzetes műhely, sikeres matematikai és böngészős tesztek |
-| Tanári tartalmi ellenőrzés | Az állítások, feltételek, példák és félreértések szaktanárral átnézve; a hibák javítva |
-| Tanulói kipróbálás | A tanuló elmondja a lépések indokát és új feladatra alkalmazza; elakadások rögzítve és javítva |
-| További platformok | Safari, Firefox, valódi telefon és képernyőolvasó kipróbálva |
-| Teljes tantervi bővítés | A terv minden készre jelölt egységéhez ténylegesen megnyitható, ellenőrzött tartalom tartozik |
+| Pages első engedélyezése, ha még hiányzik | Source: GitHub Actions; sikeres deploy; a közzétett, megfelelő verziójú oldalon tényleges feladatmegoldás |
+| Külső szaktanári lektorálás | Állítások, módszerek, feltételek, feladatok és visszajelzések szakmai átnézése; a talált hibák javítása |
+| Tanulói kipróbálás | Új feladaton indoklás és átvitel; elakadások dokumentálása és újrapróbált javítása |
+| További platformok | Firefox, Safari, valódi telefon és képernyőolvasó kipróbálva |
+| Következő tantervi ciklus | A tématérkép egy új, zárt egységcsoportjához teljes tartalom, műhely, gyakorlás és bizonyított működés |
 
-## Forrásmegőrzés
-
-A teljes lokális projekt `Matek8_Lokalis_v0_1_0.zip` néven megőrzött mentésben rendelkezésre áll. Mérete 510 194 bájt, SHA-256 értéke `46d0415bc015d5b893a18ea32e0fd1334f728adba0baf4610353b283a0e9e114`.
-
-A korábbi végrehajtókörnyezet jelenleg nem érhető el, ezért a ZIP kicsomagolása és a moduláris forrás importja ebben a körben nem történt meg. A működő kiadást visszaolvastuk, integritását ellenőriztük és feltöltöttük. A két állapot külön kezelendő.
-
-## A tervdokumentum értelmezése
-
-A `Matek8_Anyaggyujtes_es_Fejlesztesi_Terv_v1.md` a kutatási fázis változatlan dokumentuma. A fejlécében szereplő „a fejlesztés még nem indult el” állítás a terv keletkezési állapotára vonatkozik. A jelenlegi állapotot ez a fájl, a README és a tényleges repótartalom mutatja.
+A teljes évfolyam további ciklusokban készülhet el. A tanuló saját gondolatmenete és a tanári visszajelzés irányítja a következő tartalmi javításokat.

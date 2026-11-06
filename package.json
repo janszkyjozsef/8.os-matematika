@@ -1,0 +1,16 @@
+{
+  "name": "matek8-repository",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npm --prefix app run dev",
+    "test": "npm --prefix app test && node --test checks/*.test.mjs",
+    "build": "npm --prefix app run build",
+    "release": "npm --prefix app run release",
+    "test:browser": "npm --prefix app run test:browser && node checks/browser.mjs",
+    "test:foundations": "node app/tests/foundations-browser.mjs"
+  },
+  "engines": {
+    "node": ">=22.18.0"
+  }
+}

@@ -1,5 +1,7 @@
 node_modules/
+app/dist/
+app/release/
+app/test-results/
 _site/
-playwright-report/
 test-results/
 .DS_Store

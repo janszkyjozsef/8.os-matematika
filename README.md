@@ -1,86 +1,80 @@
 # Matek8 — Értsd is!
 
-Magyar nyelvű matematikaműhely nyolcadikosoknak: érthető indoklás, kipróbálható összefüggések, sok gyakorlás és magyarázott hibajavítás.
+Magyar nyelvű matematikai tanulóoldal, elsősorban nyolcadikosoknak. A **0.2.0** kiadás tíz bejárható tanulási utat tartalmaz, magyarázatokkal, interaktív műhelyekkel, fokozatos segítséggel és helyi haladásmentéssel.
 
-**Működő kiadás: v0.1.1, hat teljes tanulási úttal.** A teljes évfolyam tananyaga folyamatosan készül. A tématérkép 24 modult és 137 tervezett tanulási egységet mutat; ezek többsége még nincs megvalósítva.
+A leckemenet: **Jósolj → Próbáld ki → Értsd meg → Nézd a példát → Gyakorolj → Önálló próba.**
 
-[Automatikus ellenőrzések](https://github.com/janszkyjozsef/8.os-matematika/actions/workflows/check-and-publish.yml) · [Részletes terv](docs/Matek8_Anyaggyujtes_es_Fejlesztesi_Terv_v1.md) · [Megvalósítási állapot](docs/ALLAPOT.md) · [Élesítés](docs/ELESITES.md)
+## Mi használható?
 
-## Kipróbálás
+| Tanulási út | Műhely | Gyakorlás + önálló próba |
+|---|---|---:|
+| Számfogalom és előjelek | Számegyenes, sorrend, ellentett, abszolút érték, távolság és elmozdulás | 12 + 2 |
+| Műveleti sorrend | Részszámítás választása, indoklás és a teljes kifejezés követése | 12 + 2 |
+| Arányosság | Történet, több adatpár, táblázat és grafikon három modellel | 12 + 2 |
+| Mértékegységek | Szakasz, egységnégyzet, kockarétegek és pontos egységváltás | 12 + 2 |
+| Törtek | Törtsávok és közös felosztás | 8 + 2 |
+| Százalékszámítás | Egymás utáni változások és változó alap | 8 + 2 |
+| Egyenletek | Mérlegelv, megoldási utak és visszahelyettesítés | 8 + 2 |
+| Grafikonok | Együtt változó történet, táblázat és grafikon | 8 + 2 |
+| Pitagorasz-tétel | Négyzetterületek és a derékszög feltétele | 8 + 2 |
+| Valószínűség | Két kocka 36 rendezett kimenetele és szimuláció | 8 + 2 |
 
-Töltsd le az [index.html](https://raw.githubusercontent.com/janszkyjozsef/8.os-matematika/main/index.html) fájlt, majd nyisd meg böngészőben. A teljes alkalmazás egyetlen fájlban van: a leckék, az ábrák, a stílusok és a program is. A letöltött változat a benne található tananyaggal internet nélkül működik. A külső forráshivatkozások megnyitásához internet kell.
+Az aktuális adatmodellből számított összesítés: **96 rögzített gyakorlófeladat, 20 önálló próbafeladat, 10 jósló kérdés, 20 kidolgozott példa és 30 determinisztikus generátorcsalád**. A több részből álló feladatok külön válaszmezőket és részletenkénti visszajelzést kaptak. A pontos darabszámok és az ellenőrzőösszeg a [kiadási jegyzékben](release-manifest.json) szerepelnek.
 
-A haladás ugyanabban a böngészőben marad. A **Beállítások → Haladás letöltése** funkcióval fájlba menthető és később visszatölthető. A vendégmód külön állapotban indul, közös eszközön is használható. A helyi HTML-fájl és a későbbi webcím külön tárolóhely: a haladást az exportálással és importálással lehet átvinni.
+A saját szavas indoklásnak helye van a felületen és a nyomtatható lapon. A program ehhez önellenőrzési szempontokat ad; a szöveg helyességét nem minősíti automatikusan. A segítséggel elért javítást és az első önálló megoldást külön tartja nyilván.
 
-A GitHub Pages első engedélyezése még külön beállítást igényel. A várható cím: `https://janszkyjozsef.github.io/8.os-matematika/`. Ez a cím csak sikeres Pages-telepítés után tekinthető működő oldalnak. A pontos lépések az [élesítési útmutatóban](docs/ELESITES.md) találhatók.
+**A teljes évfolyam még nincs kész.** A tématérkép 24 modulja és 137 egysége fejlesztési térkép. Minden egységnél külön látható az elérhető tartalom, a részleges lefedettség vagy a tervezett állapot; egy modulhoz több lecke is kapcsolódhat.
 
-## Mi használható már?
+## Használat és haladás
 
-| Tanulási út | Mit segít megérteni az interaktív műhely? |
-|---|---|
-| Törtek | Miért kell azonos méretű részekre bontani az egészeket az összeadáshoz? |
-| Százalékszámítás | Miért változik az alap egymás utáni árváltozásoknál? |
-| Egyenletek | Miért kell ugyanazt a műveletet mindkét oldalon elvégezni? |
-| Grafikonok | Hogyan lesz egy történetből táblázat és grafikon; mit jelent az alapdíj és a változás üteme? |
-| Pitagorasz-tétel | Hogyan kapcsolódnak a négyzetek területei a derékszögű háromszög oldalaihoz? |
-| Valószínűség | Miért nem egyformán valószínű a két dobókockával kapott összes lehetséges összeg? |
+Az [index.html](index.html) az önálló, minden szükséges programot és stílust tartalmazó kiadás. Letöltve és böngészőben megnyitva internet nélkül működik. Nem kell fiók, külső betűkészlet, matematikai CDN vagy AI API. A beépített CSP a hálózati adatküldést is tiltja (`connect-src 'none'`).
 
-Minden út hat lépésből áll:
+A haladás az adott böngészőben tárolódik. Fájlba exportálható, importáláskor előnézet és külön megerősítés jelenik meg. A régi, hatleckés mentések megőrző migrációval használhatók: a régi eredmények megmaradnak, az új leckék üresen indulnak. Sérült mentést az oldal nem töröl automatikusan. A vendégmód, a nagyobb betűk és a nyugodt nézet továbbra is elérhető.
 
-1. **Jósolj!** Fogalmazz meg egy előzetes elképzelést.
-2. **Próbáld ki!** Változtass egy modellen, és figyeld az összefüggést.
-3. **Értsd meg!** Kapcsold össze a tapasztalatot a matematikai szabállyal.
-4. **Nézd a példát!** Kövesd a megoldást lépésenként, az indoklással együtt.
-5. **Gyakorolj!** Oldj meg feladatokat; szükség esetén kérj fokozatos segítséget.
-6. **Önálló próba.** Ellenőrizd, mire jutottál segítség nélkül.
+A tervezett [GitHub Pages-cím](https://janszkyjozsef.github.io/8.os-matematika/) állapotát a [kiadási állapotjelentés](docs/ALLAPOT.md) rögzíti. A sikeres kódfeltöltés és ellenőrzés önmagában nem bizonyít éles publikálást.
 
-A kiadásban **48 rögzített gyakorlófeladat, 12 önálló próbafeladat, 12 kidolgozott példa és 18 feladatgenerátor-család** található. A generált feladatok új számpéldákat adnak; ezek nem új tantervi témák. Az ismert hibákhoz 132 célzott visszajelzési szabály tartozik. A rendszer külön kezeli az önálló és a segítséggel elért megoldást.
+## Fejlesztés
 
-További funkciók: témakeresés, nyomtatható tízfeladatos lapok magyarázott megoldókulccsal, nagyobb betűk, nyugodt nézet, billentyűzetes kezelés, haladásmentés és vendégmód. A felület nem használ követőkódot, és nem küld tanulói válaszokat külső szolgáltatásnak.
+A teljes moduláris forrás az **app/** könyvtárban van. Az `app/index.html` kicsi Vite-belépő; a gyökérbeli `index.html` a generált önálló kiadás. **A kettő nem cserélhető fel.**
 
-## Új alapozó tananyagok
+Node.js legalább 22.18.0 szükséges; a CI Node 24-et használ. A rögzített függőségeket a lockfájlból telepítjük:
 
-A következő négy fejezet **olvasható tananyagként és beépítésre váró kéziratként** elkészült. Az interaktív alkalmazásban még nem jelennek meg új tanulási útként.
+```sh
+npm ci --prefix app --no-audit --no-fund
+npm run dev
+```
 
-- [Számfogalom és előjelek](docs/tananyag/01-szamfogalom-es-elojelek.md)
-- [Műveleti sorrend](docs/tananyag/02-muveleti-sorrend.md)
-- [Arányosság](docs/tananyag/03-aranyossag.md)
-- [Mértékegységek](docs/tananyag/04-mertekegysegek.md)
+Fejlesztői cím: `http://127.0.0.1:4173/`. A reprodukálható kiadás és ellenőrzések:
 
-Fejezetenként két kidolgozott példa, tizenkét gyakorlófeladat kétlépcsős segítséggel és részletes megoldással, két új önálló próbafeladat, öt gyakori félreértés javítása és egy interaktív műhely terve szerepel. A műhelyterv nem jelent elkészült programot.
+```sh
+npm run release
+npm test
+cd app
+npx playwright install --with-deps chromium
+cd ..
+npm run test:browser
+npm run test:foundations
+```
+
+A `release` parancs típusellenőrzést, Vite-buildet és önálló HTML-t készít, majd együtt frissíti a gyökérbeli kiadást, a jegyzéket és a verziózott tananyagmásolatot. A CI ezt friss telepítésből újrafordítja, és bájtra összeveti a feltöltött változattal. A `MATEK8_CHROMIUM_PATH` opcionálisan egy már telepített Chromium végrehajtható fájlját jelölheti; a tesztek saját, izolált böngészőprofilt használnak.
 
 ## A repó felépítése
 
 | Útvonal | Tartalom |
 |---|---|
-| `index.html` | A v0.1.1 önálló kiadás: hat lecke és a nagybetűs mobilnézet célzott javítása |
-| `content/v0.1.0/` | A hat működő lecke teljes, olvasható tananyaga és a tématérkép JSON-másolata |
-| `release-manifest.json` | Verzió, bájtméret és SHA-256 ellenőrzőösszeg |
-| `checks/` | A kiadás és a tényleges böngészős működés automatikus ellenőrzése |
-| `.github/workflows/` | Ellenőrzés, majd az engedélyezett Pages-oldal telepítése |
-| `docs/tananyag/` | Új, eredeti, magyarázott alapozó fejezetek |
-| `docs/Matek8_Anyaggyujtes_es_Fejlesztesi_Terv_v1.md` | A kutatási fázis változatlan, történeti tervdokumentuma |
-| `docs/ALLAPOT.md` | Mi készült el, mit igazoltak a vizsgálatok, mi következik? |
+| `app/src/` | Preact/TypeScript alkalmazás, tananyag, pontos matematikai motor, műhelyek |
+| `app/tests/` | Matematikai, tartalmi, mentési és tényleges böngészős tesztek |
+| `app/scripts/portable.mjs` | Önálló offline HTML készítése a forrásból |
+| `scripts/release.mjs` | Ellenőrzött build kiemelése a repó gyökerébe és tartalmi snapshot |
+| `index.html`, `release-manifest.json` | Összetartozó publikálható kiadás és azonosítóadatok |
+| `content/v0.2.0/` | Generált, olvasható leckék, tématérkép és generátorjegyzék |
+| `content/v0.1.0/` | Változatlan történeti tananyag; az eredeti hat lecke megőrzésének referenciája |
+| `checks/`, `.github/workflows/` | Kiadásegyezés, böngészős vizsgálatok és feltételes Pages-telepítés |
+| `docs/tananyag/` | A négy eredeti alapozó kézirat |
+| `docs/TANANYAG_AZONOSITOK.md` | Kézirat–alkalmazás megfeleltetés és a részfeladatok megőrzése |
 
-**A moduláris Preact/TypeScript fejlesztői forrás és az eredeti tesztek importja még hátravan.** A teljes helyi projekt `Matek8_Lokalis_v0_1_0.zip` mentése rendelkezésre áll, de a jelenlegi munkakörnyezet nem tudta kicsomagolni. Ez a repó most a működő kiadást, a belőle visszanyert olvasható tananyagadatokat, az új kéziratokat és a kiadásellenőrző eszközöket tartalmazza. A jelenlegi workflow nem állít elő új alkalmazásbuildet a TypeScript-forrásból.
+Részletek: [állapot](docs/ALLAPOT.md) · [fejlesztői útmutató](docs/FEJLESZTES.md) · [mentésmigráció](docs/MENTES_MIGRACIO.md) · [tananyag-ellenőrzés](docs/TANANYAG_ELLENORZES.md) · [élesítés](docs/ELESITES.md) · [külső összetevők](THIRD_PARTY_NOTICES.md).
 
-## Ellenőrzés
+Az [eredeti részletes terv](docs/Matek8_Anyaggyujtes_es_Fejlesztesi_Terv_v1.md) történeti dokumentum. A fejlesztés megkezdéséről és a feltöltési engedélyről szóló korabeli mondatai nem a jelenlegi állapotot írják le.
 
-Node 24 alatt, a repó gyökeréből:
-
-```sh
-node --test checks/release.test.mjs checks/content.test.mjs
-npm install --no-save --no-package-lock --ignore-scripts --no-audit --no-fund playwright@1.62.1 @axe-core/playwright@4.14.0
-npx playwright install --with-deps chromium
-node checks/browser.mjs
-```
-
-A böngészős ellenőrzés a valódi kiadást a GitHub-projektoldalnak megfelelő `/8.os-matematika/` útvonal alatt nyitja meg. Ellenőrzi a műhelyeket, a segítségnyújtást, a válaszmentést, az exportot, a nyomtatási felületet, a keskeny mobilnézeteket és az offline HTML-t. Az aktuális eredményt mindig a konkrét commit [Actions-futása](https://github.com/janszkyjozsef/8.os-matematika/actions) igazolja.
-
-A korábbi kiadási ellenőrzések és a még nem vizsgált területek az [állapotjelentésben](docs/ALLAPOT.md) szerepelnek. A sikeres technikai teszt nem bizonyítja, hogy minden tanuló megérti a tananyagot; ehhez tanári és tanulói kipróbálás is kell.
-
-## Közreműködés
-
-Először a tanulási célt, a magyarázatot, a lehetséges félreértéseket és az ellenőrizhető matematikai eredményeket tisztázzuk. Az új interaktív elem akkor kész, ha a megfigyelhető változás egy megfogalmazható összefüggést tanít, billentyűzettel is használható, és a megfelelő feladatokkal együtt kipróbáltuk.
-
-A továbbfejlesztés sorrendjét és az elfogadási feltételeket a [megvalósítási állapot](docs/ALLAPOT.md) rögzíti. A Preact licencszövege az alkalmazásba és a [külső összetevők jegyzékébe](THIRD_PARTY_NOTICES.md) is bekerült.
+A technikai ellenőrzés nem helyettesíti a szaktanári lektorálást és a tanulói kipróbálást. A „minden diák értse meg” fejlesztési cél, nem igazolt eredmény.

@@ -1,11 +1,18 @@
 {
   "product": "Matek8 — Értsd is!",
-  "version": "0.1.1",
-  "kind": "standalone-release-with-tested-reflow-fix",
+  "version": "0.2.0",
+  "kind": "reproducible-standalone-release",
   "entry": "index.html",
-  "bytes": 310491,
-  "sha256": "2858d9533e1bdbbd4a514c78b7bfdf14e50fc6f50e0be182bf649b3f601cc97b",
+  "source": "app/",
+  "offlineFile": "Matek8_Offline_v0_2_0.html",
+  "contentDirectory": "content/v0.2.0",
+  "bytes": 534620,
+  "sha256": "2d928d1c5adc23ba2888f5cbf0c3ed22479ea4b161f457927056995896aa9ed4",
   "lessons": [
+    "szamfogalom",
+    "muveleti-sorrend",
+    "aranyossag",
+    "mertekegysegek",
     "tortek",
     "szazalek",
     "egyenlet",
@@ -13,6 +20,16 @@
     "pitagorasz",
     "valoszinuseg"
   ],
-  "note": "A kiadás integritásának ellenőrzése nem helyettesíti a böngészős és pedagógiai ellenőrzést.",
-  "baseVersion": "0.1.0"
+  "counts": {
+    "lessons": 10,
+    "practice": 96,
+    "exit": 20,
+    "predictions": 10,
+    "questions": 126,
+    "responseFields": 253,
+    "examples": 20,
+    "generatorFamilies": 30,
+    "feedbackRules": 210
+  },
+  "note": "A kiadás integritása nem helyettesíti a böngészős ellenőrzést és a tanári, tanulói kipróbálást."
 }

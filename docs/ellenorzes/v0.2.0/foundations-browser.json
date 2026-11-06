@@ -1,0 +1,1146 @@
+{
+  "suite": "Matek8 standalone foundations, migration and reflow",
+  "startedAt": "2026-11-06T13:31:24.309Z",
+  "artifact": {
+    "version": "0.2.0",
+    "bytes": 534620,
+    "sha256": "2d928d1c5adc23ba2888f5cbf0c3ed22479ea4b161f457927056995896aa9ed4",
+    "entry": "index.html",
+    "offlineFile": "Matek8_Offline_v0_2_0.html",
+    "legacy": {
+      "commit": "69d58b46a2b8162e60a8a28197ad0ed6b7fd1e82",
+      "bytes": 310491,
+      "sha256": "2858d9533e1bdbbd4a514c78b7bfdf14e50fc6f50e0be182bf649b3f601cc97b"
+    }
+  },
+  "browser": "153.0.8010.0",
+  "checks": [
+    {
+      "name": "Exact current release, offline artifact and historical v0.1.1 integrity",
+      "passed": true,
+      "ms": 24
+    },
+    {
+      "name": "Subdirectory routing and embedded ten-topic content agree with the release manifest",
+      "passed": true,
+      "ms": 15
+    },
+    {
+      "name": "Actual legacy UI export migrates after preview and preserves generated replay on reload",
+      "passed": true,
+      "ms": 3469
+    },
+    {
+      "name": "Own-word explanations are optional, explicitly saved, removable and never auto-graded",
+      "passed": true,
+      "ms": 3085
+    },
+    {
+      "name": "szamfogalom: targeted wrong answer, two hints and honest assisted success",
+      "passed": true,
+      "ms": 4438
+    },
+    {
+      "name": "szamfogalom: all six stages, twelve complete authored practices and two exit tasks",
+      "passed": true,
+      "ms": 6389
+    },
+    {
+      "name": "szamfogalom: fresh exit round and generated-family replay",
+      "passed": true,
+      "ms": 2805
+    },
+    {
+      "name": "muveleti-sorrend: targeted wrong answer, two hints and honest assisted success",
+      "passed": true,
+      "ms": 808
+    },
+    {
+      "name": "muveleti-sorrend: all six stages, twelve complete authored practices and two exit tasks",
+      "passed": true,
+      "ms": 5251
+    },
+    {
+      "name": "muveleti-sorrend: fresh exit round and generated-family replay",
+      "passed": true,
+      "ms": 1590
+    },
+    {
+      "name": "aranyossag: targeted wrong answer, two hints and honest assisted success",
+      "passed": true,
+      "ms": 1121
+    },
+    {
+      "name": "aranyossag: all six stages, twelve complete authored practices and two exit tasks",
+      "passed": true,
+      "ms": 5307
+    },
+    {
+      "name": "aranyossag: fresh exit round and generated-family replay",
+      "passed": true,
+      "ms": 1730
+    },
+    {
+      "name": "mertekegysegek: targeted wrong answer, two hints and honest assisted success",
+      "passed": true,
+      "ms": 625
+    },
+    {
+      "name": "mertekegysegek: all six stages, twelve complete authored practices and two exit tasks",
+      "passed": true,
+      "ms": 5190
+    },
+    {
+      "name": "mertekegysegek: fresh exit round and generated-family replay",
+      "passed": true,
+      "ms": 1612
+    },
+    {
+      "name": "Mixed practice rotates through all ten topics with working generators",
+      "passed": true,
+      "ms": 1827
+    },
+    {
+      "name": "Number line: order, opposite, distance and subtraction as movement",
+      "passed": true,
+      "ms": 2215
+    },
+    {
+      "name": "Operation order: dependent chain, independent branches, powers and undefined division",
+      "passed": true,
+      "ms": 3396
+    },
+    {
+      "name": "Proportionality: three models, three or more pairs and domain restrictions",
+      "passed": true,
+      "ms": 2910
+    },
+    {
+      "name": "Units: dimension-sensitive conversions and square/cube scale model",
+      "passed": true,
+      "ms": 2633
+    },
+    {
+      "name": "Keyboard entry, skip link and new workshop controls",
+      "passed": true,
+      "ms": 288
+    },
+    {
+      "name": "All four printable worksheets retain fourteen tasks, every part and explained keys",
+      "passed": true,
+      "ms": 676
+    },
+    {
+      "name": "320/390px normal and large text: home, all ten workshops and the largest new multipart tasks",
+      "passed": true,
+      "ms": 17825
+    },
+    {
+      "name": "Current standalone file completes a new lesson offline, reloads and exports with zero HTTP requests",
+      "passed": true,
+      "ms": 1719
+    },
+    {
+      "name": "No runtime errors, external requests, accessibility violations or stale artifact",
+      "passed": true,
+      "ms": 4
+    }
+  ],
+  "authoredExercises": [
+    {
+      "id": "szamfogalom-prediction",
+      "kind": "choice",
+      "role": "prediction"
+    },
+    {
+      "id": "szamfogalom-practice-1",
+      "kind": "parts",
+      "parts": 6,
+      "role": "practice"
+    },
+    {
+      "id": "szamfogalom-practice-2",
+      "kind": "parts",
+      "parts": 5,
+      "role": "practice"
+    },
+    {
+      "id": "szamfogalom-practice-3",
+      "kind": "parts",
+      "parts": 7,
+      "role": "practice"
+    },
+    {
+      "id": "szamfogalom-practice-4",
+      "kind": "parts",
+      "parts": 2,
+      "role": "practice"
+    },
+    {
+      "id": "szamfogalom-practice-5",
+      "kind": "parts",
+      "parts": 6,
+      "role": "practice"
+    },
+    {
+      "id": "szamfogalom-practice-6",
+      "kind": "parts",
+      "parts": 3,
+      "role": "practice"
+    },
+    {
+      "id": "szamfogalom-practice-7",
+      "kind": "parts",
+      "parts": 4,
+      "role": "practice"
+    },
+    {
+      "id": "szamfogalom-practice-8",
+      "kind": "parts",
+      "parts": 2,
+      "role": "practice"
+    },
+    {
+      "id": "szamfogalom-practice-9",
+      "kind": "parts",
+      "parts": 3,
+      "role": "practice"
+    },
+    {
+      "id": "szamfogalom-practice-10",
+      "kind": "parts",
+      "parts": 2,
+      "role": "practice"
+    },
+    {
+      "id": "szamfogalom-practice-11",
+      "kind": "parts",
+      "parts": 4,
+      "role": "practice"
+    },
+    {
+      "id": "szamfogalom-practice-12",
+      "kind": "parts",
+      "parts": 4,
+      "role": "practice"
+    },
+    {
+      "id": "szamfogalom-exit-1",
+      "attemptId": "exit:szamfogalom:0:0",
+      "kind": "parts",
+      "role": "exit"
+    },
+    {
+      "id": "szamfogalom-exit-2",
+      "attemptId": "exit:szamfogalom:0:1",
+      "kind": "parts",
+      "role": "exit"
+    },
+    {
+      "id": "muveleti-sorrend-prediction",
+      "kind": "choice",
+      "role": "prediction"
+    },
+    {
+      "id": "muveleti-sorrend-practice-1",
+      "kind": "parts",
+      "parts": 2,
+      "role": "practice"
+    },
+    {
+      "id": "muveleti-sorrend-practice-2",
+      "kind": "parts",
+      "parts": 3,
+      "role": "practice"
+    },
+    {
+      "id": "muveleti-sorrend-practice-3",
+      "kind": "parts",
+      "parts": 3,
+      "role": "practice"
+    },
+    {
+      "id": "muveleti-sorrend-practice-4",
+      "kind": "parts",
+      "parts": 3,
+      "role": "practice"
+    },
+    {
+      "id": "muveleti-sorrend-practice-5",
+      "kind": "number",
+      "parts": 1,
+      "role": "practice"
+    },
+    {
+      "id": "muveleti-sorrend-practice-6",
+      "kind": "parts",
+      "parts": 3,
+      "role": "practice"
+    },
+    {
+      "id": "muveleti-sorrend-practice-7",
+      "kind": "parts",
+      "parts": 3,
+      "role": "practice"
+    },
+    {
+      "id": "muveleti-sorrend-practice-8",
+      "kind": "number",
+      "parts": 1,
+      "role": "practice"
+    },
+    {
+      "id": "muveleti-sorrend-practice-9",
+      "kind": "parts",
+      "parts": 3,
+      "role": "practice"
+    },
+    {
+      "id": "muveleti-sorrend-practice-10",
+      "kind": "parts",
+      "parts": 2,
+      "role": "practice"
+    },
+    {
+      "id": "muveleti-sorrend-practice-11",
+      "kind": "parts",
+      "parts": 3,
+      "role": "practice"
+    },
+    {
+      "id": "muveleti-sorrend-practice-12",
+      "kind": "parts",
+      "parts": 2,
+      "role": "practice"
+    },
+    {
+      "id": "muveleti-sorrend-exit-1",
+      "attemptId": "exit:muveleti-sorrend:0:0",
+      "kind": "parts",
+      "role": "exit"
+    },
+    {
+      "id": "muveleti-sorrend-exit-2",
+      "attemptId": "exit:muveleti-sorrend:0:1",
+      "kind": "parts",
+      "role": "exit"
+    },
+    {
+      "id": "aranyossag-prediction",
+      "kind": "parts",
+      "role": "prediction"
+    },
+    {
+      "id": "aranyossag-practice-1",
+      "kind": "parts",
+      "parts": 3,
+      "role": "practice"
+    },
+    {
+      "id": "aranyossag-practice-2",
+      "kind": "parts",
+      "parts": 2,
+      "role": "practice"
+    },
+    {
+      "id": "aranyossag-practice-3",
+      "kind": "parts",
+      "parts": 3,
+      "role": "practice"
+    },
+    {
+      "id": "aranyossag-practice-4",
+      "kind": "parts",
+      "parts": 4,
+      "role": "practice"
+    },
+    {
+      "id": "aranyossag-practice-5",
+      "kind": "number",
+      "parts": 1,
+      "role": "practice"
+    },
+    {
+      "id": "aranyossag-practice-6",
+      "kind": "parts",
+      "parts": 2,
+      "role": "practice"
+    },
+    {
+      "id": "aranyossag-practice-7",
+      "kind": "parts",
+      "parts": 3,
+      "role": "practice"
+    },
+    {
+      "id": "aranyossag-practice-8",
+      "kind": "parts",
+      "parts": 7,
+      "role": "practice"
+    },
+    {
+      "id": "aranyossag-practice-9",
+      "kind": "parts",
+      "parts": 2,
+      "role": "practice"
+    },
+    {
+      "id": "aranyossag-practice-10",
+      "kind": "parts",
+      "parts": 2,
+      "role": "practice"
+    },
+    {
+      "id": "aranyossag-practice-11",
+      "kind": "parts",
+      "parts": 6,
+      "role": "practice"
+    },
+    {
+      "id": "aranyossag-practice-12",
+      "kind": "parts",
+      "parts": 5,
+      "role": "practice"
+    },
+    {
+      "id": "aranyossag-exit-1",
+      "attemptId": "exit:aranyossag:0:0",
+      "kind": "parts",
+      "role": "exit"
+    },
+    {
+      "id": "aranyossag-exit-2",
+      "attemptId": "exit:aranyossag:0:1",
+      "kind": "parts",
+      "role": "exit"
+    },
+    {
+      "id": "mertekegysegek-prediction",
+      "kind": "parts",
+      "role": "prediction"
+    },
+    {
+      "id": "mertekegysegek-practice-1",
+      "kind": "parts",
+      "parts": 3,
+      "role": "practice"
+    },
+    {
+      "id": "mertekegysegek-practice-2",
+      "kind": "number",
+      "parts": 1,
+      "role": "practice"
+    },
+    {
+      "id": "mertekegysegek-practice-3",
+      "kind": "parts",
+      "parts": 4,
+      "role": "practice"
+    },
+    {
+      "id": "mertekegysegek-practice-4",
+      "kind": "parts",
+      "parts": 2,
+      "role": "practice"
+    },
+    {
+      "id": "mertekegysegek-practice-5",
+      "kind": "parts",
+      "parts": 2,
+      "role": "practice"
+    },
+    {
+      "id": "mertekegysegek-practice-6",
+      "kind": "parts",
+      "parts": 6,
+      "role": "practice"
+    },
+    {
+      "id": "mertekegysegek-practice-7",
+      "kind": "number",
+      "parts": 1,
+      "role": "practice"
+    },
+    {
+      "id": "mertekegysegek-practice-8",
+      "kind": "parts",
+      "parts": 2,
+      "role": "practice"
+    },
+    {
+      "id": "mertekegysegek-practice-9",
+      "kind": "parts",
+      "parts": 4,
+      "role": "practice"
+    },
+    {
+      "id": "mertekegysegek-practice-10",
+      "kind": "parts",
+      "parts": 2,
+      "role": "practice"
+    },
+    {
+      "id": "mertekegysegek-practice-11",
+      "kind": "parts",
+      "parts": 7,
+      "role": "practice"
+    },
+    {
+      "id": "mertekegysegek-practice-12",
+      "kind": "parts",
+      "parts": 2,
+      "role": "practice"
+    },
+    {
+      "id": "mertekegysegek-exit-1",
+      "attemptId": "exit:mertekegysegek:0:0",
+      "kind": "parts",
+      "role": "exit"
+    },
+    {
+      "id": "mertekegysegek-exit-2",
+      "attemptId": "exit:mertekegysegek:0:1",
+      "kind": "parts",
+      "role": "exit"
+    }
+  ],
+  "generatedExercises": [
+    {
+      "id": "generated:signed-position-v1:seed=1:variant=0",
+      "topic": "szamfogalom",
+      "reloaded": true
+    },
+    {
+      "id": "generated:signed-subtraction-v1:seed=2:variant=1",
+      "topic": "szamfogalom",
+      "reloaded": true
+    },
+    {
+      "id": "generated:signed-missing-v1:seed=3:variant=2",
+      "topic": "szamfogalom",
+      "reloaded": true
+    },
+    {
+      "id": "generated:order-chain-v1:seed=1:variant=0",
+      "topic": "muveleti-sorrend",
+      "reloaded": true
+    },
+    {
+      "id": "generated:order-independent-v1:seed=2:variant=1",
+      "topic": "muveleti-sorrend",
+      "reloaded": true
+    },
+    {
+      "id": "generated:order-signed-square-v1:seed=3:variant=2",
+      "topic": "muveleti-sorrend",
+      "reloaded": true
+    },
+    {
+      "id": "generated:ratio-unit-price-v1:seed=1:variant=0",
+      "topic": "aranyossag",
+      "reloaded": true
+    },
+    {
+      "id": "generated:ratio-shared-work-v1:seed=2:variant=1",
+      "topic": "aranyossag",
+      "reloaded": true
+    },
+    {
+      "id": "generated:ratio-fixed-fee-v1:seed=3:variant=2",
+      "topic": "aranyossag",
+      "reloaded": true
+    },
+    {
+      "id": "generated:units-dimensions-v1:seed=1:variant=0",
+      "topic": "mertekegysegek",
+      "reloaded": true
+    },
+    {
+      "id": "generated:units-clock-v1:seed=2:variant=1",
+      "topic": "mertekegysegek",
+      "reloaded": true
+    },
+    {
+      "id": "generated:units-container-v1:seed=3:variant=2",
+      "topic": "mertekegysegek",
+      "reloaded": true
+    }
+  ],
+  "accessibility": [
+    {
+      "label": "number-line-workshop",
+      "violations": []
+    },
+    {
+      "label": "operation-order-workshop",
+      "violations": []
+    },
+    {
+      "label": "proportionality-workshop",
+      "violations": []
+    },
+    {
+      "label": "units-workshop",
+      "violations": []
+    },
+    {
+      "label": "multipart-szamfogalom-320-large",
+      "violations": []
+    },
+    {
+      "label": "multipart-muveleti-sorrend-320-large",
+      "violations": []
+    },
+    {
+      "label": "multipart-aranyossag-320-large",
+      "violations": []
+    },
+    {
+      "label": "multipart-mertekegysegek-320-large",
+      "violations": []
+    }
+  ],
+  "layouts": [
+    {
+      "label": "320px normal home",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px normal lab/szamfogalom",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px normal lab/muveleti-sorrend",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px normal lab/aranyossag",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px normal lab/mertekegysegek",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px normal lab/tortek",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px normal lab/szazalek",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px normal lab/egyenlet",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px normal lab/grafikon",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px normal lab/pitagorasz",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px normal lab/valoszinuseg",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px normal multipart/szamfogalom-practice-3",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px normal multipart/muveleti-sorrend-practice-2",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px normal multipart/aranyossag-practice-8",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px normal multipart/mertekegysegek-practice-11",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px large home",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px large lab/szamfogalom",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px large lab/muveleti-sorrend",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px large lab/aranyossag",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px large lab/mertekegysegek",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px large lab/mertekegysegek doubled cube",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px large lab/tortek",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px large lab/szazalek",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px large lab/egyenlet",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px large lab/grafikon",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px large lab/pitagorasz",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px large lab/valoszinuseg",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px large multipart/szamfogalom-practice-3",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px large multipart/muveleti-sorrend-practice-2",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px large multipart/aranyossag-practice-8",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "320px large multipart/mertekegysegek-practice-11",
+      "viewport": 320,
+      "documentWidth": 320,
+      "bodyWidth": 320
+    },
+    {
+      "label": "390px normal home",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px normal lab/szamfogalom",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px normal lab/muveleti-sorrend",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px normal lab/aranyossag",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px normal lab/mertekegysegek",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px normal lab/tortek",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px normal lab/szazalek",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px normal lab/egyenlet",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px normal lab/grafikon",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px normal lab/pitagorasz",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px normal lab/valoszinuseg",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px normal multipart/szamfogalom-practice-3",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px normal multipart/muveleti-sorrend-practice-2",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px normal multipart/aranyossag-practice-8",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px normal multipart/mertekegysegek-practice-11",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px large home",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px large lab/szamfogalom",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px large lab/muveleti-sorrend",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px large lab/aranyossag",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px large lab/mertekegysegek",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px large lab/tortek",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px large lab/szazalek",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px large lab/egyenlet",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px large lab/grafikon",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px large lab/pitagorasz",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px large lab/valoszinuseg",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px large multipart/szamfogalom-practice-3",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px large multipart/muveleti-sorrend-practice-2",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px large multipart/aranyossag-practice-8",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    },
+    {
+      "label": "390px large multipart/mertekegysegek-practice-11",
+      "viewport": 390,
+      "documentWidth": 390,
+      "bodyWidth": 390
+    }
+  ],
+  "screenshots": [
+    "app/test-results/foundations/number-line-desktop.png",
+    "app/test-results/foundations/operation-order-desktop.png",
+    "app/test-results/foundations/proportionality-exact-fraction.png",
+    "app/test-results/foundations/proportionality-desktop.png",
+    "app/test-results/foundations/units-cube-doubled-desktop.png",
+    "app/test-results/foundations/units-desktop.png",
+    "app/test-results/foundations/home-320-large.png",
+    "app/test-results/foundations/szamfogalom-320-large.png",
+    "app/test-results/foundations/muveleti-sorrend-320-large.png",
+    "app/test-results/foundations/aranyossag-320-large.png",
+    "app/test-results/foundations/mertekegysegek-320-large.png",
+    "app/test-results/foundations/units-cube-doubled-320-large.png",
+    "app/test-results/foundations/szamfogalom-multipart-320-large.png",
+    "app/test-results/foundations/muveleti-sorrend-multipart-320-large.png",
+    "app/test-results/foundations/aranyossag-multipart-320-large.png",
+    "app/test-results/foundations/mertekegysegek-multipart-320-large.png",
+    "app/test-results/foundations/home-390-normal.png",
+    "app/test-results/foundations/offline-new-lesson-export.png"
+  ],
+  "pdfs": [
+    {
+      "path": "app/test-results/foundations/mertekegysegek-worksheet-v0.2.0.pdf",
+      "bytes": 107812,
+      "sha256": "2d986f311e1098ce36e9b67bc92c9ae174255970e563ba06dac08211f6ee8aaf"
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "externalRequests": [],
+  "offlineHttpRequests": [],
+  "notes": [
+    "Authored answers come from the content snapshot exposed by the tested HTML. These checks verify UI and persistence, not independent mathematical truth.",
+    "Generated references are also compared with the actual rendered ID and prompt before entry; mathematical generator checks run separately.",
+    "Automated accessibility/reflow checks and screenshots do not establish classroom effectiveness."
+  ],
+  "legacyMigration": {
+    "export": "app/test-results/foundations/actual-legacy-v0.1.1-export.json",
+    "exportBytes": 1655,
+    "exportedAppVersion": "0.1.1",
+    "generatedId": "generated:frac-sum-v1:seed=5:variant=1",
+    "mixedId": "generated:frac-sum-v1:seed=50007:variant=1",
+    "mixedSeed": 7,
+    "settingsPreserved": true,
+    "attemptsPreserved": true,
+    "oldLabsPreserved": true,
+    "newTopicsInitialized": [
+      "szamfogalom",
+      "muveleti-sorrend",
+      "aranyossag",
+      "mertekegysegek"
+    ],
+    "reloaded": true
+  },
+  "mixedRotation": [
+    "grafikon",
+    "pitagorasz",
+    "valoszinuseg",
+    "szamfogalom",
+    "muveleti-sorrend",
+    "aranyossag",
+    "mertekegysegek",
+    "tortek",
+    "szazalek",
+    "egyenlet"
+  ],
+  "exactProportions": {
+    "input": "1/3",
+    "output": "400/3",
+    "samples": [
+      "0",
+      "1",
+      "2",
+      "1,5",
+      "3",
+      "1/3"
+    ],
+    "reloaded": true,
+    "imported": true,
+    "export": "app/test-results/foundations/actual-exact-proportions-v0.2.0-export.json"
+  },
+  "workModelAxis": [
+    {
+      "value": 0,
+      "label": "0",
+      "lineX": 62,
+      "lineEndX": 62,
+      "labelX": 62
+    },
+    {
+      "value": 2,
+      "label": "2",
+      "lineX": 133.6666717529297,
+      "lineEndX": 133.6666717529297,
+      "labelX": 133.6666717529297
+    },
+    {
+      "value": 4,
+      "label": "4",
+      "lineX": 205.3333282470703,
+      "lineEndX": 205.3333282470703,
+      "labelX": 205.3333282470703
+    },
+    {
+      "value": 6,
+      "label": "6",
+      "lineX": 277,
+      "lineEndX": 277,
+      "labelX": 277
+    },
+    {
+      "value": 8,
+      "label": "8",
+      "lineX": 348.6666564941406,
+      "lineEndX": 348.6666564941406,
+      "labelX": 348.6666564941406
+    },
+    {
+      "value": 10,
+      "label": "10",
+      "lineX": 420.3333435058594,
+      "lineEndX": 420.3333435058594,
+      "labelX": 420.3333435058594
+    },
+    {
+      "value": 12,
+      "label": "12",
+      "lineX": 492,
+      "lineEndX": 492,
+      "labelX": 492
+    }
+  ],
+  "keyboardScroll": [
+    {
+      "label": "320px large proportionality data table",
+      "before": {
+        "left": 0,
+        "clientWidth": 256,
+        "scrollWidth": 390,
+        "viewport": 320,
+        "pageWidth": 320
+      },
+      "after": {
+        "left": 2,
+        "viewport": 320,
+        "pageWidth": 320,
+        "bodyWidth": 320
+      }
+    },
+    {
+      "label": "320px large proportionality graph",
+      "before": {
+        "left": 0,
+        "clientWidth": 254,
+        "scrollWidth": 480,
+        "viewport": 320,
+        "pageWidth": 320
+      },
+      "after": {
+        "left": 3,
+        "viewport": 320,
+        "pageWidth": 320,
+        "bodyWidth": 320
+      }
+    }
+  ],
+  "offline": {
+    "file": "app/test-results/foundations/Matek8_Offline_v0_2_0.html",
+    "export": "app/test-results/foundations/actual-offline-v0.2.0-export.json",
+    "completedLesson": "muveleti-sorrend",
+    "reloaded": true,
+    "httpRequests": 0
+  },
+  "finishedAt": "2026-11-06T13:32:42.192Z",
+  "passed": true
+}
