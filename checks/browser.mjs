@@ -136,6 +136,25 @@ async function scenario(name, run, viewport = { width: 1280, height: 900 }) {
 }
 
 try {
+  await scenario("Oldalváltás fókusza, címe és a gyakorlómód jelzése", async (page) => {
+    await visit(page);
+    assert.match(await page.title(), /Van benne logika/);
+    assert.notEqual(await page.evaluate(() => document.activeElement?.id), "main-content");
+    await page.locator('.nav-item[href="#gyakorlas"]').click();
+    await page.waitForFunction(() => document.activeElement?.id === "main-content");
+    assert.match(await page.title(), /Próbáld meg magad/);
+    await page.locator('.topic-pills a[href="#gyakorlas/tortek"]').click();
+    await page.waitForFunction(() => document.title.includes("Törtek"));
+    assert.equal(await page.locator('.topic-pills a[href="#gyakorlas/tortek"]').getAttribute("aria-current"), "page");
+    assert.equal(await page.getByRole("button", { name: /Alapfeladatok/ }).getAttribute("aria-pressed"), "true");
+    await page.getByRole("button", { name: "Új példák", exact: true }).click();
+    assert.equal(await page.getByRole("button", { name: "Új példák", exact: true }).getAttribute("aria-pressed"), "true");
+    const answer = page.locator('.exercise-card input[type="text"]').first();
+    await answer.fill("1/2");
+    assert.equal(await answer.evaluate(el => document.activeElement === el), true);
+    await page.goBack();
+    await page.waitForFunction(() => document.activeElement?.id === "main-content" && document.title.includes("Próbáld meg magad"));
+  });
   await scenario(
     "Almappás belépés, keresés, billentyűzet és teljes tématérkép",
     async (page) => {

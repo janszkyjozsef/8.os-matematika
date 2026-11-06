@@ -1,4 +1,4 @@
-# Fejlesztői útmutató — 0.3.0
+# Fejlesztői útmutató — 0.3.1
 
 ## Forrás és kiadás
 
@@ -27,7 +27,7 @@ A `build` a fejlesztői forrásból Vite-disztribúciót és verziózott önáll
 
 Az alkalmazás verziójának forrása az `app/package.json`; a lockfájl csomagverziójával együtt frissítendő. A `version.ts`, a portable fájlnév, a böngészőteszt offline fájlválasztása, a tartalmi snapshot és a release-manifest innen származik. A mentési séma külön érték: jelenleg 3. A 0.3.0 ciklusban a függőségverziók nem változtak; a friss `npm ci` ugyanazt a lockfájlt használja.
 
-A portable script `Matek8.contentSnapshot` néven stabil adat-exportot ad a beágyazott programból. A kiadásteszt ezt elkülönített, DOM és hálózat nélküli környezetben olvassa vissza, majd összeveti a TypeScript-forrás és a verziózott JSON adataival. Nem támaszkodik tömörítéskor véletlenszerűen létrejövő változónevekre. A `content/v0.1.0/` és `content/v0.2.0/` változatlan történeti referencia: az eredeti hat és a korábbi tíz lecke egyezését külön teszt őrzi. Az aktuális `content/v0.3.0/` a készségregisztert és a külön javító generátorok jegyzékét is tartalmazza.
+A portable script `Matek8.contentSnapshot` néven stabil adat-exportot ad a beágyazott programból. A kiadásteszt ezt elkülönített, DOM és hálózat nélküli környezetben olvassa vissza, majd összeveti a TypeScript-forrás és a verziózott JSON adataival. Nem támaszkodik tömörítéskor véletlenszerűen létrejövő változónevekre. A `content/v0.1.0/` és `content/v0.2.0/` változatlan történeti referencia: az eredeti hat és a korábbi tíz lecke egyezését külön teszt őrzi. Az aktuális `content/v0.3.1/` a készségregisztert és a külön javító generátorok jegyzékét is tartalmazza.
 
 A CI friss `npm ci` után matematikai és migrációs teszteket futtat, újrafordítja a forrást, majd **bájtra összeveti** a generált HTML-t a commitban szereplő gyökérbeli `index.html`-lel. Eltéréskor hibával megáll. A build és a teszt nem írhatja át észrevétlenül a vizsgált, commitolt kiadást.
 
@@ -58,3 +58,5 @@ A saját szöveghez önellenőrzési szempontok tartoznak. A gép nem jelöl ind
 A meglévő lockfájl csomagverziói megmaradtak. Az önálló HTML Preactot, saját programot, stílusokat és SVG-ábrákat tartalmaz. A Preact pontos licence a HTML-be és a `THIRD_PARTY_NOTICES.md` fájlba is bekerül; a build ellenőrzi, hogy a jegyzék tartalmazza a telepített licencszöveget. A jegyzéket nem írja felül egy korábbi sablonnal.
 
 A CI publikus repóban standard `ubuntu-latest` futtatót használ. Nem igényel új előfizetést, felhasználói API-kulcsot vagy külső AI-szolgáltatást. A Pages első engedélyezése külön jogosultsági kérdés; lásd az [élesítési útmutatót](ELESITES.md).
+
+A 0.3.1-től a `.gitattributes` az LF-sortörést a Windows checkoutban is megőrzi. Kiadás-ellenőrzőösszeg eltérésekor ne lazítsd a tesztet: ellenőrizd a tényleges fájlbájtokat és a Git-attribútumokat.

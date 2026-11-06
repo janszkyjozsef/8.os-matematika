@@ -1,8 +1,10 @@
 # Matek8 — Értsd is!
 
-Magyar nyelvű matematikai tanulóoldal, elsősorban nyolcadikosoknak. A **0.3.0** kiadás tizennégy bejárható tanulási utat tartalmaz, magyarázatokkal, interaktív műhelyekkel, fokozatos segítséggel és helyi haladásmentéssel. Az új készségnapló a valódi ellenőrzésekből ad visszajelzést, a célzott gyakorlás pedig egy elakadás után új feladathoz vezet.
+Magyar nyelvű matematikai tanulóoldal, elsősorban nyolcadikosoknak. A **0.3.1** kiadás tizennégy bejárható tanulási utat tartalmaz, magyarázatokkal, interaktív műhelyekkel, fokozatos segítséggel és helyi haladásmentéssel. Az új készségnapló a valódi ellenőrzésekből ad visszajelzést, a célzott gyakorlás pedig egy elakadás után új feladathoz vezet.
 
 A leckemenet: **Jósolj → Próbáld ki → Értsd meg → Nézd a példát → Gyakorolj → Önálló próba.**
+
+A 0.3.1 javítja a befogó számításának rövid magyarázatát, az oldalváltás utáni billentyűzetes fókuszt és a gyakorlómódok akadálymentes jelzését. A kiadás Windows alatt is változatlan bájtokkal tölthető le a repóból.
 
 ## Mi használható?
 
@@ -41,7 +43,7 @@ A részletes napló a legutóbbi legfeljebb 2000 eltérő ellenőrzést őrzi, h
 
 Az [index.html](index.html) az önálló, minden szükséges programot és stílust tartalmazó kiadás. Letöltve és böngészőben megnyitva internet nélkül működik. Nem kell fiók, külső betűkészlet, matematikai CDN vagy AI API. A beépített CSP a hálózati adatküldést is tiltja (`connect-src 'none'`).
 
-A haladás az adott böngészőben tárolódik. Fájlba exportálható, importáláskor előnézet és külön megerősítés jelenik meg. A régi, hat- és tízleckés mentések megőrző migrációval használhatók: a régi eredmények megmaradnak, az új leckék üresen indulnak. Az alkalmazás verziója 0.3.0, az adatsémáé külön 3. Sérült mentést az oldal nem töröl automatikusan. A vendégmód, a nagyobb betűk és a nyugodt nézet továbbra is elérhető.
+A haladás az adott böngészőben tárolódik. Fájlba exportálható, importáláskor előnézet és külön megerősítés jelenik meg. A régi, hat- és tízleckés mentések megőrző migrációval használhatók: a régi eredmények megmaradnak, az új leckék üresen indulnak. Az alkalmazás verziója 0.3.1, az adatsémáé külön 3. Sérült mentést az oldal nem töröl automatikusan. A vendégmód, a nagyobb betűk és a nyugodt nézet továbbra is elérhető.
 
 A tervezett [GitHub Pages-cím](https://janszkyjozsef.github.io/8.os-matematika/) állapotát a [kiadási állapotjelentés](docs/ALLAPOT.md) rögzíti. A sikeres kódfeltöltés és ellenőrzés önmagában nem bizonyít éles publikálást.
 
@@ -80,7 +82,7 @@ A `release` parancs típusellenőrzést, Vite-buildet és önálló HTML-t kész
 | `app/scripts/portable.mjs` | Önálló offline HTML készítése a forrásból |
 | `scripts/release.mjs` | Ellenőrzött build kiemelése a repó gyökerébe és tartalmi snapshot |
 | `index.html`, `release-manifest.json` | Összetartozó publikálható kiadás és azonosítóadatok |
-| `content/v0.3.0/` | Generált leckék, tématérkép, általános és javító generátorjegyzék, készségregiszter |
+| `content/v0.3.1/` | Generált leckék, tématérkép, általános és javító generátorjegyzék, készségregiszter |
 | `content/v0.2.0/` | Változatlan történeti referencia a korábbi tíz leckéhez |
 | `content/v0.1.0/` | Változatlan történeti tananyag; az eredeti hat lecke megőrzésének referenciája |
 | `checks/`, `.github/workflows/` | Kiadásegyezés, böngészős vizsgálatok és feltételes Pages-telepítés |

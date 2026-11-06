@@ -1,0 +1,41 @@
+{
+  "version": "0.3.1",
+  "htmlSha256": "839c787ef8187dcd447e6389f2ba0c1784678f32ed8b8dd2929baaa35d3ae494",
+  "bytes": 796746,
+  "sourceTests": 168,
+  "releaseTests": 9,
+  "suites": [
+    {
+      "name": "source",
+      "checks": 18,
+      "accessibilityStates": 13,
+      "browser": "147.0.7727.139",
+      "reportSha256": "f426980e4a08fc4525c2682510c2a0c8e339d69748d2671e5a2ffd5d88803324"
+    },
+    {
+      "name": "release",
+      "checks": 13,
+      "accessibilityStates": 9,
+      "browser": "147.0.7727.139",
+      "reportSha256": "9b95ee42a6f9b0083c95c4d4077d009aa5daf4ab37bea4ab66f61020e70a4710"
+    },
+    {
+      "name": "foundations",
+      "checks": 26,
+      "accessibilityStates": 8,
+      "browser": "147.0.7727.139",
+      "reportSha256": "35f03f95d004f92be834725f0cf59b89046259b3948dec3ee1b6e7444c0ac951"
+    },
+    {
+      "name": "bridges",
+      "checks": 22,
+      "accessibilityStates": 7,
+      "browser": "147.0.7727.139",
+      "reportSha256": "b71b535e2b7fc6ffef76eb6dcf6c683610b855edac9ae8784ad47ed25368a8d8"
+    }
+  ],
+  "limits": [
+    "Windows Chromium only, not physical phones or screen-reader certification",
+    "No teacher or student efficacy study"
+  ]
+}

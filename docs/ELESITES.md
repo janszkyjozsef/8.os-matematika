@@ -8,6 +8,8 @@ Az ellenőrzési job friss `npm ci` telepítést végez az `app/` lockfájljáb�
 
 ## Egyszeri beállítás a repó tulajdonosának
 
+**2026. november 6-án elvégezve:** a Source GitHub Actions értékre váltott, újratöltés után is megmaradt. Az alábbi lépések helyreállítási útmutatóként maradnak.
+
 1. Nyisd meg: **[Settings → Pages](https://github.com/janszkyjozsef/8.os-matematika/settings/pages)**.
 2. A **Build and deployment → Source** mezőben válaszd a **GitHub Actions** lehetőséget.
 3. Nyisd meg a [Matek8 ellenőrzés és közzététel](https://github.com/janszkyjozsef/8.os-matematika/actions/workflows/check-and-publish.yml) workflow-t, és indítsd a **Run workflow** művelettel a `main` ágon. Egy következő rendes commit is elindítja.

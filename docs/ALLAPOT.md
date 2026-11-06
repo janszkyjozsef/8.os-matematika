@@ -1,4 +1,16 @@
-# Megvalósítási állapot — 0.3.0
+# Megvalósítási állapot — 0.3.1
+
+**2026. november 6.** A 0.3.0 tananyaga és készségnaplója megmaradt. A javító kiadás pontosítja a Pitagorasz-befogó rövid magyarázatát, oldalváltáskor a főtartalomra helyezi a fókuszt és frissíti a lap címét. A gyakorlómód és az aktív téma képernyőolvasóval is azonosítható; a választómezők és hosszabb válaszok fókuszkerete egységes.
+
+A `.gitattributes` LF-sortörést ír elő: Windows Git-letöltéskor sem változhatnak a kiadás bájtjai. A fejlesztői belépő beágyazott ikont kapott, így nem kér hiányzó favicon-fájlt. A 0.3.0 tartalmi másolata változatlan történeti referencia; a jelenlegi adatok a `content/v0.3.1/` alatt vannak. A mentési séma továbbra is 3.
+
+A GitHub Pages első bekapcsolása megtörtént, a Source értéke **GitHub Actions**, újratöltés után is. Az adott kiadás publikációját a sikeres ellenőrzési és telepítési job, valamint az élő oldal visszaolvasása bizonyítja. Az alább megőrzött 0.3.0-s szakaszok kikapcsolt Pages-állapota történeti adat.
+
+Aktuális kiadási ellenőrzés: [ELLENORZES_0.3.1.md](ELLENORZES_0.3.1.md).
+
+---
+
+# A 0.3.0 fejlesztési ciklus megőrzött állapota
 
 **Dátum: 2026. november 6.**
 

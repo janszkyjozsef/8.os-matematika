@@ -1,5 +1,5 @@
 import { render } from "preact";
-import { useEffect, useState } from "preact/hooks";
+import { useEffect, useLayoutEffect, useRef, useState } from "preact/hooks";
 import type { ComponentChildren } from "preact";
 import { lessons } from "./content/lessons.ts";
 import { Lab, initialLabState } from "./interactives/Lab.tsx";
@@ -648,6 +648,7 @@ function App() {
   const [guest, setGuest] = useState(false);
   const [savedProfile, setSavedProfile] = useState<Profile | null>(null);
   const [route, setRoute] = useState(getRoute);
+  const previousRoute = useRef(route);
   const change: Change = (fn) =>
     setProfile((before) => {
       const next = {
@@ -690,6 +691,16 @@ function App() {
   }, [profile.settings]);
   const page = route[0] || "felfedezes";
   const lesson = byId(route[1]);
+  useLayoutEffect(() => {
+    const main = document.getElementById("main-content");
+    const heading = main?.querySelector("h1");
+    const pageTitle = heading?.innerText?.replace(/\s+/g, " ").trim();
+    document.title = `${lesson?.title || pageTitle || "Felfedezés"} · Matek8 — Értsd is!`;
+    if (previousRoute.current !== route) {
+      main?.focus({ preventScroll: true });
+    }
+    previousRoute.current = route;
+  }, [route]);
   const nav = [
     ["felfedezes", "home", "Felfedezés"],
     ["tematerkep", "map", "Tématérkép"],
@@ -1941,12 +1952,14 @@ function TopicPractice({
         <div class="segmented">
           <button
             class={!p.generatedMode ? "selected" : ""}
+            aria-pressed={!p.generatedMode}
             onClick={() => set({ generatedMode: false })}
           >
             Alapfeladatok · {lesson.practice.length}
           </button>
           <button
             class={p.generatedMode ? "selected" : ""}
+            aria-pressed={p.generatedMode}
             onClick={() => set({ generatedMode: true })}
           >
             Új példák
@@ -2044,13 +2057,14 @@ function PracticePage({
       </div>
       <LearningPanel profile={profile} compact />
       <nav class="topic-pills" aria-label="Gyakorlás témája">
-        <a href="#gyakorlas" class={!selected ? "selected" : ""}>
+        <a href="#gyakorlas" class={!selected ? "selected" : ""} aria-current={!selected ? "page" : undefined}>
           Vegyes műhely
         </a>
         {lessons.map((l) => (
           <a
             href={`#gyakorlas/${l.id}`}
             class={selected?.id === l.id ? "selected" : ""}
+            aria-current={selected?.id === l.id ? "page" : undefined}
           >
             {l.shortTitle}
           </a>

@@ -1,0 +1,494 @@
+[
+  {
+    "id": "szamok-helye",
+    "topic": "szamfogalom",
+    "title": "Számok helye és sorrendje",
+    "explanation": "A számot az értéke alapján rendezd; negatív számoknál a nullától mért távolság önmagában nem mondja meg a sorrendet.",
+    "checkpoints": [
+      "Melyik szám van jobbra a számegyenesen?",
+      "A tört és tizedes alak ugyanazt az értéket jelöli?"
+    ],
+    "lessonHref": "#lecke/szamfogalom?lepes=2",
+    "labHref": "#lecke/szamfogalom?lepes=1"
+  },
+  {
+    "id": "ellentett",
+    "topic": "szamfogalom",
+    "title": "Az ellentett felismerése",
+    "explanation": "Az ellentett az a szám, amelyet az eredetihez adva nullát kapsz. Ez különbözik az abszolút értéktől.",
+    "checkpoints": [
+      "Az eredeti szám és válaszod összege nulla?",
+      "A nulla ellentettjét is ellenőrizted?"
+    ],
+    "lessonHref": "#lecke/szamfogalom?lepes=2",
+    "labHref": "#lecke/szamfogalom?lepes=1"
+  },
+  {
+    "id": "abszolut-tavolsag",
+    "topic": "szamfogalom",
+    "title": "Abszolút érték és távolság",
+    "explanation": "A távolság nemnegatív. Két szám távolságához a különbség abszolút értékét keresd.",
+    "checkpoints": [
+      "Mely két pont távolságáról van szó?",
+      "Lehet-e a kapott távolság negatív?"
+    ],
+    "lessonHref": "#lecke/szamfogalom?lepes=2",
+    "labHref": "#lecke/szamfogalom?lepes=1"
+  },
+  {
+    "id": "elojeles-muveletek",
+    "topic": "szamfogalom",
+    "title": "Műveletek előjeles számokkal",
+    "explanation": "Kivonáskor a kivonandó ellentettjét add hozzá; a művelet jelét és a szám előjelét külön olvasd.",
+    "checkpoints": [
+      "Melyik számot vonjuk ki?",
+      "Visszahelyettesítéssel vagy ellentétes művelettel ellenőrizted?"
+    ],
+    "lessonHref": "#lecke/szamfogalom?lepes=2",
+    "labHref": "#lecke/szamfogalom?lepes=1"
+  },
+  {
+    "id": "muveleti-rang",
+    "topic": "muveleti-sorrend",
+    "title": "Műveleti rang és jogos kezdőlépés",
+    "explanation": "Azonos szinten a szorzás és osztás, illetve az összeadás és kivonás balról jobbra kapcsolódik. A független ágak több sorrendben is számolhatók.",
+    "checkpoints": [
+      "Mi számolható ki a többi rész eredménye nélkül?",
+      "Az egész kifejezést írtad tovább?"
+    ],
+    "lessonHref": "#lecke/muveleti-sorrend?lepes=2",
+    "labHref": "#lecke/muveleti-sorrend?lepes=1"
+  },
+  {
+    "id": "zarojeles-szerkezet",
+    "topic": "muveleti-sorrend",
+    "title": "A zárójel szerkezete",
+    "explanation": "A zárójel egyben tart egy részszámítást. Külön vizsgáld, mire vonatkozik egy szorzó vagy osztó.",
+    "checkpoints": [
+      "A zárójel teljes tartalma egy tagként szerepel?",
+      "Az osztó biztosan nem nulla?"
+    ],
+    "lessonHref": "#lecke/muveleti-sorrend?lepes=2",
+    "labHref": "#lecke/muveleti-sorrend?lepes=1"
+  },
+  {
+    "id": "negyzet-es-elojel",
+    "topic": "muveleti-sorrend",
+    "title": "Négyzet és előtte álló mínusz",
+    "explanation": "A −a² és a (−a)² különböző szerkezet. Előbb nevezd meg a hatvány alapját.",
+    "checkpoints": [
+      "Mi tartozik a hatvány alapjába?",
+      "A négyzet kiszámítása után marad külső mínusz?"
+    ],
+    "lessonHref": "#lecke/muveleti-sorrend?lepes=2",
+    "labHref": "#lecke/muveleti-sorrend?lepes=1"
+  },
+  {
+    "id": "egyenes-aranyossag",
+    "topic": "aranyossag",
+    "title": "Állandó arány és egységre jutó érték",
+    "explanation": "Egyenes arányosságnál az összetartozó nem nulla értékek hányadosa állandó, és nulla bemenethez nulla kimenet tartozik.",
+    "checkpoints": [
+      "Ugyanaz marad az egységár vagy más egységre jutó mennyiség?",
+      "Legalább több adatpárt és a történet feltételeit is vizsgáltad?"
+    ],
+    "lessonHref": "#lecke/aranyossag?lepes=2",
+    "labHref": "#lecke/aranyossag?lepes=1"
+  },
+  {
+    "id": "forditott-aranyossag",
+    "topic": "aranyossag",
+    "title": "Állandó szorzat",
+    "explanation": "Rögzített teljes munkánál vagy útnál a megfelelő két mennyiség szorzata marad állandó, ha a modell feltételei teljesülnek.",
+    "checkpoints": [
+      "Mi a rögzített teljes mennyiség?",
+      "A létszám és a munka oszthatóságának feltételei teljesülnek?"
+    ],
+    "lessonHref": "#lecke/aranyossag?lepes=2",
+    "labHref": "#lecke/aranyossag?lepes=1"
+  },
+  {
+    "id": "aranyossag-feltetelei",
+    "topic": "aranyossag",
+    "title": "Az arányosság feltételei és ellenpéldái",
+    "explanation": "A kétszeres bemenet nem mindig jelent kétszeres kimenetet. Alapdíj, előkészítési idő vagy két irányú nagyítás megváltoztatja az összefüggést.",
+    "checkpoints": [
+      "Van állandó alapdíj vagy nem rövidíthető rész?",
+      "Hányadossal vagy szorzattal is ellenőrizted a feltételezést?"
+    ],
+    "lessonHref": "#lecke/aranyossag?lepes=2",
+    "labHref": "#lecke/aranyossag?lepes=1"
+  },
+  {
+    "id": "mertek-egysegek",
+    "topic": "mertekegysegek",
+    "title": "Mennyiség és megfelelő egység",
+    "explanation": "Előbb nevezd meg, mit mérsz, majd válassz közös egységet. Az egységváltás nem változtatja meg a mennyiséget; különböző mennyiségek között további adat kell.",
+    "checkpoints": [
+      "Azonos mennyiséget fejezel ki más egységben?",
+      "A mérőszám változásának iránya illik az egység méretéhez?"
+    ],
+    "lessonHref": "#lecke/mertekegysegek?lepes=2",
+    "labHref": "#lecke/mertekegysegek?lepes=1"
+  },
+  {
+    "id": "mertek-terulet-terfogat",
+    "topic": "mertekegysegek",
+    "title": "Terület, térfogat és több irányú váltás",
+    "explanation": "Területnél két, térfogatnál három irányban érvényesül a hosszúság váltószáma. A liter térfogategység.",
+    "checkpoints": [
+      "Két vagy három kiterjedési irányt számolsz?",
+      "Az eredmény mértékegysége és nagysága is illik a helyzethez?"
+    ],
+    "lessonHref": "#lecke/mertekegysegek?lepes=2",
+    "labHref": "#lecke/mertekegysegek?lepes=1"
+  },
+  {
+    "id": "mertek-ido-sebesseg",
+    "topic": "mertekegysegek",
+    "title": "Idő és összetett egységek",
+    "explanation": "Az órát 60 percre bontjuk, nem százra. Sebességváltásnál a számláló és a nevező egységét is váltsd át.",
+    "checkpoints": [
+      "Tizedes órát vagy óra–perc alakot olvasol?",
+      "Mindkét egységet átváltottad a hányadosban?"
+    ],
+    "lessonHref": "#lecke/mertekegysegek?lepes=2",
+    "labHref": "#lecke/mertekegysegek?lepes=1"
+  },
+  {
+    "id": "tort-egysege",
+    "topic": "tortek",
+    "title": "A tört egésze és közös egysége",
+    "explanation": "A törtek összehasonlításához és összeadásához ugyanazt az egészet, majd azonos részegységet kell megnevezni.",
+    "checkpoints": [
+      "Ugyanarra az egészre vonatkoznak a törtek?",
+      "Bővítéskor a számlálót és nevezőt ugyanazzal szoroztad?"
+    ],
+    "lessonHref": "#lecke/tortek?lepes=2",
+    "labHref": "#lecke/tortek?lepes=1"
+  },
+  {
+    "id": "tort-osszeadas",
+    "topic": "tortek",
+    "title": "Törtek összeadása és kivonása",
+    "explanation": "Közös nevező után az azonos méretű részek számát add össze vagy vond ki; a végén egyszerűsíts.",
+    "checkpoints": [
+      "A részek mérete azonos lett?",
+      "Becsléssel is hihető az összeg vagy különbség?"
+    ],
+    "lessonHref": "#lecke/tortek?lepes=2",
+    "labHref": "#lecke/tortek?lepes=1"
+  },
+  {
+    "id": "tort-szorzas-osztas",
+    "topic": "tortek",
+    "title": "Törtrész és mérésosztás",
+    "explanation": "A rész egy részét szorzással, a két hossz arányát osztással keresd. Az arány és a levágható egész darabok száma külön kérdés.",
+    "checkpoints": [
+      "Mit jelent a művelet a történetben?",
+      "Arányt vagy egész darabszámot kérdez a feladat?"
+    ],
+    "lessonHref": "#lecke/tortek?lepes=2",
+    "labHref": "#lecke/tortek?lepes=1"
+  },
+  {
+    "id": "szazalek-resz",
+    "topic": "szazalek",
+    "title": "Rész és százalék összekapcsolása",
+    "explanation": "Az alap az adott helyzet 100%-a. A rész és az alap hányadosából százalékot, a százalékból részt számolhatsz.",
+    "checkpoints": [
+      "Megnevezted a 100%-ot?",
+      "Az arányt százalékká alakítottad?"
+    ],
+    "lessonHref": "#lecke/szazalek?lepes=2",
+    "labHref": "#lecke/szazalek?lepes=1"
+  },
+  {
+    "id": "szazalek-alap",
+    "topic": "szazalek",
+    "title": "Az eredeti alap visszakeresése",
+    "explanation": "Ha egy megváltozott vagy részérték adott, azt az eredeti alaphoz tartozó szorzótényezővel oszd.",
+    "checkpoints": [
+      "Az ismert érték az alap hány százaléka?",
+      "Visszaszorzással kijön az adott rész?"
+    ],
+    "lessonHref": "#lecke/szazalek?lepes=2",
+    "labHref": "#lecke/szazalek?lepes=1"
+  },
+  {
+    "id": "szazalek-valtozas",
+    "topic": "szazalek",
+    "title": "Változó százalékalap",
+    "explanation": "Egymást követő változásoknál a második százalék már a megváltozott értékre vonatkozik.",
+    "checkpoints": [
+      "Melyik az egyes lépések 100%-a?",
+      "Azonos százalékos csökkentés és emelés valóban visszaadná az alapot?"
+    ],
+    "lessonHref": "#lecke/szazalek?lepes=2",
+    "labHref": "#lecke/szazalek?lepes=1"
+  },
+  {
+    "id": "egyenlet-megoldas",
+    "topic": "egyenlet",
+    "title": "Egyenlet megoldása és ellenőrzése",
+    "explanation": "Visszafordítható lépésekkel keresd az ismeretlent; a végén az eredeti egyenletbe helyettesíts.",
+    "checkpoints": [
+      "A zárójel minden tagjára érvényes a szorzó?",
+      "Az eredeti két oldal értéke megegyezik a kapott számmal?"
+    ],
+    "lessonHref": "#lecke/egyenlet?lepes=2",
+    "labHref": "#lecke/egyenlet?lepes=1"
+  },
+  {
+    "id": "egyenlet-egyensuly",
+    "topic": "egyenlet",
+    "title": "Jogos egyenletátalakítás",
+    "explanation": "Mindkét oldalon ugyanazt a megengedett műveletet végezd. Egy lépés akkor használható megoldáskeresésre, ha nem veszíted el a szükséges információt.",
+    "checkpoints": [
+      "Mindkét oldalon megtörtént ugyanaz a művelet?",
+      "Elveszítenél információt nullával szorozva vagy osztva?"
+    ],
+    "lessonHref": "#lecke/egyenlet?lepes=2",
+    "labHref": "#lecke/egyenlet?lepes=1"
+  },
+  {
+    "id": "grafikon-adatpar",
+    "topic": "grafikon",
+    "title": "Történet, értékpár és koordináta",
+    "explanation": "Nevezd meg a két tengely mennyiségét és egységét, majd ugyanahhoz a helyzethez rendeld a koordinátákat.",
+    "checkpoints": [
+      "Mit jelent az x és mit az y?",
+      "Az alapdíj vagy kezdőérték is szerepel a szabályban?"
+    ],
+    "lessonHref": "#lecke/grafikon?lepes=2",
+    "labHref": "#lecke/grafikon?lepes=1"
+  },
+  {
+    "id": "grafikon-valtozas",
+    "topic": "grafikon",
+    "title": "Kezdőérték és egyenletes változás",
+    "explanation": "Az egy lépéshez tartozó változást különítsd el a kezdőértéktől; két adatpár különbsége segít.",
+    "checkpoints": [
+      "Mennyi változás jut egy egységnyi x-re?",
+      "Mit ad a szabály x = 0 esetén?"
+    ],
+    "lessonHref": "#lecke/grafikon?lepes=2",
+    "labHref": "#lecke/grafikon?lepes=1"
+  },
+  {
+    "id": "grafikon-aranyossag",
+    "topic": "grafikon",
+    "title": "Egyenes grafikon és arányosság",
+    "explanation": "Egy egyenes önmagában nem bizonyít egyenes arányosságot. Az origón való áthaladást és az állandó hányadost is vizsgáld.",
+    "checkpoints": [
+      "A grafikon átmegy az origón?",
+      "A teljes mennyiséget vagy csak a változó részt hasonlítod?"
+    ],
+    "lessonHref": "#lecke/grafikon?lepes=2",
+    "labHref": "#lecke/grafikon?lepes=1"
+  },
+  {
+    "id": "pitagorasz-feltetel",
+    "topic": "pitagorasz",
+    "title": "Derékszög és átfogó felismerése",
+    "explanation": "A Pitagorasz-tétel alkalmazásához derékszögű háromszög kell. Az átfogó a derékszöggel szemközti oldal.",
+    "checkpoints": [
+      "Biztosan ismert a derékszög?",
+      "Az átfogót a derékszög alapján jelölted ki?"
+    ],
+    "lessonHref": "#lecke/pitagorasz?lepes=2",
+    "labHref": "#lecke/pitagorasz?lepes=1"
+  },
+  {
+    "id": "pitagorasz-atfogo",
+    "topic": "pitagorasz",
+    "title": "Átfogó és négyzetterületek",
+    "explanation": "A befogókra épített négyzetek területét összeadva az átfogó négyzetét kapod; hosszkérésnél ezután gyököt kell vonni.",
+    "checkpoints": [
+      "Hosszt vagy négyzetterületet kérdez a feladat?",
+      "Az átfogó hosszabb mindkét befogónál?"
+    ],
+    "lessonHref": "#lecke/pitagorasz?lepes=2",
+    "labHref": "#lecke/pitagorasz?lepes=1"
+  },
+  {
+    "id": "pitagorasz-befogo",
+    "topic": "pitagorasz",
+    "title": "Hiányzó befogó",
+    "explanation": "Az ismert átfogó négyzetéből a másik befogó négyzetét kivonva kapod a hiányzó befogó négyzetét.",
+    "checkpoints": [
+      "Az átfogó négyzetéből vonsz ki?",
+      "A három oldal visszahelyettesítve teljesíti a tételt?"
+    ],
+    "lessonHref": "#lecke/pitagorasz?lepes=2",
+    "labHref": "#lecke/pitagorasz?lepes=1"
+  },
+  {
+    "id": "esely-elemi-esemenyek",
+    "topic": "valoszinuseg",
+    "title": "Elemi kimenetelek és esély",
+    "explanation": "Egyenlő esélyű elemi kimeneteleket számolj. A kedvező kimenetelek számát az összeshez viszonyítsd.",
+    "checkpoints": [
+      "Az elemi kimenetelek valóban egyenlő esélyűek?",
+      "Pontosan mely kimenetelek kedvezők?"
+    ],
+    "lessonHref": "#lecke/valoszinuseg?lepes=2",
+    "labHref": "#lecke/valoszinuseg?lepes=1"
+  },
+  {
+    "id": "esely-es-kiserlet",
+    "topic": "valoszinuseg",
+    "title": "Elméleti esély és megfigyelt gyakoriság",
+    "explanation": "A feljegyzett gyakoriságot a tényleges kísérletszámból számoljuk; az elméleti esély nem ígér rögzített darabszámot egy rövid sorozatban.",
+    "checkpoints": [
+      "Megfigyelést vagy modellbeli esélyt kérdezünk?",
+      "A korábbi dobások megváltoztatják a független következő dobást?"
+    ],
+    "lessonHref": "#lecke/valoszinuseg?lepes=2",
+    "labHref": "#lecke/valoszinuseg?lepes=1"
+  },
+  {
+    "id": "betu-helyettesites",
+    "topic": "betus-kifejezesek",
+    "title": "Helyettesítés betűs kifejezésbe",
+    "explanation": "A betű minden előfordulásába ugyanazt az adott értéket helyettesítsd; negatív értéket zárójellel írj.",
+    "checkpoints": [
+      "Minden azonos betű ugyanazt az értéket kapta?",
+      "A műveleti sorrendet az értékek beírása után is megtartottad?"
+    ],
+    "lessonHref": "#lecke/betus-kifejezesek?lepes=2",
+    "labHref": "#lecke/betus-kifejezesek?lepes=1"
+  },
+  {
+    "id": "egynemu-tagok",
+    "topic": "betus-kifejezesek",
+    "title": "Egynemű tagok összevonása",
+    "explanation": "Csak azonos betűs részt tartalmazó tagok együtthatói vonhatók össze közvetlenül.",
+    "checkpoints": [
+      "Pontosan azonos a betűs rész?",
+      "Az összevonás után ugyanazt az értéket adja egy próbahelyettesítés?"
+    ],
+    "lessonHref": "#lecke/betus-kifejezesek?lepes=2",
+    "labHref": "#lecke/betus-kifejezesek?lepes=1"
+  },
+  {
+    "id": "zarojel-felbontas",
+    "topic": "betus-kifejezesek",
+    "title": "Zárójel felbontása",
+    "explanation": "A zárójel előtti szorzó minden belső tagra vonatkozik; negatív szorzónál az előjelekre is figyelj.",
+    "checkpoints": [
+      "Minden tag kapott szorzót?",
+      "Visszacsoportosítással vagy helyettesítéssel ellenőrizted?"
+    ],
+    "lessonHref": "#lecke/betus-kifejezesek?lepes=2",
+    "labHref": "#lecke/betus-kifejezesek?lepes=1"
+  },
+  {
+    "id": "adatok-es-feltetelek",
+    "topic": "szoveges-modellek",
+    "title": "Adatok és feltételek kiválasztása",
+    "explanation": "Előbb nevezd meg a kérdést, a szükséges adatokat és azt, amit a történet feltételez.",
+    "checkpoints": [
+      "Melyik adat kapcsolódik közvetlenül a kérdéshez?",
+      "Egész darabszámra vagy más értelmezési feltételre szükség van?"
+    ],
+    "lessonHref": "#lecke/szoveges-modellek?lepes=2",
+    "labHref": "#lecke/szoveges-modellek?lepes=1"
+  },
+  {
+    "id": "modellvalasztas",
+    "topic": "szoveges-modellek",
+    "title": "Matematikai modell választása",
+    "explanation": "A történet kapcsolatait fejezd ki művelettel, kifejezéssel vagy egyenlettel; a választást indokold a helyzettel.",
+    "checkpoints": [
+      "Mit jelent minden tag a történetben?",
+      "Egyszeri és ismétlődő mennyiséget külön kezeltél?"
+    ],
+    "lessonHref": "#lecke/szoveges-modellek?lepes=2",
+    "labHref": "#lecke/szoveges-modellek?lepes=1"
+  },
+  {
+    "id": "modell-ellenorzes",
+    "topic": "szoveges-modellek",
+    "title": "A modell és az eredmény ellenőrzése",
+    "explanation": "A kapott értéket tedd vissza az eredeti helyzetbe. Egy kiszámolt szám csak akkor válasz, ha a feltételeknek is megfelel.",
+    "checkpoints": [
+      "A szám megfelel az eredeti kérdésnek és egységnek?",
+      "Egész darabszám vagy becslés esetén az irány is megfelelő?"
+    ],
+    "lessonHref": "#lecke/szoveges-modellek?lepes=2",
+    "labHref": "#lecke/szoveges-modellek?lepes=1"
+  },
+  {
+    "id": "hatvany-jelentes",
+    "topic": "hatvanyok",
+    "title": "A hatvány jelentése",
+    "explanation": "Pozitív egész kitevőnél a hatvány az azonos alap ismételt szorzata; az alap és a kitevő szerepe különbözik.",
+    "checkpoints": [
+      "Hány tényezőt írtál fel?",
+      "Szorzást és ismételt összeadást megkülönböztettél?"
+    ],
+    "lessonHref": "#lecke/hatvanyok?lepes=2",
+    "labHref": "#lecke/hatvanyok?lepes=1"
+  },
+  {
+    "id": "hatvany-elojel",
+    "topic": "hatvanyok",
+    "title": "A hatvány előjele",
+    "explanation": "Negatív alapnál a kitevő párossága számít; a hatvány elé írt mínusz külön művelet.",
+    "checkpoints": [
+      "A mínusz az alap része vagy kívül áll?",
+      "Páros vagy páratlan számú negatív tényeződ van?"
+    ],
+    "lessonHref": "#lecke/hatvanyok?lepes=2",
+    "labHref": "#lecke/hatvanyok?lepes=1"
+  },
+  {
+    "id": "nagysagrend",
+    "topic": "hatvanyok",
+    "title": "Tízhatvány és nagyságrend",
+    "explanation": "A tíz hatványai a mérőszám helyi értékét és nagyságrendjét fejezik ki. Az egységet mindig nevezd meg.",
+    "checkpoints": [
+      "Melyik két tízhatvány között van az érték?",
+      "A helyi értékek változása és az egység is következetes?"
+    ],
+    "lessonHref": "#lecke/hatvanyok?lepes=2",
+    "labHref": "#lecke/hatvanyok?lepes=1"
+  },
+  {
+    "id": "negyzetgyok-jelentes",
+    "topic": "negyzetgyok",
+    "title": "A négyzetgyök jelentése",
+    "explanation": "A nemnegatív szám négyzetgyöke az a nemnegatív szám, amelynek a négyzete az eredeti érték.",
+    "checkpoints": [
+      "Nemnegatív eredményt választottál?",
+      "Négyzetre emelve visszakapod az eredeti értéket?"
+    ],
+    "lessonHref": "#lecke/negyzetgyok?lepes=2",
+    "labHref": "#lecke/negyzetgyok?lepes=1"
+  },
+  {
+    "id": "gyok-becsles",
+    "topic": "negyzetgyok",
+    "title": "Négyzetgyök becslése",
+    "explanation": "Két ismert négyzetszám közé szorítva a számot a gyökét két ismert érték közé helyezheted.",
+    "checkpoints": [
+      "Mely két négyzetszám közé esik a szám?",
+      "A becsült értéket négyzetre emelve is megfelelő a sorrend?"
+    ],
+    "lessonHref": "#lecke/negyzetgyok?lepes=2",
+    "labHref": "#lecke/negyzetgyok?lepes=1"
+  },
+  {
+    "id": "pontos-kozelito",
+    "topic": "negyzetgyok",
+    "title": "Pontos és közelítő érték",
+    "explanation": "A pontos gyökjel és a kerekített szám eltérő állítás. A közelítés jelét és a kért pontosságot tartsd meg.",
+    "checkpoints": [
+      "Pontos értéket vagy közelítést kérnek?",
+      "A kerekítés pontossága és a visszaellenőrzés összhangban van?"
+    ],
+    "lessonHref": "#lecke/negyzetgyok?lepes=2",
+    "labHref": "#lecke/negyzetgyok?lepes=1"
+  }
+]

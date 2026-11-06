@@ -307,7 +307,7 @@ try {
         await readFile(resolve(root, "release-manifest.json"), "utf8"),
       );
       assert.equal(manifest.version, meta.version);
-      assert.equal(meta.version, "0.3.0");
+      assert.equal(meta.version, JSON.parse(await readFile(resolve(appRoot, "package.json"), "utf8")).version);
       html = await readFile(resolve(root, "index.html"));
       offlinePath = resolve(appRoot, "release", manifest.offlineFile);
       assert.equal(digest(html), manifest.sha256);
