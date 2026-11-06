@@ -42,22 +42,9 @@ async function noOverflow(page, state) {
       for (let p=el.parentElement; p; p=p.parentElement) {
         if (['auto','scroll','hidden','clip'].includes(getComputedStyle(p).overflowX)) return [];
       }
-      const s=getComputedStyle(el);
-      return [{tag:el.tagName, class:el.className?.baseVal??el.className, right:r.right, width:r.width, font:s.font, display:s.display, minWidth:s.minWidth, whiteSpace:s.whiteSpace, text:el.textContent.slice(0,130)}];
+      return [{tag:el.tagName, class:el.className?.baseVal??el.className, right:r.right, width:r.width, text:el.textContent.slice(0,130)}];
     }).slice(0,20));
     console.log('LAYOUT_DIAGNOSTIC ' + state + ' ' + JSON.stringify(offenders));
-    for (const css of [
-      '.lab-root{overflow-wrap:anywhere}',
-      '.lesson-heading h1{overflow-wrap:anywhere}',
-      '.lab-legend>span{min-width:0;max-width:100%}',
-      '.lab-observation{overflow-wrap:anywhere}',
-      '.lesson-bottom-nav{flex-wrap:wrap}'
-    ]) {
-      const style=await page.addStyleTag({content:css});
-      const width=await page.evaluate(()=>document.documentElement.scrollWidth);
-      console.log('LAYOUT_PROBE '+JSON.stringify({css,width,viewport:sizes.view}));
-      await style.evaluate(el=>el.remove());
-    }
   }
   assert.ok(sizes.page <= sizes.view + 1, state + ': ' + JSON.stringify(sizes));
 }
@@ -230,9 +217,13 @@ try {
       assert.ok((await page.locator('html').getAttribute('class')).includes('large-text'));
       await noOverflow(page, 'settings-large');
       if (width === 320) await a11y(page, '320px beállítások nagy betűvel');
-      await visit(page, 'lecke/valoszinuseg'); await step(page, 1);
+      await visit(page);
+      await noOverflow(page, 'home-large');
+      for (const id of ['tortek','szazalek','egyenlet','grafikon','pitagorasz','valoszinuseg']) {
+        await visit(page, 'lecke/' + id); await step(page, 1);
+        await noOverflow(page, id + '-large');
+      }
       assert.equal(await page.locator('.lab-dice-cell').count(), 36);
-      await noOverflow(page, 'dice-large');
     }, { width, height:844 });
   }
 

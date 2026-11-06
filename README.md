@@ -2,7 +2,7 @@
 
 Magyar nyelvű matematikaműhely nyolcadikosoknak: érthető indoklás, kipróbálható összefüggések, sok gyakorlás és magyarázott hibajavítás.
 
-**Működő kiadás: v0.1.0, hat teljes tanulási úttal.** A teljes évfolyam tananyaga folyamatosan készül. A tématérkép 24 modult és 137 tervezett tanulási egységet mutat; ezek többsége még nincs megvalósítva.
+**Működő kiadás: v0.1.1, hat teljes tanulási úttal.** A teljes évfolyam tananyaga folyamatosan készül. A tématérkép 24 modult és 137 tervezett tanulási egységet mutat; ezek többsége még nincs megvalósítva.
 
 [Automatikus ellenőrzések](https://github.com/janszkyjozsef/8.os-matematika/actions/workflows/check-and-publish.yml) · [Részletes terv](docs/Matek8_Anyaggyujtes_es_Fejlesztesi_Terv_v1.md) · [Megvalósítási állapot](docs/ALLAPOT.md) · [Élesítés](docs/ELESITES.md)
 
@@ -53,7 +53,7 @@ Fejezetenként két kidolgozott példa, tizenkét gyakorlófeladat kétlépcsős
 
 | Útvonal | Tartalom |
 |---|---|
-| `index.html` | Az előző fejlesztési körben ellenőrzött, önálló v0.1.0 kiadás |
+| `index.html` | A v0.1.1 önálló kiadás: hat lecke és a nagybetűs mobilnézet célzott javítása |
 | `content/v0.1.0/` | A hat működő lecke teljes, olvasható tananyaga és a tématérkép JSON-másolata |
 | `release-manifest.json` | Verzió, bájtméret és SHA-256 ellenőrzőösszeg |
 | `checks/` | A kiadás és a tényleges böngészős működés automatikus ellenőrzése |

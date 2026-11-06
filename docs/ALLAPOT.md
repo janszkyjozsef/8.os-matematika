@@ -4,15 +4,27 @@
 
 ## Kész működő kiadás
 
-A v0.1.0 hat tanulási utat tartalmaz: törtek, százalék, egyenletek, grafikonok, Pitagorasz-tétel, valószínűség. A kiadás tananyagokat, feladatellenőrzést, segítséget, interaktív műhelyeket, mentést, vendégmódot és nyomtatást is tartalmaz.
+A v0.1.1 hat tanulási utat tartalmaz: törtek, százalék, egyenletek, grafikonok, Pitagorasz-tétel, valószínűség. A kiadás tananyagokat, feladatellenőrzést, segítséget, interaktív műhelyeket, mentést, vendégmódot és nyomtatást is tartalmaz.
 
-A GitHubra feltöltött `index.html` bájtra megegyezik a korábban ellenőrzött önálló HTML-lel:
+Az első GitHubra feltöltött v0.1.0 `index.html` bájtra megegyezett a korábban ellenőrzött önálló HTML-lel:
 
 - Méret: **310 311 bájt**.
 - SHA-256: `96b78a9e5a4ccab45de34afc5193d3f051b28ebf1b05782476c01ae1938f6aff`.
 - Első repócommit: `902b97ae2ccc4bc90037fd4dadc5a60bc87e4e24`.
 
 A kiadásból a hat lecke teljes tananyagát és a tématérképet olvasható JSON-másolatként is visszanyertük a `content/v0.1.0/` könyvtárba. Az új tartalmi teszt ellenőrzi, hogy ezek megegyeznek a kiadásban használt adatokkal. Ez nem azonos a teljes moduláris fejlesztői forrás importjával.
+
+## A v0.1.1 célzott javítása
+
+A GitHubon futó böngészős vizsgálat 320 képpontos szélességnél, nagyobb betűkkel 354 képpontos oldalszélességet mért a valószínűségi leckében. A DOM-diagnózis a leckecímet tartalmazó fejléc túl nagy minimális szélességét mutatta. A `.lesson-heading h1 { overflow-wrap: anywhere; }` szabály kipróbálva 320 képpontra csökkentette az oldal szélességét, a tartalom elrejtése és a betűméret csökkentése nélkül.
+
+A szabály bekerült az alkalmazásba. A tananyag és a matematikai logika változatlan; az alkalmazás verziójelzése 0.1.1. A visszanyert `content/v0.1.0/` tartalmi másolat továbbra is megegyezik a kiadás leckeadataival.
+
+- Aktuális méret: **310 353 bájt**.
+- Aktuális SHA-256: `abf8b623ea0b89d1fd0c67e80eb0a44837c3dfc75539c2b63db4a688c4f1303b`.
+- A regressziós vizsgálat most mind a hat műhelyt és a kezdőlapot is megnézi 320 és 390 képpont szélességnél, nagyobb betűkkel.
+
+Az első két sikertelen CI-futás megőrzött naplója mutatja a hibát és a diagnózist. A javítás tényleges sikerét az új commit ellenőrzési futása igazolja; az alábbi korábbi tesztszámok a v0.1.0 előző helyi fejlesztési körére vonatkoznak.
 
 ## A korábbi helyi kiadás tényleges vizsgálatai
 

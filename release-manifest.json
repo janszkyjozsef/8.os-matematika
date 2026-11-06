@@ -1,10 +1,10 @@
 {
   "product": "Matek8 — Értsd is!",
-  "version": "0.1.0",
-  "kind": "previously-tested-standalone-release",
+  "version": "0.1.1",
+  "kind": "standalone-release-with-tested-reflow-fix",
   "entry": "index.html",
-  "bytes": 310311,
-  "sha256": "96b78a9e5a4ccab45de34afc5193d3f051b28ebf1b05782476c01ae1938f6aff",
+  "bytes": 310353,
+  "sha256": "abf8b623ea0b89d1fd0c67e80eb0a44837c3dfc75539c2b63db4a688c4f1303b",
   "lessons": [
     "tortek",
     "szazalek",
@@ -13,5 +13,6 @@
     "pitagorasz",
     "valoszinuseg"
   ],
-  "note": "A kiadás integritásának ellenőrzése nem helyettesíti a böngészős és pedagógiai ellenőrzést."
+  "note": "A kiadás integritásának ellenőrzése nem helyettesíti a böngészős és pedagógiai ellenőrzést.",
+  "baseVersion": "0.1.0"
 }
