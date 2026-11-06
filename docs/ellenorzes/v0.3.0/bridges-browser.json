@@ -1,6 +1,6 @@
 {
   "suite": "Four bridge lessons, real v2 migration and targeted repair",
-  "startedAt": "2026-11-06T14:54:09.968Z",
+  "startedAt": "2026-11-06T15:12:59.699Z",
   "artifact": {
     "version": "0.3.0",
     "bytes": 796036,
@@ -14,107 +14,107 @@
     {
       "name": "Release integrity and actual historical v0.2.0 artifact",
       "passed": true,
-      "ms": 37
+      "ms": 33
     },
     {
       "name": "Fourteen routes, four new paths and source/portable content agree",
       "passed": true,
-      "ms": 8
+      "ms": 5
     },
     {
       "name": "Actual v2 UI export imports without invented history and preserves the open mixed task",
       "passed": true,
-      "ms": 3491
+      "ms": 4042
     },
     {
       "name": "betus-kifejezesek: all stages and every authored response",
       "passed": true,
-      "ms": 6008
+      "ms": 10111
     },
     {
       "name": "betus-kifejezesek: generated families, targeted feedback and honest helped results",
       "passed": true,
-      "ms": 1492
+      "ms": 1233
     },
     {
       "name": "szoveges-modellek: all stages and every authored response",
       "passed": true,
-      "ms": 7211
+      "ms": 5713
     },
     {
       "name": "szoveges-modellek: generated families, targeted feedback and honest helped results",
       "passed": true,
-      "ms": 1188
+      "ms": 1260
     },
     {
       "name": "hatvanyok: all stages and every authored response",
       "passed": true,
-      "ms": 6869
+      "ms": 7119
     },
     {
       "name": "hatvanyok: generated families, targeted feedback and honest helped results",
       "passed": true,
-      "ms": 1319
+      "ms": 1388
     },
     {
       "name": "negyzetgyok: all stages and every authored response",
       "passed": true,
-      "ms": 6209
+      "ms": 6700
     },
     {
       "name": "negyzetgyok: generated families, targeted feedback and honest helped results",
       "passed": true,
-      "ms": 1642
+      "ms": 1280
     },
     {
       "name": "Algebra workshop connects like terms, signs and exact substitution",
       "passed": true,
-      "ms": 1187
+      "ms": 1114
     },
     {
       "name": "Story workshop requires a justified model and checks the result in the story",
       "passed": true,
-      "ms": 1598
+      "ms": 1013
     },
     {
       "name": "Power workshop distinguishes unary minus, negative base, layers and negative powers of ten",
       "passed": true,
-      "ms": 1314
+      "ms": 1372
     },
     {
       "name": "Square-root workshop separates exact roots, bounds and equation solutions",
       "passed": true,
-      "ms": 946
+      "ms": 862
     },
     {
       "name": "Targeted repair is optional, replayable, part-specific and records actual checks only",
       "passed": true,
-      "ms": 6304
+      "ms": 6411
     },
     {
       "name": "Dependent checking needs its model and calculated value, with honest follow-up labels",
       "passed": true,
-      "ms": 2168
+      "ms": 2043
     },
     {
       "name": "New paths and repair views reflow at 320/390px, normal and large text",
       "passed": true,
-      "ms": 7918
+      "ms": 8960
     },
     {
       "name": "Keyboard access and invalid repair URLs stay inside the application",
       "passed": true,
-      "ms": 373
+      "ms": 166
     },
     {
       "name": "All four printed sheets preserve every multipart question and solution",
       "passed": true,
-      "ms": 495
+      "ms": 1271
     },
     {
       "name": "Portable file works offline including real skill events, replay and export",
       "passed": true,
-      "ms": 1164
+      "ms": 1514
     },
     {
       "name": "No browser errors, external requests or automated accessibility violations",
@@ -563,6 +563,6 @@
     "actualExportImport": true
   },
   "offlineHttpRequests": [],
-  "finishedAt": "2026-11-06T14:55:10.003Z",
+  "finishedAt": "2026-11-06T15:14:04.703Z",
   "passed": true
 }

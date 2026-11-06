@@ -30,6 +30,10 @@ A gyökérbeli `index.html`, az `app/release/Matek8_Offline_v0_3_0.html`, a kiad
 
 Az alapozó böngészős kör egyik, más tesztsorokkal párhuzamos futása egy kattintás 10 másodperces időkorlátján megállt. A végleges soros újrafuttatás mind a 26 forgatókönyvet teljesítette; ehhez nem változott a program, az elvárás vagy az időkorlát. A CI a böngészős köröket sorosan futtatja.
 
+Az első [0.3.0 CI-futás](https://github.com/janszkyjozsef/8.os-matematika/actions/runs/42240216218) az új javító út feladatcseréjénél megállt. A vizsgálat szinkronizálási rést talált a tesztben: az új URL-ből már az új feladat válaszát olvashatta ki, miközben a korábbi kártya még jelen volt. A következő kitöltés előtt a teszt most megvárja az URL-hez tartozó pontos DOM-feladatazonosítót, és összeveti a megjelenített kérdésszöveget is. Az alkalmazás HTML-je, a helyességi elvárások és az időkorlát változatlanok; az új kapu a ténylegesen megjelenített feladatot köti a visszajátszott adatokhoz.
+
+A tényleges feladatváltó gomb egy eseményciklusban történő megnyomásával és megfigyelésével az átmenet külön is reprodukálható volt: az URL már a **18 cm²-es** új feladatra mutatott, a DOM pedig még a **4600 Ft-os** előző feladat azonosítóját tartalmazta. A pontos új azonosító megvárása után a helyes válasz elfogadása sikeres volt. Ez az átmenet létezését igazolja; az első távoli futás minden köztes eseményét külön trace nélkül nem rekonstruálja. A javított teljes helyi böngészős kör ismét **22/22** sikeres.
+
 ## Matematikai és tartalmi ellenőrzés
 
 A négy új út **60 kérdésrekordja, 183 válaszmezője, 101 célzott hibaszabálya és 8 kidolgozott példája** külön tartalmi ellenőrzést kapott. A kifejezésmezők 76 elfogadott szerzői alakját a tényleges ellenőrzővel is próbáltuk. A saját szavas indoklásnak önellenőrzési szempontjai vannak; a program nem minősíti automatikusan megértettnek.
@@ -80,6 +84,7 @@ A végleges, helyi fájlként megnyitott HTML hálózat nélkül is megoldást, 
 - [Alapozó utak, v1-migráció és minden műhely mobilnézete](ellenorzes/v0.3.0/foundations-browser.json)
 - [Négy új út, v2-migráció és célzott javítás](ellenorzes/v0.3.0/bridges-browser.json)
 - [PDF- és képméretek, vizuális ellenőrzési hatókör](ellenorzes/v0.3.0/visual-review.json)
+- [Feladatváltás közbeni URL–DOM átmenet tényleges megfigyelése](ellenorzes/v0.3.0/repair-render-transition.json)
 
 A képek, tesztexportok és PDF-ek az újrafuttatáskor az `app/test-results/` alatt keletkeznek; izolált tesztadatokat használnak. A megismétlés parancsai a [fejlesztői útmutatóban](FEJLESZTES.md) szerepelnek.
 

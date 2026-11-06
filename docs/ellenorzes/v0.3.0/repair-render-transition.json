@@ -1,0 +1,10 @@
+{
+  "before": "targeted:transfer:betus-kifejezesek-exit-2:part=price",
+  "hash": "#javitas/betu-helyettesites/transfer?feladat=a%7Cbetus-kifejezesek-practice-11%7Carea%7C&kor=3",
+  "immediateId": "targeted:transfer:betus-kifejezesek-exit-2:part=price",
+  "expectedId": "targeted:transfer:betus-kifejezesek-practice-11:part=area",
+  "oldAnswer": "4600",
+  "newAnswer": "18",
+  "correctAfterIdentityWait": true,
+  "browser": "153.0.8010.0"
+}

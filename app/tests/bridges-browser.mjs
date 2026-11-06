@@ -277,6 +277,21 @@ async function replay(p = page) {
     new URLSearchParams(query).get("feladat"),
   );
   assert.ok(value, "Targeted exercise URL must replay without profile state");
+  // The hash changes synchronously, but hashchange and the Preact render follow
+  // later. A visible card may still be the previous task (with the same input
+  // shape). Match the actual rendered identity before entering the new answer.
+  await p.waitForFunction(
+    ({ hash, id }) =>
+      location.hash === hash &&
+      document.querySelector(".exercise-card .exercise-id code")
+        ?.textContent === id,
+    { hash: state.hash, id: value.exercise.id },
+  );
+  assert.equal(
+    await p.locator(".exercise-card .exercise-prompt").textContent(),
+    value.exercise.prompt,
+    "The displayed task and replayed URL must describe the same exercise",
+  );
   return value;
 }
 
