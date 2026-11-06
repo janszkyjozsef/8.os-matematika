@@ -35,6 +35,30 @@ async function textIncludes(locator, pattern) {
 }
 async function noOverflow(page, state) {
   const sizes = await page.evaluate(() => ({ page: document.documentElement.scrollWidth, view: innerWidth }));
+  if (sizes.page > sizes.view + 1) {
+    const offenders = await page.evaluate(() => [...document.querySelectorAll('body *')].flatMap(el => {
+      const r=el.getBoundingClientRect();
+      if (r.right <= innerWidth+1 || r.width === 0) return [];
+      for (let p=el.parentElement; p; p=p.parentElement) {
+        if (['auto','scroll','hidden','clip'].includes(getComputedStyle(p).overflowX)) return [];
+      }
+      const s=getComputedStyle(el);
+      return [{tag:el.tagName, class:el.className?.baseVal??el.className, right:r.right, width:r.width, font:s.font, display:s.display, minWidth:s.minWidth, whiteSpace:s.whiteSpace, text:el.textContent.slice(0,130)}];
+    }).slice(0,20));
+    console.log('LAYOUT_DIAGNOSTIC ' + state + ' ' + JSON.stringify(offenders));
+    for (const css of [
+      '.lab-root{overflow-wrap:anywhere}',
+      '.lesson-heading h1{overflow-wrap:anywhere}',
+      '.lab-legend>span{min-width:0;max-width:100%}',
+      '.lab-observation{overflow-wrap:anywhere}',
+      '.lesson-bottom-nav{flex-wrap:wrap}'
+    ]) {
+      const style=await page.addStyleTag({content:css});
+      const width=await page.evaluate(()=>document.documentElement.scrollWidth);
+      console.log('LAYOUT_PROBE '+JSON.stringify({css,width,viewport:sizes.view}));
+      await style.evaluate(el=>el.remove());
+    }
+  }
   assert.ok(sizes.page <= sizes.view + 1, state + ': ' + JSON.stringify(sizes));
 }
 async function step(page, index) {
