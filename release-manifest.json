@@ -1,0 +1,17 @@
+{
+  "product": "Matek8 — Értsd is!",
+  "version": "0.1.0",
+  "kind": "previously-tested-standalone-release",
+  "entry": "index.html",
+  "bytes": 310311,
+  "sha256": "96b78a9e5a4ccab45de34afc5193d3f051b28ebf1b05782476c01ae1938f6aff",
+  "lessons": [
+    "tortek",
+    "szazalek",
+    "egyenlet",
+    "grafikon",
+    "pitagorasz",
+    "valoszinuseg"
+  ],
+  "note": "A kiadás integritásának ellenőrzése nem helyettesíti a böngészős és pedagógiai ellenőrzést."
+}
