@@ -18,10 +18,12 @@ A kiadásból a hat lecke teljes tananyagát és a tématérképet olvasható JS
 
 A GitHubon futó böngészős vizsgálat 320 képpontos szélességnél, nagyobb betűkkel 354 képpontos oldalszélességet mért a valószínűségi leckében. A DOM-diagnózis a leckecímet tartalmazó fejléc túl nagy minimális szélességét mutatta. A `.lesson-heading h1 { overflow-wrap: anywhere; }` szabály kipróbálva 320 képpontra csökkentette az oldal szélességét, a tartalom elrejtése és a betűméret csökkentése nélkül.
 
-A szabály bekerült az alkalmazásba. A tananyag és a matematikai logika változatlan; az alkalmazás verziójelzése 0.1.1. A visszanyert `content/v0.1.0/` tartalmi másolat továbbra is megegyezik a kiadás leckeadataival.
+A szabály bekerült az alkalmazásba. A kibővített vizsgálat a kezdőlap számokat és feliratokat tartalmazó összefoglalójánál is kimutatott egy kilógást: a kétoszlopos rács nagy betűkkel túl széles volt 320 képpontnál. Nagybetűs nézetben, 380 képpont alatt ez a rész egy oszlopra vált, a hivatkozás szövege pedig szükség esetén sort tör. A betűméret és a teljes tartalom megmarad.
 
-- Aktuális méret: **310 353 bájt**.
-- Aktuális SHA-256: `abf8b623ea0b89d1fd0c67e80eb0a44837c3dfc75539c2b63db4a688c4f1303b`.
+A tananyag és a matematikai logika változatlan; az alkalmazás verziójelzése 0.1.1. A visszanyert `content/v0.1.0/` tartalmi másolat továbbra is megegyezik a kiadás leckeadataival.
+
+- Aktuális méret: **310 491 bájt**.
+- Aktuális SHA-256: `2858d9533e1bdbbd4a514c78b7bfdf14e50fc6f50e0be182bf649b3f601cc97b`.
 - A regressziós vizsgálat most mind a hat műhelyt és a kezdőlapot is megnézi 320 és 390 képpont szélességnél, nagyobb betűkkel.
 
 Az első két sikertelen CI-futás megőrzött naplója mutatja a hibát és a diagnózist. A javítás tényleges sikerét az új commit ellenőrzési futása igazolja; az alábbi korábbi tesztszámok a v0.1.0 előző helyi fejlesztési körére vonatkoznak.

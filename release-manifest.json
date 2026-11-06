@@ -3,8 +3,8 @@
   "version": "0.1.1",
   "kind": "standalone-release-with-tested-reflow-fix",
   "entry": "index.html",
-  "bytes": 310353,
-  "sha256": "abf8b623ea0b89d1fd0c67e80eb0a44837c3dfc75539c2b63db4a688c4f1303b",
+  "bytes": 310491,
+  "sha256": "2858d9533e1bdbbd4a514c78b7bfdf14e50fc6f50e0be182bf649b3f601cc97b",
   "lessons": [
     "tortek",
     "szazalek",
