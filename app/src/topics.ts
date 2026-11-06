@@ -4,6 +4,14 @@ export const TOPIC_REGISTRY = [
   { id: "muveleti-sorrend", title: "Műveleti sorrend", introducedSchema: 2 },
   { id: "aranyossag", title: "Arányosság", introducedSchema: 2 },
   { id: "mertekegysegek", title: "Mértékegységek", introducedSchema: 2 },
+  { id: "betus-kifejezesek", title: "Betűs kifejezések", introducedSchema: 3 },
+  {
+    id: "szoveges-modellek",
+    title: "Szövegből matematikai modell",
+    introducedSchema: 3,
+  },
+  { id: "hatvanyok", title: "Hatványok és nagyságrend", introducedSchema: 3 },
+  { id: "negyzetgyok", title: "Négyzetgyök és közelítés", introducedSchema: 3 },
   { id: "tortek", title: "Törtek", introducedSchema: 1 },
   { id: "szazalek", title: "Százalékszámítás", introducedSchema: 1 },
   { id: "egyenlet", title: "Egyenletek", introducedSchema: 1 },
@@ -25,4 +33,18 @@ export const LEGACY_TOPICS = [
   "valoszinuseg",
 ] as const satisfies readonly TopicId[];
 
-export const SCHEMA_VERSION = 2 as const;
+/** Schema-2 ordering is public: preserve the currently open old mixed task. */
+export const V2_TOPICS = [
+  "szamfogalom",
+  "muveleti-sorrend",
+  "aranyossag",
+  "mertekegysegek",
+  "tortek",
+  "szazalek",
+  "egyenlet",
+  "grafikon",
+  "pitagorasz",
+  "valoszinuseg",
+] as const satisfies readonly TopicId[];
+
+export const SCHEMA_VERSION = 3 as const;

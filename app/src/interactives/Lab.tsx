@@ -2,6 +2,7 @@ import { useId } from "preact/hooks";
 import type { LabProps, LabState, TopicId } from "../types";
 import "./labs.css";
 import { FoundationLab, foundationInitialLabState } from "./FoundationLabs.tsx";
+import { BridgeLab, bridgeInitialLabState } from "./BridgeLabs.tsx";
 
 const START_SEED = 20261106;
 const COLORS = ["#27766e", "#c8ec78", "#edc686", "#acc9df"];
@@ -36,6 +37,11 @@ function fraction(n: number, d: number): string {
 
 export function initialLabState(topic: TopicId): LabState {
   switch (topic) {
+    case "betus-kifejezesek":
+    case "szoveges-modellek":
+    case "hatvanyok":
+    case "negyzetgyok":
+      return bridgeInitialLabState(topic);
     case "szamfogalom":
     case "muveleti-sorrend":
     case "aranyossag":
@@ -2129,6 +2135,7 @@ export function Lab({ topic, value, onChange }: LabProps) {
   return (
     <section className="lab-root" aria-label="Interaktív matematikaműhely">
       {["szamfogalom", "muveleti-sorrend", "aranyossag", "mertekegysegek"].includes(topic) && <FoundationLab topic={topic} value={value} onChange={onChange} />}
+      {["betus-kifejezesek", "szoveges-modellek", "hatvanyok", "negyzetgyok"].includes(topic) && <BridgeLab topic={topic} value={value} onChange={onChange} />}
       {topic === "tortek" && <FractionsLab {...props} />}
       {topic === "szazalek" && <PercentageLab {...props} />}
       {topic === "egyenlet" && <EquationLab {...props} />}

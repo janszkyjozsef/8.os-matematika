@@ -38,14 +38,21 @@ import type {
 } from "./types.ts";
 import { curriculum } from "./content/curriculum.ts";
 import { contentStats } from "./content/stats.ts";
+import { TARGETED_GENERATOR_FAMILIES } from "./learning/repair-generators.ts";
 import {
   unitCoverage,
   lessonsForModule,
   prerequisitesFor,
 } from "./content/coverage.ts";
-import { LEGACY_TOPICS } from "./topics.ts";
+import { LEGACY_TOPICS, V2_TOPICS } from "./topics.ts";
+import { getSkillTargets, recordLearningGrade } from "./learning/skills.ts";
+import { LearningPanel, RepairPage } from "./learning/LearningUI.tsx";
 import "./styles.css";
-const stats = contentStats(lessons, generatorFamilies);
+const stats = contentStats(
+  lessons,
+  generatorFamilies,
+  TARGETED_GENERATOR_FAMILIES,
+);
 import "./interactives/labs.css";
 
 type Change = (change: (before: Profile) => Profile) => void;
@@ -217,6 +224,136 @@ function TopicArt({
     height: large ? "150" : "100",
     "aria-hidden": "true" as const,
   };
+  if (topic === "betus-kifejezesek")
+    return (
+      <svg {...common}>
+        {[0, 1, 2].map((i) => (
+          <rect
+            key={i}
+            x={26 + i * 28}
+            y="18"
+            width="22"
+            height="36"
+            rx="3"
+            fill="currentColor"
+            opacity=".22"
+          />
+        ))}
+        <text x="117" y="43" font-size="21" fill="currentColor">
+          + 2
+        </text>
+        <text
+          x="90"
+          y="84"
+          text-anchor="middle"
+          font-size="23"
+          fill="currentColor"
+        >
+          3a + 2
+        </text>
+      </svg>
+    );
+  if (topic === "szoveges-modellek")
+    return (
+      <svg {...common}>
+        <rect
+          x="18"
+          y="18"
+          width="144"
+          height="25"
+          fill="currentColor"
+          opacity=".16"
+          rx="3"
+        />
+        <path
+          d="M18 18v25m72-25v25m72-25v25M18 52v5h144v-5"
+          stroke="currentColor"
+          fill="none"
+          stroke-width="2"
+        />
+        <text x="54" y="36" text-anchor="middle" fill="currentColor">
+          x
+        </text>
+        <text x="126" y="36" text-anchor="middle" fill="currentColor">
+          x + 4
+        </text>
+        <text
+          x="90"
+          y="86"
+          text-anchor="middle"
+          font-size="19"
+          fill="currentColor"
+        >
+          x + (x + 4) = 20
+        </text>
+      </svg>
+    );
+  if (topic === "hatvanyok")
+    return (
+      <svg {...common}>
+        {Array.from({ length: 8 }, (_, i) => (
+          <rect
+            key={i}
+            x={24 + (i % 4) * 33}
+            y={13 + Math.floor(i / 4) * 24}
+            width="27"
+            height="18"
+            rx="2"
+            fill="currentColor"
+            opacity={i < 4 ? ".2" : ".45"}
+          />
+        ))}
+        <text
+          x="90"
+          y="87"
+          text-anchor="middle"
+          font-size="22"
+          fill="currentColor"
+        >
+          2³ = 2 × 2 × 2
+        </text>
+      </svg>
+    );
+  if (topic === "negyzetgyok")
+    return (
+      <svg {...common}>
+        <rect
+          x="53"
+          y="10"
+          width="63"
+          height="63"
+          fill="currentColor"
+          opacity=".14"
+        />
+        <path
+          d="M53 10h63v63H53Z"
+          stroke="currentColor"
+          fill="none"
+          stroke-width="2"
+        />
+        <text
+          x="85"
+          y="48"
+          text-anchor="middle"
+          font-size="22"
+          fill="currentColor"
+        >
+          25
+        </text>
+        <text x="128" y="47" font-size="20" fill="currentColor">
+          5
+        </text>
+        <text
+          x="85"
+          y="94"
+          text-anchor="middle"
+          font-size="18"
+          fill="currentColor"
+        >
+          √25 = 5
+        </text>
+      </svg>
+    );
   if (topic === "szamfogalom")
     return (
       <svg {...common}>
@@ -610,7 +747,7 @@ function App() {
           {nav.map(([path, icon, title]) => (
             <a
               href={`#${path}`}
-              class={`nav-item ${page === path || (path === "felfedezes" && page === "lecke") ? "active" : ""}`}
+              class={`nav-item ${page === path || (path === "felfedezes" && page === "lecke") || (path === "gyakorlas" && page === "javitas") ? "active" : ""}`}
               aria-current={page === path ? "page" : undefined}
             >
               <Icon name={icon} />
@@ -685,6 +822,23 @@ function App() {
             />
           )}
           {page === "haladas" && <ProgressPage profile={profile} />}
+          {page === "javitas" && (
+            <RepairPage
+              key={location.hash}
+              skillId={route[1]}
+              stage={route[2]}
+              profile={profile}
+              renderExercise={(exercise, label, kindLabel) => (
+                <ExerciseCard
+                  exercise={exercise}
+                  profile={profile}
+                  change={change}
+                  label={label}
+                  kindLabel={kindLabel}
+                />
+              )}
+            />
+          )}
           {page === "beallitasok" && (
             <Settings
               profile={profile}
@@ -703,6 +857,7 @@ function App() {
             "lecke",
             "gyakorlas",
             "haladas",
+            "javitas",
             "beallitasok",
             "nyomtatas",
           ].includes(page) && <NotFound />}
@@ -847,6 +1002,7 @@ function Home({ profile }: { profile: Profile }) {
           <Icon name="arrow" />
         </a>
       </section>
+      <LearningPanel profile={profile} compact />
       <section class="topics-section">
         <div class="section-heading">
           <div>
@@ -1032,11 +1188,13 @@ function ExerciseCard({
   profile,
   change,
   label = "Próbáld meg önállóan",
+  kindLabel,
 }: {
   exercise: Exercise;
   profile: Profile;
   change: Change;
   label?: string;
+  kindLabel?: string;
 }) {
   const attempt = profile.attempts[exercise.id] || emptyAttempt(exercise.topic);
   const [reflection, setReflection] = useState(attempt.reflection ?? "");
@@ -1065,19 +1223,44 @@ function ExerciseCard({
     }));
   }
   function check() {
-    const result = gradeAnswer(exercise, attempt.input);
-    update((a) => recordGrade(a, result));
+    change((p) => {
+      const before = p.attempts[exercise.id] || emptyAttempt(exercise.topic);
+      const result = gradeAnswer(exercise, before.input);
+      const at = new Date().toISOString();
+      const learned = recordLearningGrade(p, exercise, before, result, at);
+      return {
+        ...learned,
+        attempts: {
+          ...p.attempts,
+          [exercise.id]: { ...recordGrade(before, result), updatedAt: at },
+        },
+      };
+    });
   }
+  const repairTargets = [
+    ...new Set(
+      getSkillTargets(exercise)
+        .filter((target) => {
+          const result = target.partId
+            ? attempt.result?.parts?.find((part) => part.id === target.partId)
+                ?.result
+            : attempt.result;
+          return result && !result.correct && result.status !== "invalid";
+        })
+        .map((target) => target.skillId),
+    ),
+  ];
   return (
     <article class="exercise-card" key={exercise.id}>
       <div class="exercise-top">
         <span class="eyebrow">{label}</span>
         <span class="exercise-kind">
-          {exercise.kind === "reason"
-            ? "Gondolkodj és indokolj"
-            : exercise.kind === "transfer"
-              ? "Új helyzet"
-              : "Számolj és ellenőrizz"}
+          {kindLabel ??
+            (exercise.kind === "reason"
+              ? "Gondolkodj és indokolj"
+              : exercise.kind === "transfer"
+                ? "Új helyzet"
+                : "Számolj és ellenőrizz")}
         </span>
       </div>
       {exercise.context && <p class="exercise-context">{exercise.context}</p>}
@@ -1231,6 +1414,21 @@ function ExerciseCard({
           </div>
         </div>
       )}
+      {repairTargets.length > 0 && (
+        <div class="repair-suggestion">
+          <strong>Ezt a gondolatot külön is begyakorolhatod.</strong>
+          <p>
+            A javító út rövid magyarázatot és új feladatot ad. Ide is
+            visszatérhetsz.
+          </p>
+          <a
+            class="text-link"
+            href={`#javitas/${repairTargets[0]}?vissza=${encodeURIComponent(location.hash.slice(1))}`}
+          >
+            Megnézem a javító gyakorlást <Icon name="arrow" size={16} />
+          </a>
+        </div>
+      )}
       <div class="help-row">
         <button
           class="text-button"
@@ -1361,9 +1559,14 @@ function LessonView({
   const p = profile.lessons[lesson.id];
   const current = p.step;
   const [glossaryOpen, setGlossaryOpen] = useState(false);
-  const returnTopic = new URLSearchParams(
-    location.hash.split("?")[1] || "",
-  ).get("vissza");
+  const lessonParams = new URLSearchParams(location.hash.split("?")[1] || "");
+  const returnTopic = lessonParams.get("vissza");
+  const requestedStep = lessonParams.get("lepes");
+  const repairReturn = lessonParams.get("javitas");
+  const validRepairReturn =
+    repairReturn &&
+    repairReturn.length <= 1200 &&
+    /^javitas(?:\/[a-z0-9-]+){0,2}(?:\?.*)?$/.test(repairReturn);
   const setProgress = (fn: (p: TopicProgress) => TopicProgress) =>
     change((state) => ({
       ...state,
@@ -1371,10 +1574,23 @@ function LessonView({
       lessons: { ...state.lessons, [lesson.id]: fn(state.lessons[lesson.id]) },
     }));
   useEffect(() => {
-    setProgress((p) => ({
-      ...p,
-      visited: [...new Set([...p.visited, p.step])],
-    }));
+    const targetStep =
+      requestedStep && /^[0-5]$/.test(requestedStep)
+        ? Number(requestedStep)
+        : undefined;
+    setProgress((p) => {
+      const step = targetStep ?? p.step;
+      return { ...p, step, visited: [...new Set([...p.visited, step])] };
+    });
+    if (lessonParams.has("lepes")) {
+      lessonParams.delete("lepes");
+      const query = lessonParams.toString();
+      history.replaceState(
+        null,
+        "",
+        `#lecke/${lesson.id}${query ? `?${query}` : ""}`,
+      );
+    }
   }, [lesson.id]);
   function setStep(n: number) {
     setProgress((p) => ({
@@ -1384,12 +1600,17 @@ function LessonView({
     }));
     window.scrollTo({ top: 0, behavior: "instant" });
   }
-  const exit = lesson.exit.map((e, i) => ({
-    ...(p.exitRound === 0
-      ? e
-      : generateExercise(lesson.id, 10_000 + p.exitRound * 13 + i, i)),
-    id: `exit:${lesson.id}:${p.exitRound}:${i}`,
-  }));
+  const exit = lesson.exit.map((e, i) => {
+    const source =
+      p.exitRound === 0
+        ? e
+        : generateExercise(lesson.id, 10_000 + p.exitRound * 13 + i, i);
+    return {
+      ...source,
+      id: `exit:${lesson.id}:${p.exitRound}:${i}`,
+      learningSource: { exerciseId: source.id },
+    };
+  });
   const passed = exit.every((e) => profile.attempts[e.id]?.independent);
   return (
     <div class="page lesson-page">
@@ -1409,6 +1630,11 @@ function LessonView({
       {returnTopic && byId(returnTopic) && (
         <a class="return-to-lesson" href={`#lecke/${returnTopic}`}>
           Visszatérek: {byId(returnTopic)?.shortTitle}
+        </a>
+      )}
+      {validRepairReturn && (
+        <a class="return-to-lesson" href={`#${repairReturn}`}>
+          ← Vissza a javító gyakorláshoz
         </a>
       )}
       <header class="lesson-heading">
@@ -1797,7 +2023,11 @@ function PracticePage({
 }) {
   const selected = byId(topicId);
   const mixedTopics =
-    profile.legacyReviewSeed === profile.reviewSeed ? LEGACY_TOPICS : TOPICS;
+    profile.legacyReviewSeed === profile.reviewSeed
+      ? profile.legacyReviewSchema === 2
+        ? V2_TOPICS
+        : LEGACY_TOPICS
+      : TOPICS;
   const topic = mixedTopics[(profile.reviewSeed - 1) % mixedTopics.length];
   const exercise = generateExercise(
     topic,
@@ -1812,6 +2042,7 @@ function PracticePage({
         <h1>Próbáld meg magad.</h1>
         <p>Válassz témát, vagy keverd a már tanultakat. Időmérő nélkül.</p>
       </div>
+      <LearningPanel profile={profile} compact />
       <nav class="topic-pills" aria-label="Gyakorlás témája">
         <a href="#gyakorlas" class={!selected ? "selected" : ""}>
           Vegyes műhely
@@ -1849,7 +2080,7 @@ function PracticePage({
               variant="secondary"
               onClick={() =>
                 change((p) => {
-                  const { legacyReviewSeed, ...rest } = p;
+                  const { legacyReviewSeed, legacyReviewSchema, ...rest } = p;
                   return { ...rest, reviewSeed: p.reviewSeed + 1 };
                 })
               }
@@ -1903,6 +2134,7 @@ function ProgressPage({ profile }: { profile: Profile }) {
           <span>sikeres önálló próba</span>
         </div>
       </div>
+      <LearningPanel profile={profile} />
       <section class="progress-list">
         {lessons.map((l) => {
           const rows = attempts.filter(([, a]) => a.topic === l.id);

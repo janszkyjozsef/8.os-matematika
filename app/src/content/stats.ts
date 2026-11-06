@@ -7,6 +7,7 @@ export function responseFieldCount(answer: AnswerSpec): number {
 export function contentStats(
   lessons: readonly Lesson[],
   families: readonly unknown[],
+  targetedFamilies: readonly unknown[] = [],
 ) {
   const questions = lessons.flatMap((lesson) => [
     lesson.prediction,
@@ -37,7 +38,9 @@ export function contentStats(
       (total, lesson) => total + lesson.examples.length,
       0,
     ),
-    generatorFamilies: families.length,
+    generatorFamilies: families.length + targetedFamilies.length,
+    generalGeneratorFamilies: families.length,
+    targetedGeneratorFamilies: targetedFamilies.length,
     feedbackRules: questions.reduce(
       (total, question) =>
         total + (question.mistakes?.length ?? 0) + mistakes(question.answer),

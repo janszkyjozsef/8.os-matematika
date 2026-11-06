@@ -1,0 +1,568 @@
+{
+  "suite": "Four bridge lessons, real v2 migration and targeted repair",
+  "startedAt": "2026-11-06T14:54:09.968Z",
+  "artifact": {
+    "version": "0.3.0",
+    "bytes": 796036,
+    "sha256": "32f73e067df963f6cd8f9e7435f802da3efbccb321d66efe0be4adae66ba8066",
+    "previous": {
+      "commit": "23ee76b0c6d1b1643345290b5a89e22ff45c4350",
+      "sha256": "2d928d1c5adc23ba2888f5cbf0c3ed22479ea4b161f457927056995896aa9ed4"
+    }
+  },
+  "checks": [
+    {
+      "name": "Release integrity and actual historical v0.2.0 artifact",
+      "passed": true,
+      "ms": 37
+    },
+    {
+      "name": "Fourteen routes, four new paths and source/portable content agree",
+      "passed": true,
+      "ms": 8
+    },
+    {
+      "name": "Actual v2 UI export imports without invented history and preserves the open mixed task",
+      "passed": true,
+      "ms": 3491
+    },
+    {
+      "name": "betus-kifejezesek: all stages and every authored response",
+      "passed": true,
+      "ms": 6008
+    },
+    {
+      "name": "betus-kifejezesek: generated families, targeted feedback and honest helped results",
+      "passed": true,
+      "ms": 1492
+    },
+    {
+      "name": "szoveges-modellek: all stages and every authored response",
+      "passed": true,
+      "ms": 7211
+    },
+    {
+      "name": "szoveges-modellek: generated families, targeted feedback and honest helped results",
+      "passed": true,
+      "ms": 1188
+    },
+    {
+      "name": "hatvanyok: all stages and every authored response",
+      "passed": true,
+      "ms": 6869
+    },
+    {
+      "name": "hatvanyok: generated families, targeted feedback and honest helped results",
+      "passed": true,
+      "ms": 1319
+    },
+    {
+      "name": "negyzetgyok: all stages and every authored response",
+      "passed": true,
+      "ms": 6209
+    },
+    {
+      "name": "negyzetgyok: generated families, targeted feedback and honest helped results",
+      "passed": true,
+      "ms": 1642
+    },
+    {
+      "name": "Algebra workshop connects like terms, signs and exact substitution",
+      "passed": true,
+      "ms": 1187
+    },
+    {
+      "name": "Story workshop requires a justified model and checks the result in the story",
+      "passed": true,
+      "ms": 1598
+    },
+    {
+      "name": "Power workshop distinguishes unary minus, negative base, layers and negative powers of ten",
+      "passed": true,
+      "ms": 1314
+    },
+    {
+      "name": "Square-root workshop separates exact roots, bounds and equation solutions",
+      "passed": true,
+      "ms": 946
+    },
+    {
+      "name": "Targeted repair is optional, replayable, part-specific and records actual checks only",
+      "passed": true,
+      "ms": 6304
+    },
+    {
+      "name": "Dependent checking needs its model and calculated value, with honest follow-up labels",
+      "passed": true,
+      "ms": 2168
+    },
+    {
+      "name": "New paths and repair views reflow at 320/390px, normal and large text",
+      "passed": true,
+      "ms": 7918
+    },
+    {
+      "name": "Keyboard access and invalid repair URLs stay inside the application",
+      "passed": true,
+      "ms": 373
+    },
+    {
+      "name": "All four printed sheets preserve every multipart question and solution",
+      "passed": true,
+      "ms": 495
+    },
+    {
+      "name": "Portable file works offline including real skill events, replay and export",
+      "passed": true,
+      "ms": 1164
+    },
+    {
+      "name": "No browser errors, external requests or automated accessibility violations",
+      "passed": true,
+      "ms": 1
+    }
+  ],
+  "accessibility": [
+    {
+      "label": "betus-kifejezesek lab",
+      "violations": []
+    },
+    {
+      "label": "szoveges-modellek lab",
+      "violations": []
+    },
+    {
+      "label": "hatvanyok lab",
+      "violations": []
+    },
+    {
+      "label": "negyzetgyok lab",
+      "violations": []
+    },
+    {
+      "label": "repair completed",
+      "violations": []
+    },
+    {
+      "label": "skill progress",
+      "violations": []
+    },
+    {
+      "label": "dependent targeted task",
+      "violations": []
+    }
+  ],
+  "layouts": [
+    {
+      "label": "home-320-false",
+      "viewport": 320,
+      "page": 320,
+      "body": 320
+    },
+    {
+      "label": "betus-kifejezesek-lab-320-false",
+      "viewport": 320,
+      "page": 320,
+      "body": 320
+    },
+    {
+      "label": "betus-kifejezesek-exercise-320-false",
+      "viewport": 320,
+      "page": 320,
+      "body": 320
+    },
+    {
+      "label": "szoveges-modellek-lab-320-false",
+      "viewport": 320,
+      "page": 320,
+      "body": 320
+    },
+    {
+      "label": "szoveges-modellek-exercise-320-false",
+      "viewport": 320,
+      "page": 320,
+      "body": 320
+    },
+    {
+      "label": "hatvanyok-lab-320-false",
+      "viewport": 320,
+      "page": 320,
+      "body": 320
+    },
+    {
+      "label": "hatvanyok-exercise-320-false",
+      "viewport": 320,
+      "page": 320,
+      "body": 320
+    },
+    {
+      "label": "negyzetgyok-lab-320-false",
+      "viewport": 320,
+      "page": 320,
+      "body": 320
+    },
+    {
+      "label": "negyzetgyok-exercise-320-false",
+      "viewport": 320,
+      "page": 320,
+      "body": 320
+    },
+    {
+      "label": "repair-list-320-false",
+      "viewport": 320,
+      "page": 320,
+      "body": 320
+    },
+    {
+      "label": "repair-preparation-320-false",
+      "viewport": 320,
+      "page": 320,
+      "body": 320
+    },
+    {
+      "label": "skill-progress-320-false",
+      "viewport": 320,
+      "page": 320,
+      "body": 320
+    },
+    {
+      "label": "home-320-true",
+      "viewport": 320,
+      "page": 320,
+      "body": 320
+    },
+    {
+      "label": "betus-kifejezesek-lab-320-true",
+      "viewport": 320,
+      "page": 320,
+      "body": 320
+    },
+    {
+      "label": "betus-kifejezesek-exercise-320-true",
+      "viewport": 320,
+      "page": 320,
+      "body": 320
+    },
+    {
+      "label": "szoveges-modellek-lab-320-true",
+      "viewport": 320,
+      "page": 320,
+      "body": 320
+    },
+    {
+      "label": "szoveges-modellek-exercise-320-true",
+      "viewport": 320,
+      "page": 320,
+      "body": 320
+    },
+    {
+      "label": "hatvanyok-lab-320-true",
+      "viewport": 320,
+      "page": 320,
+      "body": 320
+    },
+    {
+      "label": "hatvanyok-exercise-320-true",
+      "viewport": 320,
+      "page": 320,
+      "body": 320
+    },
+    {
+      "label": "negyzetgyok-lab-320-true",
+      "viewport": 320,
+      "page": 320,
+      "body": 320
+    },
+    {
+      "label": "negyzetgyok-exercise-320-true",
+      "viewport": 320,
+      "page": 320,
+      "body": 320
+    },
+    {
+      "label": "repair-list-320-true",
+      "viewport": 320,
+      "page": 320,
+      "body": 320
+    },
+    {
+      "label": "repair-preparation-320-true",
+      "viewport": 320,
+      "page": 320,
+      "body": 320
+    },
+    {
+      "label": "skill-progress-320-true",
+      "viewport": 320,
+      "page": 320,
+      "body": 320
+    },
+    {
+      "label": "home-390-false",
+      "viewport": 390,
+      "page": 390,
+      "body": 390
+    },
+    {
+      "label": "betus-kifejezesek-lab-390-false",
+      "viewport": 390,
+      "page": 390,
+      "body": 390
+    },
+    {
+      "label": "betus-kifejezesek-exercise-390-false",
+      "viewport": 390,
+      "page": 390,
+      "body": 390
+    },
+    {
+      "label": "szoveges-modellek-lab-390-false",
+      "viewport": 390,
+      "page": 390,
+      "body": 390
+    },
+    {
+      "label": "szoveges-modellek-exercise-390-false",
+      "viewport": 390,
+      "page": 390,
+      "body": 390
+    },
+    {
+      "label": "hatvanyok-lab-390-false",
+      "viewport": 390,
+      "page": 390,
+      "body": 390
+    },
+    {
+      "label": "hatvanyok-exercise-390-false",
+      "viewport": 390,
+      "page": 390,
+      "body": 390
+    },
+    {
+      "label": "negyzetgyok-lab-390-false",
+      "viewport": 390,
+      "page": 390,
+      "body": 390
+    },
+    {
+      "label": "negyzetgyok-exercise-390-false",
+      "viewport": 390,
+      "page": 390,
+      "body": 390
+    },
+    {
+      "label": "repair-list-390-false",
+      "viewport": 390,
+      "page": 390,
+      "body": 390
+    },
+    {
+      "label": "repair-preparation-390-false",
+      "viewport": 390,
+      "page": 390,
+      "body": 390
+    },
+    {
+      "label": "skill-progress-390-false",
+      "viewport": 390,
+      "page": 390,
+      "body": 390
+    },
+    {
+      "label": "home-390-true",
+      "viewport": 390,
+      "page": 390,
+      "body": 390
+    },
+    {
+      "label": "betus-kifejezesek-lab-390-true",
+      "viewport": 390,
+      "page": 390,
+      "body": 390
+    },
+    {
+      "label": "betus-kifejezesek-exercise-390-true",
+      "viewport": 390,
+      "page": 390,
+      "body": 390
+    },
+    {
+      "label": "szoveges-modellek-lab-390-true",
+      "viewport": 390,
+      "page": 390,
+      "body": 390
+    },
+    {
+      "label": "szoveges-modellek-exercise-390-true",
+      "viewport": 390,
+      "page": 390,
+      "body": 390
+    },
+    {
+      "label": "hatvanyok-lab-390-true",
+      "viewport": 390,
+      "page": 390,
+      "body": 390
+    },
+    {
+      "label": "hatvanyok-exercise-390-true",
+      "viewport": 390,
+      "page": 390,
+      "body": 390
+    },
+    {
+      "label": "negyzetgyok-lab-390-true",
+      "viewport": 390,
+      "page": 390,
+      "body": 390
+    },
+    {
+      "label": "negyzetgyok-exercise-390-true",
+      "viewport": 390,
+      "page": 390,
+      "body": 390
+    },
+    {
+      "label": "repair-list-390-true",
+      "viewport": 390,
+      "page": 390,
+      "body": 390
+    },
+    {
+      "label": "repair-preparation-390-true",
+      "viewport": 390,
+      "page": 390,
+      "body": 390
+    },
+    {
+      "label": "skill-progress-390-true",
+      "viewport": 390,
+      "page": 390,
+      "body": 390
+    }
+  ],
+  "screenshots": [
+    "app/test-results/bridges/betus-kifejezesek-desktop.png",
+    "app/test-results/bridges/szoveges-modellek-desktop.png",
+    "app/test-results/bridges/hatvanyok-desktop.png",
+    "app/test-results/bridges/negyzetgyok-desktop.png",
+    "app/test-results/bridges/algebra-minus-checked.png",
+    "app/test-results/bridges/story-model-checked.png",
+    "app/test-results/bridges/powers-checked.png",
+    "app/test-results/bridges/square-root-checked.png",
+    "app/test-results/bridges/repair-completed.png",
+    "app/test-results/bridges/dependent-model-checking.png",
+    "app/test-results/bridges/betus-kifejezesek-320-large.png",
+    "app/test-results/bridges/szoveges-modellek-320-large.png",
+    "app/test-results/bridges/hatvanyok-320-large.png",
+    "app/test-results/bridges/negyzetgyok-320-large.png"
+  ],
+  "pdfs": [
+    "app/test-results/bridges/betus-kifejezesek-worksheet-v0.3.0.pdf",
+    "app/test-results/bridges/szoveges-modellek-worksheet-v0.3.0.pdf",
+    "app/test-results/bridges/hatvanyok-worksheet-v0.3.0.pdf",
+    "app/test-results/bridges/negyzetgyok-worksheet-v0.3.0.pdf"
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "externalRequests": [],
+  "authored": [
+    "betus-kifejezesek-prediction",
+    "betus-kifejezesek-practice-1",
+    "betus-kifejezesek-practice-2",
+    "betus-kifejezesek-practice-3",
+    "betus-kifejezesek-practice-4",
+    "betus-kifejezesek-practice-5",
+    "betus-kifejezesek-practice-6",
+    "betus-kifejezesek-practice-7",
+    "betus-kifejezesek-practice-8",
+    "betus-kifejezesek-practice-9",
+    "betus-kifejezesek-practice-10",
+    "betus-kifejezesek-practice-11",
+    "betus-kifejezesek-practice-12",
+    "betus-kifejezesek-exit-1",
+    "betus-kifejezesek-exit-2",
+    "szoveges-modellek-prediction",
+    "szoveges-modellek-practice-1",
+    "szoveges-modellek-practice-2",
+    "szoveges-modellek-practice-3",
+    "szoveges-modellek-practice-4",
+    "szoveges-modellek-practice-5",
+    "szoveges-modellek-practice-6",
+    "szoveges-modellek-practice-7",
+    "szoveges-modellek-practice-8",
+    "szoveges-modellek-practice-9",
+    "szoveges-modellek-practice-10",
+    "szoveges-modellek-practice-11",
+    "szoveges-modellek-practice-12",
+    "szoveges-modellek-exit-1",
+    "szoveges-modellek-exit-2",
+    "hatvanyok-prediction",
+    "hatvanyok-practice-1",
+    "hatvanyok-practice-2",
+    "hatvanyok-practice-3",
+    "hatvanyok-practice-4",
+    "hatvanyok-practice-5",
+    "hatvanyok-practice-6",
+    "hatvanyok-practice-7",
+    "hatvanyok-practice-8",
+    "hatvanyok-practice-9",
+    "hatvanyok-practice-10",
+    "hatvanyok-practice-11",
+    "hatvanyok-practice-12",
+    "hatvanyok-exit-1",
+    "hatvanyok-exit-2",
+    "negyzetgyok-prediction",
+    "negyzetgyok-practice-1",
+    "negyzetgyok-practice-2",
+    "negyzetgyok-practice-3",
+    "negyzetgyok-practice-4",
+    "negyzetgyok-practice-5",
+    "negyzetgyok-practice-6",
+    "negyzetgyok-practice-7",
+    "negyzetgyok-practice-8",
+    "negyzetgyok-practice-9",
+    "negyzetgyok-practice-10",
+    "negyzetgyok-practice-11",
+    "negyzetgyok-practice-12",
+    "negyzetgyok-exit-1",
+    "negyzetgyok-exit-2"
+  ],
+  "generated": [
+    "generated:algebra-substitute-v1:seed=1:variant=0",
+    "generated:algebra-collect-v1:seed=2:variant=1",
+    "generated:algebra-packets-v1:seed=3:variant=2",
+    "generated:model-fixed-fee-v1:seed=1:variant=0",
+    "generated:model-sum-difference-v1:seed=2:variant=1",
+    "generated:model-whole-packs-v1:seed=3:variant=2",
+    "generated:power-expand-v1:seed=1:variant=0",
+    "generated:power-sign-v1:seed=2:variant=1",
+    "generated:power-ten-scale-v1:seed=3:variant=2",
+    "generated:root-square-absolute-v1:seed=1:variant=0",
+    "generated:root-bracket-v1:seed=2:variant=1",
+    "generated:root-area-precision-v1:seed=3:variant=2"
+  ],
+  "notes": [
+    "UI answers use the actual snapshot; independent mathematical oracles run separately in the source tests.",
+    "No existing user browser or remote website is controlled."
+  ],
+  "browser": "153.0.8010.0",
+  "v2Migration": {
+    "export": "app/test-results/bridges/actual-v0.2.0-export.json",
+    "mixedId": "generated:eq-linear-v1:seed=50007:variant=0",
+    "sourceTopicsPreserved": 10,
+    "newTopics": 4,
+    "inventedEvents": 0
+  },
+  "learningFlow": {
+    "skill": "betu-helyettesites",
+    "repair": "g|betus-kifejezesek|7300097|1|value|betus-kifejezesek-practice-1",
+    "transfer": "a|betus-kifejezesek-practice-11|area|generated:algebra-collect-v1:seed=7300097:variant=1",
+    "events": 3,
+    "actualExportImport": true
+  },
+  "offlineHttpRequests": [],
+  "finishedAt": "2026-11-06T14:55:10.003Z",
+  "passed": true
+}

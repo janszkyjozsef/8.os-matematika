@@ -58,9 +58,9 @@ const prerequisites: Partial<Record<TopicId, TopicId[]>> = {
   aranyossag: ["szamfogalom", "muveleti-sorrend"],
   mertekegysegek: ["szamfogalom", "aranyossag"],
   szazalek: ["tortek", "aranyossag"],
-  egyenlet: ["szamfogalom", "muveleti-sorrend", "tortek"],
+  egyenlet: ["szamfogalom", "muveleti-sorrend", "tortek", "betus-kifejezesek"],
   grafikon: ["aranyossag"],
-  pitagorasz: ["muveleti-sorrend", "mertekegysegek"],
+  pitagorasz: ["mertekegysegek", "hatvanyok", "negyzetgyok"],
   valoszinuseg: ["tortek", "aranyossag"],
 };
 export const prerequisitesFor = (lesson: Lesson): TopicId[] =>

@@ -8,7 +8,8 @@
     "build": "npm --prefix app run build",
     "release": "npm --prefix app run release",
     "test:browser": "npm --prefix app run test:browser && node checks/browser.mjs",
-    "test:foundations": "node app/tests/foundations-browser.mjs"
+    "test:foundations": "node app/tests/foundations-browser.mjs",
+    "test:bridges": "node app/tests/bridges-browser.mjs"
   },
   "engines": {
     "node": ">=22.18.0"

@@ -28,7 +28,13 @@ const bundled = JSON.parse(JSON.stringify(extracted));
 test("A forrás, az olvasható snapshot és a valódi HTML ugyanazt a tananyagot tartalmazza", async () => {
   assert.equal(manifest.version, contentSnapshot.version);
   assert.deepEqual(bundled, contentSnapshot);
-  for (const key of ["lessons", "curriculum", "generatorFamilies"]) {
+  for (const key of [
+    "lessons",
+    "curriculum",
+    "generatorFamilies",
+    "targetedGeneratorFamilies",
+    "skills",
+  ]) {
     const data = JSON.parse(
       await rootFile(`${manifest.contentDirectory}/${key}.json`),
     );
@@ -36,6 +42,8 @@ test("A forrás, az olvasható snapshot és a valódi HTML ugyanazt a tananyagot
   }
   assert.deepEqual(manifest.counts, bundled.stats);
   assert.deepEqual(manifest.lessons, [...TOPICS]);
+  assert.equal(manifest.profileSchema, contentSnapshot.profileSchema);
+  assert.equal(manifest.skills, contentSnapshot.skills.length);
 });
 
 test("A v0.1.0 történeti leckemásolat változatlan, és a hat eredeti lecke nem veszett el", async () => {
@@ -54,20 +62,30 @@ test("A v0.1.0 történeti leckemásolat változatlan, és a hat eredeti lecke n
     );
 });
 
+test("A v0.2.0 tíz leckéjének történeti adatai és azonosítói megmaradnak", async () => {
+  const oldLessons = JSON.parse(await rootFile("content/v0.2.0/lessons.json"));
+  assert.equal(oldLessons.length, 10);
+  for (const old of oldLessons)
+    assert.deepEqual(
+      contentSnapshot.lessons.find((l) => l.id === old.id),
+      old,
+    );
+});
+
 test("Minden regisztrált úthoz tartozik lecke, generátor és érvényes tantervi kapcsolat", () => {
   const { lessons, curriculum, generatorFamilies } = contentSnapshot;
-  assert.equal(lessons.length, 10);
+  assert.equal(lessons.length, 14);
   assert.equal(
     lessons.reduce((n, l) => n + l.practice.length, 0),
-    96,
+    144,
   );
   assert.equal(
     lessons.reduce((n, l) => n + l.exit.length, 0),
-    20,
+    28,
   );
   assert.equal(
     lessons.reduce((n, l) => n + l.examples.length, 0),
-    20,
+    28,
   );
   const questions = lessons.flatMap((l) => [
     l.prediction,

@@ -282,6 +282,7 @@ export function normalizeExpression(input: string): string | null {
   if (typeof input !== "string" || input.length > MAX_INPUT_LENGTH) return null;
   const text = normalizeSymbols(input.normalize("NFC"))
     .replace(/[\s\u00a0\u202f]+/g, "")
+    .replace(/\b(?:sqrt|gyok)\(/gi, "√(")
     .replace(/[×·]/g, "*")
     .replace(/[:÷]/g, "/")
     .replace(/²/g, "^2")
@@ -290,7 +291,7 @@ export function normalizeExpression(input: string): string | null {
     .replace(/\]/g, ")")
     .replace(/,/g, ".");
   return text &&
-    /^[0-9A-Za-z.+\-*/^()=]+$/.test(text) &&
+    /^[0-9A-Za-z.+\-*/^()=√]+$/.test(text) &&
     !/[A-Za-z]{2,}/.test(text)
     ? text
     : null;

@@ -24,7 +24,13 @@ if (html.includes(Buffer.from("/src/main.tsx")))
   throw new Error("A Vite-belépő nem publikálható.");
 const folder = `content/v${build.version}`;
 await mkdir(resolve(root, folder), { recursive: true });
-for (const key of ["lessons", "curriculum", "generatorFamilies"]) {
+for (const key of [
+  "lessons",
+  "curriculum",
+  "generatorFamilies",
+  "targetedGeneratorFamilies",
+  "skills",
+]) {
   await writeFile(
     resolve(root, folder, `${key}.json`),
     JSON.stringify(contentSnapshot[key], null, 2) + "\n",
@@ -36,6 +42,8 @@ const manifest = {
   kind: "reproducible-standalone-release",
   entry: "index.html",
   source: "app/",
+  profileSchema: contentSnapshot.profileSchema,
+  skills: contentSnapshot.skills.length,
   offlineFile: filename,
   contentDirectory: folder,
   bytes: html.length,

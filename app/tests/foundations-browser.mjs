@@ -313,13 +313,13 @@ try {
   assert.ok(snapshot, "The actual released artifact must expose its own content snapshot");
   sourceGenerator = (await import(pathToFileURL(resolve(appRoot, "src/math/generators.ts")).href)).generateExercise;
 
-  await check("Subdirectory routing and embedded ten-topic content agree with the release manifest", async () => {
+  await check("Subdirectory routing and embedded registered-topic content agree with the release manifest", async () => {
     const manifest = JSON.parse(await readFile(resolve(root, "release-manifest.json"), "utf8"));
     assert.equal(snapshot.version, manifest.version);
     assert.deepEqual(snapshot.stats, manifest.counts);
     assert.deepEqual(snapshot.lessons.map(lesson => lesson.id), manifest.lessons);
-    assert.equal(snapshot.lessons.length, 10);
-    assert.equal(await page.locator(".topic-card").count(), 10);
+    assert.equal(snapshot.lessons.length, 14);
+    assert.equal(await page.locator(".topic-card").count(), snapshot.lessons.length);
     assert.deepEqual(snapshot.lessons, JSON.parse(await readFile(resolve(root, manifest.contentDirectory, "lessons.json"), "utf8")));
     assert.equal(new URL(page.url()).pathname, prefix);
   });
@@ -385,8 +385,8 @@ try {
     await page.reload();
     await page.getByRole("heading", { name: "A te beállításaid.", exact: true }).waitFor();
     const migrated = await saved();
-    assert.equal(migrated.schemaVersion, 2);
-    assert.equal(Object.keys(migrated.lessons).length, 10);
+    assert.equal(migrated.schemaVersion, 3);
+    assert.equal(Object.keys(migrated.lessons).length, 14);
     assert.deepEqual(migrated.settings, original.settings);
     assert.deepEqual(migrated.attempts, original.attempts);
     assert.equal(migrated.lastTopic, original.lastTopic);
@@ -583,7 +583,7 @@ try {
     });
   }
 
-  await check("Mixed practice rotates through all ten topics with working generators", async () => {
+  await check("Mixed practice rotates through every registered topic with working generators", async () => {
     await route("gyakorlas");
     assert.equal(await page.locator(".exercise-card .exercise-id code").textContent(), report.legacyMigration.mixedId);
     assert.equal((await saved()).legacyReviewSeed, report.legacyMigration.mixedSeed);
@@ -605,8 +605,8 @@ try {
     assert.deepEqual([...seen].sort(), snapshot.lessons.map(lesson => lesson.id).sort());
     report.mixedRotation = seen;
     await route("haladas");
-    assert.equal(await page.locator(".progress-list > article").count(), 10);
-    assert.match(await page.locator(".stat-grid > div").nth(2).innerText(), /\/\s*10/);
+    assert.equal(await page.locator(".progress-list > article").count(), snapshot.lessons.length);
+    assert.match(await page.locator(".stat-grid > div").nth(2).innerText(), new RegExp("/\\s*" + snapshot.lessons.length));
   });
 
   // Workshop behaviour assertions are kept separate from exercise-answer fixtures.
@@ -696,7 +696,7 @@ try {
     }
   });
 
-  await check("320/390px normal and large text: home, all ten workshops and the largest new multipart tasks", async () => {
+  await check("320/390px normal and large text: home, every workshop and the largest foundation multipart tasks", async () => {
     for (const width of [320, 390]) {
       await page.setViewportSize({ width, height: 900 });
       for (const large of [false, true]) {
@@ -772,7 +772,7 @@ try {
     assert.deepEqual(reloaded.lessons[lesson.id], before.lessons[lesson.id]);
     const exported = await downloadProfile(offline, `actual-offline-v${snapshot.version}-export.json`);
     const profile = JSON.parse(exported.text);
-    assert.equal(profile.schemaVersion, 2);
+    assert.equal(profile.schemaVersion, 3);
     assert.equal(profile.appVersion, report.artifact.version);
     assert.equal(profile.attempts[expression.id].independent, true);
     for (let i = 0; i < 2; i++) assert.equal(profile.attempts[`exit:${lesson.id}:0:${i}`].independent, true);

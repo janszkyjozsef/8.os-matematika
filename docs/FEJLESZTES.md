@@ -1,4 +1,4 @@
-# Fejlesztői útmutató — 0.2.0
+# Fejlesztői útmutató — 0.3.0
 
 ## Forrás és kiadás
 
@@ -16,6 +16,7 @@ npm run release
 npm test
 npm run test:browser
 npm run test:foundations
+npm run test:bridges
 ```
 
 A böngészőtesztek előtt az `app/` könyvtárban `npx playwright install --with-deps chromium` szükséges, kivéve ha a `MATEK8_CHROMIUM_PATH` már elérhető Chromiumot jelöl. Ez nem használja a felhasználó saját böngészőprofilját. A helyi `MATEK8_TEST_URL` csak localhostot fogad el; távoli oldal vizsgálatához ezt a korlátot nem szabad fellazítani.
@@ -24,9 +25,9 @@ A `build` a fejlesztői forrásból Vite-disztribúciót és verziózott önáll
 
 ## Verziózás és reprodukálhatóság
 
-Az alkalmazás verziójának forrása az `app/package.json`; a lockfájl csomagverziójával együtt frissítendő. A `version.ts`, a portable fájlnév, a böngészőteszt offline fájlválasztása, a tartalmi snapshot és a release-manifest innen származik. A mentési séma külön érték: jelenleg 2.
+Az alkalmazás verziójának forrása az `app/package.json`; a lockfájl csomagverziójával együtt frissítendő. A `version.ts`, a portable fájlnév, a böngészőteszt offline fájlválasztása, a tartalmi snapshot és a release-manifest innen származik. A mentési séma külön érték: jelenleg 3. A 0.3.0 ciklusban a függőségverziók nem változtak; a friss `npm ci` ugyanazt a lockfájlt használja.
 
-A portable script `Matek8.contentSnapshot` néven stabil adat-exportot ad a beágyazott programból. A kiadásteszt ezt elkülönített, DOM és hálózat nélküli környezetben olvassa vissza, majd összeveti a TypeScript-forrás és a verziózott JSON adataival. Nem támaszkodik tömörítéskor véletlenszerűen létrejövő változónevekre. A `content/v0.1.0/` változatlan történeti referencia: a régi hat lecke egyezését külön teszt őrzi.
+A portable script `Matek8.contentSnapshot` néven stabil adat-exportot ad a beágyazott programból. A kiadásteszt ezt elkülönített, DOM és hálózat nélküli környezetben olvassa vissza, majd összeveti a TypeScript-forrás és a verziózott JSON adataival. Nem támaszkodik tömörítéskor véletlenszerűen létrejövő változónevekre. A `content/v0.1.0/` és `content/v0.2.0/` változatlan történeti referencia: az eredeti hat és a korábbi tíz lecke egyezését külön teszt őrzi. Az aktuális `content/v0.3.0/` a készségregisztert és a külön javító generátorok jegyzékét is tartalmazza.
 
 A CI friss `npm ci` után matematikai és migrációs teszteket futtat, újrafordítja a forrást, majd **bájtra összeveti** a generált HTML-t a commitban szereplő gyökérbeli `index.html`-lel. Eltéréskor hibával megáll. A build és a teszt nem írhatja át észrevétlenül a vizsgált, commitolt kiadást.
 
@@ -37,6 +38,10 @@ A CI friss `npm ci` után matematikai és migrációs teszteket futtat, újrafor
 3. **Lecke, műhely és gyakorlás.** Teljes hatlépéses út, legalább megfelelő jóslás, magyarázat, kidolgozott példák, fokozatos segítség, célzott visszajelzés, generált családok és önálló próba szükséges. Az üres műhelyspecifikáció nem működő műhely.
 4. **Valódi integráció.** Kezdőkártya, témakép, útvonal, műhely-kezdőállapot, haladás, export/import, vegyes gyakorlás, nyomtatás és előismereti hivatkozás is része az új útnak. A generátorválasztó a témához tartozó tényleges családszámmal számol.
 5. **Ellenőrzés és kiadás.** Külön matematikai referenciák, valódi böngészős megoldások, 320/390 px normál és nagybetűs nézet, billentyűzet, nyomtatás és hálózat nélküli kiadás. A hibát javítani és újraellenőrizni kell.
+
+Az új leckék és részválaszok `skillIds` mezője konkrét, regisztrált készségekre mutat. A korábbi tartalom változatlan objektumait a `learning/skills.ts` külön megfeleltetése kapcsolja készségekhez. A jóslás nem készségesemény. Az `ExerciseCard` egyetlen valódi ellenőrzéskor, a korábbi próbálkozás alapján rögzíti az eredményt; megnyitásból vagy gépelésből nem keletkezik naplóbejegyzés.
+
+A `learning/practice.ts` választja és stabil locator alapján visszajátssza a célzott részfeladatokat. A felület a locatort nem értelmezi és nem építi újra profilváltozáskor. A kanonikus forrás- és részazonosító megakadályozza, hogy ugyanaz a kérdés másik útvonalon új önálló sikernek számítson. A külön `learning/repair-generators.ts` bővíti a javító kínálatot, a régi általános generátorok változatsorrendjének módosítása nélkül. Lásd: [készségnapló és javítás](KESZSEG_ES_JAVITAS.md).
 
 A `lessonsForModule` több leckét is visszaadhat egy modulhoz. A `coveredUnits` kész tartalmi kapcsolatot jelöl; a `coverage.ts` külön kezeli a részben érintett célokat. A „tananyag és gyakorlás elérhető” nem a teljes modul készültsége, nem a tanuló tudásának mérése és nem pedagógiai hatásvizsgálat.
 

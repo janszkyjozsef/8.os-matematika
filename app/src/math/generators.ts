@@ -4,6 +4,7 @@ import {
   generateFoundationExercise,
 } from "./foundation-generators.ts";
 import { formatRational, parseRational, rational } from "./engine.ts";
+import { bridgeGeneratorFamilies, generateBridgeExercise } from "./bridge-generators.ts";
 
 export interface GeneratorFamily {
   id: string;
@@ -1007,6 +1008,7 @@ const builders: Partial<
 export const generatorFamilies: readonly GeneratorFamily[] = Object.freeze([
   ...legacyGeneratorFamilies,
   ...foundationGeneratorFamilies,
+  ...bridgeGeneratorFamilies,
 ]);
 export const familiesFor = (topic: TopicId) =>
   generatorFamilies.filter((family) => family.topic === topic);
@@ -1028,6 +1030,8 @@ export function generateExercise(
     );
   if (foundationGeneratorFamilies.some((family) => family.topic === topic))
     return generateFoundationExercise(topic, seed, variant);
+  if (bridgeGeneratorFamilies.some((family) => family.topic === topic))
+    return generateBridgeExercise(topic, seed, variant);
   if (!Object.hasOwn(builders, topic))
     throw new RangeError("Ismeretlen témakör.");
   const selectedVariant = variant ?? seed;

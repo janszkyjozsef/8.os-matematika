@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-06T15:00:37.483Z",
+  "version": "0.3.0",
+  "htmlSha256": "32f73e067df963f6cd8f9e7435f802da3efbccb321d66efe0be4adae66ba8066",
+  "scenarios": 12,
+  "axeStates": 9,
+  "violations": 0,
+  "browser": "153.0.8010.0",
+  "tests": [
+    "Almappás belépés, keresés, billentyűzet és teljes tématérkép",
+    "Törtek: tévképzet, magyarázat, helyes válasz és tényleges mentés",
+    "Törtsávok: eltérő osztásból közös mérték",
+    "Százalék: a második változás alapja az új ár",
+    "Egyenlet: azonos művelet mindkét oldalon és visszaellenőrzés",
+    "Grafikon: alapdíj, meredekség és közvetlen arányosság",
+    "Pitagorasz: területek, kiemelés és elforgatás",
+    "Valószínűség: 36 rendezett kimenetel és szimuláció",
+    "Hat nyomtatható feladatsor, feladatonkénti magyarázattal",
+    "Mobil 390 px, nagy betűk és a hat eredeti műhely",
+    "Mobil 320 px, nagy betűk és a hat eredeti műhely",
+    "Letöltött HTML: hálózat nélkül is megoldható és menthető"
+  ]
+}

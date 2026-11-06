@@ -1,5 +1,6 @@
 import type { Lesson, TopicId } from '../types.ts';
 import { foundationLessons } from './foundations.ts';
+import { bridgeLessons } from './bridge-lessons.ts';
 import { TOPICS } from '../topics.ts';
 
 // Eredeti, fix tanulási tartalom. A számeredményeket külön számítás ellenőrzi.
@@ -3727,7 +3728,7 @@ export const legacyLessons: Lesson[] = [
 
 // Registry order is the public learning order; historical objects remain unchanged.
 export const lessons: Lesson[] = TOPICS.map((id) => {
-  const lesson = [...foundationLessons, ...legacyLessons].find((item) => item.id === id);
+  const lesson = [...foundationLessons, ...bridgeLessons, ...legacyLessons].find((item) => item.id === id);
   if (!lesson) throw new Error(`Hiányzó lecke: ${id}`);
   return lesson;
 });

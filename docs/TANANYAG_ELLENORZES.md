@@ -1,4 +1,48 @@
-# Tananyag-ellenőrzés — a négy alapozó út beépítése
+# Tananyag-ellenőrzés — 0.3.0
+
+**Dátum: 2026. november 6.** A jelenlegi kiadás a korábbi tíz utat négy további teljes leckével, készségnaplóval és célzott javító gyakorlással bővíti. A korábbi tíz lecke objektumai változatlanok; a 0.2.0 tartalmi vizsgálat részletei e dokumentum második felében történeti referencia maradnak.
+
+## A 0.3.0 négy új útja
+
+| Út | Kidolgozott példa | Gyakorló | Gyakorlóhoz tartozó segítség | Önálló próba | Jóslás |
+|---|---:|---:|---:|---:|---:|
+| Betűs kifejezések | 2 | 12 | 24 | 2 | 1 |
+| Szöveges modellek | 2 | 12 | 24 | 2 | 1 |
+| Hatványok | 2 | 12 | 24 | 2 | 1 |
+| Négyzetgyök | 2 | 12 | 24 | 2 | 1 |
+| **Összesen** | **8** | **48** | **96** | **8** | **4** |
+
+A 60 új kérdésrekord **183 válaszmezőt** és **101 célzott hibaszabályt** tartalmaz. Minden feladathoz saját szavas indoklás és önellenőrzési szempont tartozik. A kéziratok a `docs/tananyag/05–08` fájlokban, a tényleges alkalmazásadatok a `bridge-lessons.ts` fájlban vannak; a stabil kézirat- és mezőazonosítók visszakereshetők. Ez nem 183 külön feladat.
+
+Az új tartalmi referenciateszt (`app/tests/bridge-content.test.ts`) minden rögzített mezőt külön számszaki vagy szerkesztett fogalmi referenciához köt. A feladatszöveg megadott adatait is ellenőrzi, a véges kifejezéslista alakjait külön polinomértelmezővel vizsgálja. Ez a teszt nyelve; az alkalmazás továbbra sem általános szimbolikus algebrai rendszer. Az összes célzott hibát ténylegesen beadja az ellenőrzőnek, és a megfelelő részmező saját visszajelzését várja. A nyolc kidolgozott példa lényegi számításait is újraszámolja.
+
+A tizenkét új általános generátorcsalád **12 × 200 = 2400** példájának referenciáját a `bridge-generators.test.ts` a látható feladatadatokból, saját racionális számolással adja. Nem használja a generátor véletlenállapotát vagy helyesválasz-mezőjét a referencia előállításához. A gyökbecslés egészszámos korlátozást és felezőpont-vizsgálatot használ; a modellkifejezések alakjai külön lineáris értelmezővel ellenőrzöttek.
+
+A megfigyelt gyakoriság és az elméleti esély külön javító családja kockás és pénzérmés változatban **2 × 200 = 400** látható adatsorból újraszámolt példát kapott. A korábbi 6000 generátorpéldával együtt a reprodukálható matematikai mintavizsgálat **8800 példát** fed le. Ez mintavizsgálat a családokból, nem minden lehetséges feladat teljes felsorolása.
+
+A négy új lecke 60 rekordját és 8 példáját a készítőjétől külön végzett szerkesztői átnézés is ellenőrizte. További 720 generált példát külön Python `Fraction` és nagy pontosságú `Decimal` számítás ellenőrzött; ezt a kiegészítő átnézést nem számoljuk hozzá a CI 8800-as mintaszámához. Külső szaktanári lektorálás és tanulói kipróbálás még nem történt.
+
+## Függő részfeladatok és készségmegfigyelés
+
+Az ellenőrző mezőt nem szabad úgy leválasztani, hogy a megadott teljes összeg puszta visszamásolása sikeres modellellenőrzés legyen. A `requiresParts` metaadat ezért megnevezi azokat az előzménymezőket, amelyekkel a rész együtt értelmezhető. A célzott nézet ezek tranzitív csoportját megtartja; a függő rész készségeseménye csak ugyanabban az ellenőrzésben helyes előzmények mellett rögzül. Egy korábbi helyes előzmény nem pótolja a most hiányzó választ.
+
+A független helyettesítési és fogalmi részek továbbra is külön gyakorolhatók. Az egységár és a visszaellenőrzött összeg, a kiszámolt két hossz és különbségük, illetve a kerekített oldal és annak négyzete indokolt esetben összetartozik. A tesztek a függőségek létezését, egyértelműségét és körmentességét is ellenőrzik.
+
+A készségnapló külön kezeli a matematikai hibát, a kért alak hibáját, az önálló eredményt és a segítséggel vagy javítással elért sikert. A gépelés, jóslás és ismételt változatlan ellenőrzés nem új megfigyelés. A „Másik alkalmazás” cím csak akkor jelenik meg, ha a választó ténylegesen eltérő alkalmazási helyzetet vagy szerkezetet választ; azonos szerkezetnél a felület „Új adatokkal” jelzést használ.
+
+## Az új műhelyek és a teljes használat
+
+A `bridge-labs.test.ts` 21 modelltesztje az egynemű tagokat és az előjeles behelyettesítést, a történetek feltételeit és hiányzó adatait, a hatványalapot és a külső mínuszt, a rétegmodelleket, a gyök pontos/közelítő értékét és a valós megoldások számát vizsgálja. A 0⁰ nem kap hamis numerikus eredményt; a negatív gyök alatti szám és a támogatott tartományon kívüli bevitel emberi magyarázatot kap.
+
+A `bridges-browser.mjs` a konkrét, hash-azonosított önálló HTML-en kezeli a vezérlőket és megoldja a négy út összes rögzített mezőjét. A régi v0.2.0 felületén létrehozott valódi exportot importálja, újratöltés után is összeveti a korábbi adatokat, és kipróbálja a célzott javítást, a napló megőrzését, a hibás importot, a mobilnézetet, a billentyűzetet, a négy nyomtatható lapot és az offline működést. A régi v0.1.1 migrációja és a korábbi utak regressziója külön tesztsorban megmarad.
+
+A végleges futások pontos száma és az azonos kiadáshash a [0.3.0 ellenőrzési jegyzőkönyvben](ELLENORZES_0.3.0.md) található. A böngészős válaszkitöltés az összekapcsolást igazolja; a matematikai referenciatesztek ettől függetlenül vizsgálják a helyességet.
+
+---
+
+## Történeti rész: a 0.2.0 négy alapozó kéziratának beépítése
+
+Az alábbi darabszámok és az „új” szó a **0.2.0 ciklusra** vonatkoznak. A mostani teljes kiadás számai a fenti részben és a kiadási jegyzékben mérvadók.
 
 **Dátum:** 2026. november 6.  
 **Kiadás:** 0.2.0. Az eredeti kéziratok a `docs/tananyag/` alatt változatlanok; az alkalmazásba épített változat az `app/src/content/foundations.ts` fájlban található.

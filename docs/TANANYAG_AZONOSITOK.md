@@ -1,6 +1,8 @@
-# A négy alapozó út — tananyag-azonosítók és lefedettség
+# Az alapozó utak — tananyag-azonosítók és lefedettség
 
-**Kiadás:** 0.2.0 · **Dátum:** 2026. november 6.
+**Aktuális kiadás:** 0.3.0 · **Dátum:** 2026. november 6.
+
+A dokumentum első része a 0.2.0 négy eredeti kéziratának változatlan megfeleltetését őrzi. Az ottani darabszámok és részleges kapcsolatok arra a ciklusra vonatkoznak. A 0.3.0 négy új útjának megfeleltetése a dokumentum végén található.
 
 A négy eredeti kézirat változatlanul megmarad a `docs/tananyag/` könyvtárban. Az alkalmazásbeli tartalom forrása `app/src/content/foundations.ts`; a generált feladatoké `app/src/math/foundation-generators.ts`. A kézirat egy számozott gyakorlója egy alkalmazásbeli feladatrekord marad, akkor is, ha több külön választ kér.
 
@@ -181,3 +183,133 @@ Az `app/tests/foundations.test.ts` hat tesztje sikeresen lefutott. A vizsgálat:
 6. Újraszámolja a nyolc kidolgozott példa lényegi eredményét és ellenőrzi a megjelenő feltételeket.
 
 Ez a matematikai és tartalmi ellenőrzés. A műhelyek böngészős működését, a megjelenítést, a mentési migrációt és a teljes kiadást a projekt külön integrált ellenőrzése vizsgálja. A tanári lektorálás és tanulói kipróbálás továbbra is külön feladat.
+
+
+## A 0.3.0 négy új útjának megfeleltetése
+
+A `bridge-lessons.ts` a kézirat- és alkalmazásazonosítókat együtt tárolja, a `bridgeManuscriptMap` ugyanezekből készül. Minden sor egyetlen kérdésrekord: a felsorolt részmezők nem külön feladatok. Mind a 60 rekordhoz két segítség, részletes megoldás és saját szavas indoklás tartozik. A négy új út összesen 183 ellenőrzött mezőt tartalmaz.
+
+### Betűs kifejezések
+
+Kézirat: [05-betus-kifejezesek.md](tananyag/05-betus-kifejezesek.md).
+
+| Kéziratbeli azonosító | Alkalmazásbeli azonosító | Részmezők |
+|---|---|---|
+| BK05-J01 | `betus-kifejezesek-prediction` | `first`, `second` |
+| BK05-G01 | `betus-kifejezesek-practice-1` | `positive`, `zero`, `negative` |
+| BK05-G02 | `betus-kifejezesek-practice-2` | `sum`, `product`, `square` |
+| BK05-G03 | `betus-kifejezesek-practice-3` | `combined`, `value` |
+| BK05-G04 | `betus-kifejezesek-practice-4` | `x`, `y`, `value` |
+| BK05-G05 | `betus-kifejezesek-practice-5` | `coefficient`, `constant`, `value` |
+| BK05-G06 | `betus-kifejezesek-practice-6` | `coefficient`, `constant`, `value` |
+| BK05-G07 | `betus-kifejezesek-practice-7` | `expanded`, `value` |
+| BK05-G08 | `betus-kifejezesek-practice-8` | `expanded`, `value` |
+| BK05-G09 | `betus-kifejezesek-practice-9` | `coefficient`, `constant`, `value` |
+| BK05-G10 | `betus-kifejezesek-practice-10` | `sumForm`, `productForm`, `sumValue`, `productValue` |
+| BK05-G11 | `betus-kifejezesek-practice-11` | `perimeterForm`, `areaForm`, `perimeter`, `area` |
+| BK05-G12 | `betus-kifejezesek-practice-12` | `left`, `right`, `correctForm` |
+| BK05-Z01 | `betus-kifejezesek-exit-1` | `form`, `negative`, `positive` |
+| BK05-Z02 | `betus-kifejezesek-exit-2` | `coefficient`, `constant`, `price` |
+
+Kidolgozott példák: `betus-kifejezesek.examples[0]` és `betus-kifejezesek.examples[1]`, a kézirat azonos című, sorrendben első és második példája. Konkrét tananyag és gyakorlás kapcsolódik ezekhez az egységekhez: `M09.01`, `M09.02`, `M09.03`, `M09.04`, `M09.05`.
+
+### Szövegből modell
+
+Kézirat: [06-szoveges-modellek.md](tananyag/06-szoveges-modellek.md).
+
+| Kéziratbeli azonosító | Alkalmazásbeli azonosító | Részmezők |
+|---|---|---|
+| SM06-J01 | `szoveges-modellek-prediction` | `tickets`, `one` |
+| SM06-G01 | `szoveges-modellek-practice-1` | `equation`, `price`, `total` |
+| SM06-G02 | `szoveges-modellek-practice-2` | `equation`, `short`, `long` |
+| SM06-G03 | `szoveges-modellek-practice-3` | `child`, `father`, `laterRatio` |
+| SM06-G04 | `szoveges-modellek-practice-4` | `start`, `four`, `time` |
+| SM06-G05 | `szoveges-modellek-practice-5` | `hours`, `speed`, `distance` |
+| SM06-G06 | `szoveges-modellek-practice-6` | `equation`, `full`, `half` |
+| SM06-G07 | `szoveges-modellek-practice-7` | `needed`, `price`, `check` |
+| SM06-G08 | `szoveges-modellek-practice-8` | `first`, `second`, `unique` |
+| SM06-G09 | `szoveges-modellek-practice-9` | `total`, `difference`, `consistent` |
+| SM06-G10 | `szoveges-modellek-practice-10` | `quotient`, `buses`, `empty` |
+| SM06-G11 | `szoveges-modellek-practice-11` | `six`, `three`, `check` |
+| SM06-G12 | `szoveges-modellek-practice-12` | `a`, `b`, `same` |
+| SM06-Z01 | `szoveges-modellek-exit-1` | `equation`, `price`, `check` |
+| SM06-Z02 | `szoveges-modellek-exit-2` | `equation`, `short`, `long` |
+
+Kidolgozott példák: `szoveges-modellek.examples[0]` és `szoveges-modellek.examples[1]`, a kézirat azonos című, sorrendben első és második példája. Konkrét tananyag és gyakorlás kapcsolódik ezekhez az egységekhez: `M12.01`, `M12.02`, `M12.03`, `M12.04`, `M12.06`, `M12.07`.
+
+### Hatványok
+
+Kézirat: [07-hatvanyok.md](tananyag/07-hatvanyok.md).
+
+| Kéziratbeli azonosító | Alkalmazásbeli azonosító | Részmezők |
+|---|---|---|
+| H07-J01 | `hatvanyok-prediction` | `square`, `cube` |
+| H07-G01 | `hatvanyok-practice-1` | `base`, `exponent`, `expanded`, `value` |
+| H07-G02 | `hatvanyok-practice-2` | `first`, `second`, `difference` |
+| H07-G03 | `hatvanyok-practice-3` | `negativeSquare`, `oppositeSquare`, `outside`, `cube` |
+| H07-G04 | `hatvanyok-practice-4` | `even`, `odd`, `zero`, `one` |
+| H07-G05 | `hatvanyok-practice-5` | `half`, `threeHalves`, `decimal` |
+| H07-G06 | `hatvanyok-practice-6` | `area`, `volume`, `areaFactor`, `volumeFactor` |
+| H07-G07 | `hatvanyok-practice-7` | `thousand`, `million`, `ratio` |
+| H07-G08 | `hatvanyok-practice-8` | `value`, `hundredThousands`, `thousands` |
+| H07-G09 | `hatvanyok-practice-9` | `first`, `second`, `third` |
+| H07-G10 | `hatvanyok-practice-10` | `estimate`, `exact`, `difference` |
+| H07-G11 | `hatvanyok-practice-11` | `whole`, `separate`, `difference` |
+| H07-G12 | `hatvanyok-practice-12` | `value`, `coefficient`, `exponent` |
+| H07-Z01 | `hatvanyok-exit-1` | `first`, `second`, `sum` |
+| H07-Z02 | `hatvanyok-exit-2` | `one`, `total`, `estimate` |
+
+Kidolgozott példák: `hatvanyok.examples[0]` és `hatvanyok.examples[1]`, a kézirat azonos című, sorrendben első és második példája. Konkrét tananyag és gyakorlás kapcsolódik ezekhez az egységekhez: `M07.01`, `M07.02`.
+
+### Négyzetgyök
+
+Kézirat: [08-negyzetgyok.md](tananyag/08-negyzetgyok.md).
+
+| Kéziratbeli azonosító | Alkalmazásbeli azonosító | Részmezők |
+|---|---|---|
+| GY08-J01 | `negyzetgyok-prediction` | `root`, `smaller`, `larger` |
+| GY08-G01 | `negyzetgyok-practice-1` | `zero`, `one`, `seven`, `ten` |
+| GY08-G02 | `negyzetgyok-practice-2` | `fraction`, `decimal`, `larger` |
+| GY08-G03 | `negyzetgyok-practice-3` | `negative`, `decimal`, `zero` |
+| GY08-G04 | `negyzetgyok-practice-4` | `smaller`, `larger`, `zero`, `negative` |
+| GY08-G05 | `negyzetgyok-practice-5` | `lower`, `upper` |
+| GY08-G06 | `negyzetgyok-practice-6` | `lower`, `upper`, `rounded` |
+| GY08-G07 | `negyzetgyok-practice-7` | `lower`, `upper`, `rounded` |
+| GY08-G08 | `negyzetgyok-practice-8` | `exact`, `square`, `equal` |
+| GY08-G09 | `negyzetgyok-practice-9` | `together`, `separate`, `difference` |
+| GY08-G10 | `negyzetgyok-practice-10` | `exact`, `side`, `check` |
+| GY08-G11 | `negyzetgyok-practice-11` | `side`, `used`, `left` |
+| GY08-G12 | `negyzetgyok-practice-12` | `early`, `rounded`, `difference` |
+| GY08-Z01 | `negyzetgyok-exit-1` | `root`, `smaller`, `larger` |
+| GY08-Z02 | `negyzetgyok-exit-2` | `exact`, `lower`, `upper`, `rounded`, `square` |
+
+Kidolgozott példák: `negyzetgyok.examples[0]` és `negyzetgyok.examples[1]`, a kézirat azonos című, sorrendben első és második példája. Konkrét tananyag és gyakorlás kapcsolódik ezekhez az egységekhez: `M08.01`, `M08.02`, `M08.03`.
+
+### Összefüggő részfeladatok
+
+A `requiresParts` egy részmező szükséges előzményeit sorolja fel. A célzott javítás ezek közvetett láncát is megőrzi; a függő eredmény csak az előzmények ugyanabban az ellenőrzésben helyes megoldásával számít készségmegfigyelésnek. Egy közölt teljes összeg visszamásolása önmagában nem bizonyít modellellenőrzést. A független helyettesítéseket nem kötjük össze.
+
+| Kérdés | Függő mező | Kötelező közvetlen előzmény |
+|---|---|---|
+| `szoveges-modellek-practice-1` | `total` | `equation`, `price` |
+| `szoveges-modellek-practice-3` | `laterRatio` | `child`, `father` |
+| `szoveges-modellek-practice-7` | `check` | `price` |
+| `szoveges-modellek-practice-8` | `unique` | `first`, `second` |
+| `szoveges-modellek-practice-9` | `difference` | `total` |
+| `szoveges-modellek-practice-9` | `consistent` | `difference` |
+| `szoveges-modellek-practice-10` | `empty` | `buses` |
+| `szoveges-modellek-practice-11` | `check` | `three` |
+| `szoveges-modellek-exit-1` | `check` | `equation`, `price` |
+| `hatvanyok-practice-2` | `difference` | `first`, `second` |
+| `hatvanyok-practice-10` | `difference` | `estimate`, `exact` |
+| `hatvanyok-practice-11` | `difference` | `whole`, `separate` |
+| `hatvanyok-exit-1` | `sum` | `first`, `second` |
+| `negyzetgyok-practice-8` | `equal` | `square` |
+| `negyzetgyok-practice-9` | `difference` | `together`, `separate` |
+| `negyzetgyok-practice-10` | `check` | `side` |
+| `negyzetgyok-practice-11` | `used` | `side` |
+| `negyzetgyok-practice-11` | `left` | `used` |
+| `negyzetgyok-practice-12` | `difference` | `early`, `rounded` |
+| `negyzetgyok-exit-2` | `square` | `rounded` |
+
+A 12 új általános család stabil azonosítói a kiadás `generatorFamilies.json` fájljában, az egy külön javító család a `targetedGeneratorFamilies.json` fájlban olvasható. A 41 készség teljes, megnyitható kapcsolatai a `skills.json` adatban vannak. Az aktuális könyvtárat a gyökérbeli kiadási jegyzék nevezi meg. A történeti 0.1.0 és 0.2.0 snapshot változatlan.

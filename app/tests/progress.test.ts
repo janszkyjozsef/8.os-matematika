@@ -3,7 +3,8 @@ import assert from "node:assert/strict";
 import { generateExercise } from "../src/math/generators.ts";
 import { gradeAnswer } from "../src/math/engine.ts";
 import { encodePartResponses } from "../src/math/engine.ts";
-import { LEGACY_TOPICS, SCHEMA_VERSION } from "../src/topics.ts";
+import { LEGACY_TOPICS, V2_TOPICS, SCHEMA_VERSION } from "../src/topics.ts";
+import { emptyLearningLog, MAX_LEARNING_EVENTS } from "../src/learning/skills.ts";
 import {
   emptyProfile,
   emptyAttempt,
@@ -373,6 +374,8 @@ test("a real six-topic schema-1 shape migrates without changing existing learnin
   assert.equal(migrated.lastTopic, legacy.lastTopic);
   assert.equal(migrated.reviewSeed, legacy.reviewSeed);
   assert.equal(migrated.legacyReviewSeed, legacy.reviewSeed);
+  assert.equal(migrated.legacyReviewSchema, 1);
+  assert.deepEqual(migrated.learning, emptyLearningLog());
   for (const id of LEGACY_TOPICS)
     assert.deepEqual(migrated.lessons[id], legacy.lessons[id], id);
   const blank = emptyProfile();
@@ -381,7 +384,7 @@ test("a real six-topic schema-1 shape migrates without changing existing learnin
   )) {
     assert.deepEqual(migrated.lessons[id], blank.lessons[id], id);
   }
-  assert.equal(Object.keys(migrated.lessons).length, 10);
+  assert.equal(Object.keys(migrated.lessons).length, TOPICS.length);
   assert.equal(
     JSON.stringify(legacy),
     snapshot,
@@ -404,14 +407,14 @@ test("legacy local storage and an exported legacy JSON both survive migration an
   assert.deepEqual(loaded.profile, parseImport(exported));
   loaded.profile.lessons.szamfogalom.step = 1;
   loaded.profile.lessons.szamfogalom.visited = [0, 1];
-  loaded.profile.appVersion = "0.2.0";
+  loaded.profile.appVersion = "0.3.0";
   assert.equal(
     saveProfile(loaded.profile, {
       setItem: (key, value) => backing.set(key, value),
     }),
     "",
   );
-  assert.equal(JSON.parse(backing.get(STORAGE_KEY)!).schemaVersion, 2);
+  assert.equal(JSON.parse(backing.get(STORAGE_KEY)!).schemaVersion, SCHEMA_VERSION);
   const reloaded = loadProfile({ getItem: (key) => backing.get(key) ?? null });
   assert.deepEqual(reloaded.profile, loaded.profile);
   assert.equal(reloaded.profile.attempts["tortek-p1"].independent, true);
@@ -443,6 +446,7 @@ test("the currently open legacy mixed task survives import and reload without fr
   const current = parseImport(JSON.stringify(old));
   const replay = parseImport(serializeProfile(current));
   assert.equal(replay.legacyReviewSeed, 67);
+  assert.equal(replay.legacyReviewSchema, 1);
   const oldTopic = LEGACY_TOPICS[(old.reviewSeed - 1) % LEGACY_TOPICS.length];
   const oldVariant =
     Math.floor((old.reviewSeed - 1) / LEGACY_TOPICS.length) % 3;
@@ -455,11 +459,12 @@ test("the currently open legacy mixed task survives import and reload without fr
     oldTask.id,
     generateExercise(oldTopic, 50_000 + replay.reviewSeed, oldVariant).id,
   );
-  const { legacyReviewSeed, ...rest } = replay;
+  const { legacyReviewSeed, legacyReviewSchema, ...rest } = replay;
   const next = parseImport(
     serializeProfile({ ...rest, reviewSeed: replay.reviewSeed + 1 }),
   );
   assert.equal(next.legacyReviewSeed, undefined);
+  assert.equal(next.legacyReviewSchema, undefined);
   assert.throws(
     () => validateProfile({ ...replay, legacyReviewSeed: 12 }),
     /korábbi vegyes/,
@@ -548,4 +553,135 @@ test("a corrupt legacy save remains byte-for-byte untouched after failed migrati
   const result = loadProfile({ getItem: (key) => backing.get(key) ?? null });
   assert.match(result.problem, /Változatlanul megőriztem/);
   assert.equal(backing.get(STORAGE_KEY), original);
+});
+
+function schema2Profile() {
+  const { learning, legacyReviewSeed, legacyReviewSchema, ...source } = emptyProfile();
+  source.settings = { calm: true, largeText: true };
+  source.reviewSeed = 23;
+  source.lastTopic = "mertekegysegek";
+  source.lessons.mertekegysegek = {
+    step: 4, visited: [0, 1, 2, 4], lab: { dimension: 3, enlarged: true },
+    practiceIndex: 9, generatedSeed: 8, generatedMode: true, exitRound: 3, exampleSteps: [3, 2],
+  };
+  source.attempts["mertekegysegek-practice-10"] = {
+    ...emptyAttempt("mertekegysegek"), input: encodePartResponses({ speed: "20", time: "12,5" }),
+    tries: 2, assisted: true, success: true, reflection: "Mindkét egységet átváltottam.",
+  };
+  return {
+    ...source, schemaVersion: 2, appVersion: "0.2.0",
+    lessons: Object.fromEntries(V2_TOPICS.map((id) => [id, source.lessons[id]])),
+  };
+}
+
+test("schema 2 preserves all ten topics and their parts/reflections, with four empty new topics and no invented evidence", () => {
+  const old = schema2Profile();
+  const before = JSON.stringify(old);
+  const next = parseImport(before);
+  assert.equal(next.schemaVersion, 3);
+  assert.equal(next.appVersion, "0.2.0");
+  assert.deepEqual(next.settings, old.settings);
+  assert.deepEqual(next.attempts, old.attempts);
+  for (const id of V2_TOPICS) assert.deepEqual(next.lessons[id], old.lessons[id]);
+  for (const id of TOPICS.filter((id) => !(V2_TOPICS as readonly string[]).includes(id))) {
+    assert.deepEqual(next.lessons[id], emptyProfile().lessons[id]);
+  }
+  assert.deepEqual(next.learning, emptyLearningLog());
+  assert.equal(next.legacyReviewSeed, 23);
+  assert.equal(next.legacyReviewSchema, 2);
+  assert.deepEqual(parseImport(serializeProfile(next)), next);
+  assert.equal(JSON.stringify(old), before);
+});
+
+test("schema 2 mixed task keeps either its ten-topic cycle or an inherited six-topic cycle", () => {
+  for (const inherited of [false, true]) {
+    const old = { ...schema2Profile(), ...(inherited ? { legacyReviewSeed: 23 } : {}) };
+    const next = parseImport(JSON.stringify(old));
+    const order = inherited ? LEGACY_TOPICS : V2_TOPICS;
+    const topic = order[(old.reviewSeed - 1) % order.length];
+    const variant = Math.floor((old.reviewSeed - 1) / order.length) % 3;
+    const oldTask = generateExercise(topic, 50_000 + old.reviewSeed, variant);
+    const restored = parseImport(serializeProfile(next));
+    assert.equal(restored.legacyReviewSchema, inherited ? 1 : 2);
+    assert.equal(restored.legacyReviewSeed, old.reviewSeed);
+    assert.equal(generateExercise(topic, 50_000 + restored.reviewSeed, variant).id, oldTask.id);
+    const { legacyReviewSeed, legacyReviewSchema, ...withoutMarker } = restored;
+    const advanced = parseImport(serializeProfile({ ...withoutMarker, reviewSeed: restored.reviewSeed + 1 }));
+    assert.equal(advanced.legacyReviewSeed, undefined);
+    assert.equal(advanced.legacyReviewSchema, undefined);
+  }
+});
+
+test("all current fields and paired legacy markers are required and bounded in schema 3", () => {
+  const missing: any = emptyProfile();
+  delete missing.learning;
+  assert.throws(() => validateProfile(missing), /készségesemény/);
+  for (const patch of [
+    { legacyReviewSeed: 1 }, { legacyReviewSchema: 1 }, { legacyReviewSeed: 1, legacyReviewSchema: 3 },
+    { legacyReviewSeed: 2, legacyReviewSchema: 2 }, { legacyReviewSeed: "1", legacyReviewSchema: 2 },
+  ]) assert.throws(() => validateProfile({ ...emptyProfile(), ...patch }), /korábbi vegyes/);
+  for (const schema of [1, 2] as const) {
+    const old: any = schema === 1 ? legacyProfile() : schema2Profile();
+    delete old.lessons.tortek;
+    assert.throws(() => validateProfile(old), /tortek/);
+  }
+  const hybrid: any = schema2Profile();
+  hybrid.lessons.hatvanyok = emptyProfile().lessons.hatvanyok;
+  assert.throws(() => validateProfile(hybrid), /ismeretlen leckét/);
+  const wrongTopic: any = schema2Profile();
+  wrongTopic.attempts.newTask = emptyAttempt("hatvanyok");
+  assert.throws(() => validateProfile(wrongTopic), /feladatállapot/);
+});
+
+test("strict schema-3 learning validation rejects malformed or contradictory data without replacing storage", () => {
+  const event = {
+    id: 1, at: "2026-11-06T13:00:00.000Z", exerciseId: "szamfogalom-practice-3",
+    sourceExerciseId: "szamfogalom-practice-3", topic: "szamfogalom",
+    outcomes: [{ skillId: "ellentett", partId: "oppositeMinus7", status: "correct", independent: true, assisted: false, responseKey: "0123456789abcdef" }],
+  };
+  const good = { version: 1, nextId: 2, droppedEvents: 0, events: [event] };
+  const p = { ...emptyProfile(), learning: good } as any;
+  assert.deepEqual(parseImport(serializeProfile(p)).learning, good);
+  const malformed = [
+    undefined, null, [], { ...good, version: 2 }, { ...good, nextId: 9 },
+    { ...good, droppedEvents: -1 }, { ...good, rawAnswer: "secret" },
+    { ...good, events: [{ ...event, at: "not-a-date" }] },
+    { ...good, events: [{ ...event, at: "2026-02-30T13:00:00.000Z" }] },
+    { ...good, events: [{ ...event, topic: "future" }] },
+    { ...good, events: [{ ...event, exerciseId: "szamfogalom-prediction" }] },
+    { ...good, events: [{ ...event, outcomes: [] }] },
+    { ...good, events: [{ ...event, outcomes: [{ ...event.outcomes[0], skillId: "invented" }] }] },
+    { ...good, events: [{ ...event, outcomes: [{ ...event.outcomes[0], status: "invalid" }] }] },
+    { ...good, events: [{ ...event, outcomes: [{ ...event.outcomes[0], status: "incorrect" }] }] },
+    { ...good, events: [{ ...event, outcomes: [{ ...event.outcomes[0], assisted: true }] }] },
+    { ...good, events: [{ ...event, outcomes: [{ ...event.outcomes[0], partId: "__proto__" }] }] },
+    { ...good, events: [{ ...event, outcomes: [{ ...event.outcomes[0], responseKey: "long raw answer" }] }] },
+    { ...good, events: [{ ...event, outcomes: [{ ...event.outcomes[0], feedback: "<script>bad()</script>" }] }] },
+    { ...good, events: [{ ...event, outcomes: [event.outcomes[0], event.outcomes[0]] }] },
+    { version: 1, nextId: 3, droppedEvents: 0, events: [event, { ...event, id: 2 }] },
+    { version: 1, nextId: MAX_LEARNING_EVENTS + 2, droppedEvents: 0, events: Array.from({ length: MAX_LEARNING_EVENTS + 1 }, (_, i) => ({ ...event, id: i + 1 })) },
+  ];
+  const previous = serializeProfile(emptyProfile());
+  for (const learning of malformed) {
+    let writes = 0;
+    let backing = previous;
+    const error = saveProfile({ ...emptyProfile(), learning } as any, {
+      setItem(_key, value) { writes++; backing = value; },
+    });
+    assert.match(error, /készségesemény/);
+    assert.equal(writes, 0);
+    assert.equal(backing, previous);
+  }
+});
+
+test("corrupt ten-topic exports remain untouched and old app data cannot fabricate new learning history", () => {
+  const broken: any = schema2Profile();
+  broken.lessons.aranyossag.generatedSeed = -1;
+  const original = JSON.stringify(broken);
+  const backing = new Map([[STORAGE_KEY, original]]);
+  const loaded = loadProfile({ getItem: (key) => backing.get(key) ?? null });
+  assert.ok(loaded.problem);
+  assert.equal(backing.get(STORAGE_KEY), original);
+  const oldWithUnrecognizedField = { ...schema2Profile(), learning: { events: [{ claimed: "mastered" }] } };
+  assert.deepEqual(validateProfile(oldWithUnrecognizedField).learning, emptyLearningLog());
 });

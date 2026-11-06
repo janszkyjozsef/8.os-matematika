@@ -588,3 +588,21 @@ test("foundation unit suffixes retain dimensions, accents, and case", () => {
     );
   }
 });
+
+test("exact root notation is a bounded authored expression, never a numeric approximation or executable call", () => {
+  const exercise: Exercise = {
+    ...numberExercise("0"),
+    answer: {
+      kind: "expression",
+      accepted: ["√(50)", "√50"],
+      example: "sqrt(50)",
+    },
+  };
+  for (const value of ["√50", "√(50)", "sqrt(50)", "gyok(50)", "SQRT(50)"])
+    assert.equal(gradeAnswer(exercise, value).correct, true, value);
+  assert.equal(gradeAnswer(exercise, "7,07").correct, false);
+  assert.equal(gradeAnswer(exercise, "Math.sqrt(50)").status, "invalid");
+  assert.equal(gradeAnswer(exercise, "sqrt(50);alert(1)").status, "invalid");
+  assert.notEqual(normalizeExpression("√(a^2)"), normalizeExpression("a"));
+  assert.notEqual(normalizeExpression("√(9)"), normalizeExpression("-√(9)"));
+});

@@ -4,7 +4,7 @@
 
 A `.github/workflows/check-and-publish.yml` a `main` ágra érkező változtatásokat és a pull requesteket ellenőrzi. Az élesítés kizárólag a `main` ágról történhet, az ellenőrzések után. A megnyitott PR nem telepít. A workflow ághoz kötött concurrency beállítása megszakítja a korábbi azonos ági futást, ha újabb változat érkezik; így egy lassú régi build nem kerülhet az újabb után élesítésre.
 
-Az ellenőrzési job friss `npm ci` telepítést végez az `app/` lockfájljából, lefuttatja a matematikai, tartalmi és migrációs teszteket, típusellenőriz és valódi forrásbuildet készít. A generált önálló HTML-nek bájtra egyeznie kell a gyökérbeli, commitolt `index.html`-lel; a SHA-256, a verzió és a tartalmi snapshot egyezése is kötelező. Ezután három valódi Chromium-tesztsor vizsgálja a régi utakat, a publikálandó HTML-t és a négy új út teljes működését. A Pages beállításait csak olvassa. Az első engedélyezést nem próbálja elvégezni.
+Az ellenőrzési job friss `npm ci` telepítést végez az `app/` lockfájljából, lefuttatja a matematikai, tartalmi és migrációs teszteket, típusellenőriz és valódi forrásbuildet készít. A generált önálló HTML-nek bájtra egyeznie kell a gyökérbeli, commitolt `index.html`-lel; a SHA-256, a verzió és a tartalmi snapshot egyezése is kötelező. Ezután négy valódi Chromium-tesztsor vizsgálja a korábbi és új utakat, a két régi mentésséma migrációját, a készségnaplót, a javító folyamatot és a publikálandó HTML-t. A Pages beállításait csak olvassa. Az első engedélyezést nem próbálja elvégezni.
 
 ## Egyszeri beállítás a repó tulajdonosának
 
@@ -46,11 +46,12 @@ npm run release
 npm test
 npm run test:browser
 npm run test:foundations
+npm run test:bridges
 ```
 
 A `release` frissíti a gyökérbeli HTML-t, a `release-manifest.json` fájlt és az új verziójú tartalmi másolatot. Ezeket a forrásváltozásokkal együtt kell commitolni. Az `app/index.html` csak Vite-belépő, nem önálló kiadás; sem a gyökérbe, sem a Pages-csomagba nem másolható.
 
-A CI teljes Git-előzményt kér le, mert a migrációs böngészőteszt az eredeti, hash-ellenőrzött v0.1.1 HTML-lel állít elő valódi régi exportot. A publikációs artifact kizárólag a vizsgált gyökérbeli `index.html` és a `.nojekyll` fájl; fejlesztői forrás, tesztexport vagy csomagfüggőség nem kerül bele.
+A CI teljes Git-előzményt kér le, mert a migrációs böngészőtesztek az eredeti, hash-ellenőrzött v0.1.1 és v0.2.0 HTML felületén állítanak elő valódi régi exportot. A publikációs artifact kizárólag a vizsgált gyökérbeli `index.html` és a `.nojekyll` fájl; fejlesztői forrás, tesztexport vagy csomagfüggőség nem kerül bele.
 
 A helyi böngészőtesztek localhost-korlátozása megmaradt. Az élő Pages-oldalt külön kell ellenőrizni: az új verzió betöltése, a közzétett HTML hashének összevetése és legalább egy feladat tényleges megoldása szükséges.
 

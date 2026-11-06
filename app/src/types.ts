@@ -31,6 +31,10 @@ export interface AnswerPart {
   label: string;
   answer: ScalarAnswerSpec;
   mistakes?: MistakeRule[];
+  /** Explicit skill labels; legacy authored content uses the separate skill map. */
+  skillIds?: string[];
+  /** These earlier fields must be solved together before this result is skill evidence. */
+  requiresParts?: string[];
 }
 export type AnswerSpec =
   ScalarAnswerSpec | { kind: "parts"; parts: AnswerPart[] };
@@ -51,7 +55,10 @@ export interface Exercise {
   takeaway: string;
   mistakes?: MistakeRule[];
   difficulty: 1 | 2 | 3;
+  skillIds?: string[];
   manuscriptId?: string;
+  /** Canonical source of a rendered exit/repair clone; never fabricated history. */
+  learningSource?: { exerciseId: string; partId?: string };
   /** A learner's explanation is compared with these prompts, never auto-graded. */
   reflection?: { prompt: string; checkpoints: string[] };
 }

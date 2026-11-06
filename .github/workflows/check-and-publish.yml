@@ -28,7 +28,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-          fetch-depth: 0 # The actual v0.1.1 release is used for an export/import migration test.
+          fetch-depth: 0 # Actual v0.1.1 and v0.2.0 releases are used for export/import migration tests.
       - name: Node 24
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
@@ -55,6 +55,8 @@ jobs:
         run: node checks/browser.mjs
       - name: Négy új út, régi export migrációja, mobilnézet és offline kiadás
         run: node app/tests/foundations-browser.mjs
+      - name: Új alapozó utak, készségnapló és célzott javító gyakorlás
+        run: node app/tests/bridges-browser.mjs
       - name: Pages első engedélyezésének ellenőrzése
         id: pages
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'

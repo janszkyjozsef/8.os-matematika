@@ -1,7 +1,9 @@
 import type { GradeResult, LabState, TopicId } from "./types.ts";
-import { LEGACY_TOPICS, SCHEMA_VERSION, TOPICS } from "./topics.ts";
+import { LEGACY_TOPICS, V2_TOPICS, SCHEMA_VERSION, TOPICS } from "./topics.ts";
 import { decodePartResponses } from "./math/engine.ts";
 import { APP_VERSION } from "./version.ts";
+import { emptyLearningLog, validateLearningLog } from "./learning/skills.ts";
+import type { LearningLog } from "./learning/skills.ts";
 
 export { TOPICS, SCHEMA_VERSION } from "./topics.ts";
 // The key stays stable so existing browser saves remain discoverable.
@@ -42,8 +44,11 @@ export interface Profile {
   attempts: Record<string, Attempt>;
   lastTopic?: TopicId;
   reviewSeed: number;
-  /** Preserve the currently open schema-1 mixed task until the learner requests another. */
+  /** New evidence is recorded only from explicit grading, never inferred during migration. */
+  learning: LearningLog;
+  /** Preserve an older mixed task until the learner requests another. */
   legacyReviewSeed?: number;
+  legacyReviewSchema?: 1 | 2;
 }
 export function emptyTopic(): TopicProgress {
   return {
@@ -68,6 +73,7 @@ export function emptyProfile(): Profile {
     ) as Record<TopicId, TopicProgress>,
     attempts: {},
     reviewSeed: 1,
+    learning: emptyLearningLog(),
   };
 }
 export function emptyAttempt(topic: TopicId): Attempt {
@@ -109,12 +115,12 @@ const date = (v: unknown): v is string =>
 const topic = (v: unknown, allowed: readonly TopicId[]): v is TopicId =>
   allowed.includes(v as TopicId);
 
-function storedInput(value: unknown, schema: 1 | 2): value is string {
+function storedInput(value: unknown, schema: 1 | 2 | 3): value is string {
   if (typeof value !== "string") return false;
   // Existing single-response input bounds stay intact. The only new longer
   // format is a bounded, validated map of scalar part responses in schema 2.
   return (
-    value.length <= 200 || (schema === 2 && decodePartResponses(value) !== null)
+    value.length <= 200 || (schema >= 2 && decodePartResponses(value) !== null)
   );
 }
 
@@ -122,14 +128,14 @@ function storedInput(value: unknown, schema: 1 | 2): value is string {
 export function validateProfile(value: unknown): Profile {
   if (
     !isObject(value) ||
-    (value.schemaVersion !== 1 && value.schemaVersion !== SCHEMA_VERSION)
+    (value.schemaVersion !== 1 && value.schemaVersion !== 2 && value.schemaVersion !== SCHEMA_VERSION)
   )
     throw new Error(
-      "Ez nem támogatott Matek8-mentés (támogatott sémák: 1 és 2).",
+      "Ez nem támogatott Matek8-mentés (támogatott sémák: 1, 2 és 3).",
     );
   const schema = value.schemaVersion;
   const expectedTopics: readonly TopicId[] =
-    schema === 1 ? LEGACY_TOPICS : TOPICS;
+    schema === 1 ? LEGACY_TOPICS : schema === 2 ? V2_TOPICS : TOPICS;
   if (
     typeof value.appVersion !== "string" ||
     value.appVersion.length > 40 ||
@@ -159,6 +165,7 @@ export function validateProfile(value: unknown): Profile {
     calm: value.settings.calm,
     largeText: value.settings.largeText,
   };
+  if (schema === 3) next.learning = validateLearningLog(value.learning);
   for (const id of expectedTopics) {
     const item = value.lessons[id];
     if (
@@ -250,7 +257,7 @@ export function validateProfile(value: unknown): Profile {
     if (item.independent && !item.success)
       throw new Error("Ellentmondó eredményjelzés.");
     if (
-      schema === 2 &&
+      schema >= 2 &&
       item.reflection !== undefined &&
       (typeof item.reflection !== "string" || item.reflection.length > 2000)
     )
@@ -268,7 +275,7 @@ export function validateProfile(value: unknown): Profile {
       success: item.success as boolean,
       independent: item.independent as boolean,
     };
-    if (schema === 2 && typeof item.reflection === "string")
+    if (schema >= 2 && typeof item.reflection === "string")
       clean.reflection = item.reflection;
     // Feedback is recalculated by the application; untrusted saved messages are not imported.
     next.attempts[key] = clean;
@@ -281,14 +288,26 @@ export function validateProfile(value: unknown): Profile {
   if (!integer(value.reviewSeed, 1, 1_000_000_000))
     throw new Error("Hibás vegyes gyakorlási azonosító.");
   next.reviewSeed = value.reviewSeed;
-  if (schema === 1) next.legacyReviewSeed = value.reviewSeed;
-  else if (value.legacyReviewSeed !== undefined) {
+  if (schema === 1) {
+    next.legacyReviewSeed = value.reviewSeed;
+    next.legacyReviewSchema = 1;
+  } else if (schema === 2) {
+    if (
+      value.legacyReviewSeed !== undefined &&
+      (!integer(value.legacyReviewSeed, 1, 1_000_000_000) || value.legacyReviewSeed !== value.reviewSeed)
+    ) throw new Error("Hibás korábbi vegyes feladat-hivatkozás.");
+    next.legacyReviewSeed = value.reviewSeed;
+    // A v2 file may still be showing the pre-migration six-topic task.
+    next.legacyReviewSchema = value.legacyReviewSeed === undefined ? 2 : 1;
+  } else if (value.legacyReviewSeed !== undefined || value.legacyReviewSchema !== undefined) {
     if (
       !integer(value.legacyReviewSeed, 1, 1_000_000_000) ||
-      value.legacyReviewSeed !== value.reviewSeed
+      value.legacyReviewSeed !== value.reviewSeed ||
+      (value.legacyReviewSchema !== 1 && value.legacyReviewSchema !== 2)
     )
       throw new Error("Hibás korábbi vegyes feladat-hivatkozás.");
     next.legacyReviewSeed = value.legacyReviewSeed;
+    next.legacyReviewSchema = value.legacyReviewSchema;
   }
   return next;
 }

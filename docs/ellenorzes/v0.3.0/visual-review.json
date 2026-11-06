@@ -1,0 +1,56 @@
+{
+  "pdfs": [
+    {
+      "file": "betus-kifejezesek-worksheet-v0.3.0.pdf",
+      "pages": 13,
+      "textCharacters": 10536,
+      "outOfPageTextBlocks": 0
+    },
+    {
+      "file": "hatvanyok-worksheet-v0.3.0.pdf",
+      "pages": 14,
+      "textCharacters": 10899,
+      "outOfPageTextBlocks": 0
+    },
+    {
+      "file": "negyzetgyok-worksheet-v0.3.0.pdf",
+      "pages": 14,
+      "textCharacters": 11846,
+      "outOfPageTextBlocks": 0
+    },
+    {
+      "file": "szoveges-modellek-worksheet-v0.3.0.pdf",
+      "pages": 14,
+      "textCharacters": 13386,
+      "outOfPageTextBlocks": 0
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "betus-kifejezesek-320-large.png",
+      "width": 320,
+      "height": 8466
+    },
+    {
+      "file": "szoveges-modellek-320-large.png",
+      "width": 320,
+      "height": 6737
+    },
+    {
+      "file": "hatvanyok-320-large.png",
+      "width": 320,
+      "height": 7743
+    },
+    {
+      "file": "negyzetgyok-320-large.png",
+      "width": 320,
+      "height": 6407
+    }
+  ],
+  "artifact": {
+    "version": "0.3.0",
+    "bytes": 796036,
+    "sha256": "32f73e067df963f6cd8f9e7435f802da3efbccb321d66efe0be4adae66ba8066"
+  },
+  "review": "PDF first/middle/last-page contact sheet and four 320 px large-text workshop crops visually inspected; PDF text bounds checked on all pages."
+}
